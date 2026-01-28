@@ -1,0 +1,93 @@
+.c-accordion {
+  width: 100%;
+}
+
+.c-accordion__item {
+  border: 1px solid #9CB7BD;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: #fff;
+  margin-bottom: 14px;
+  transition: 0.3s ease;
+
+}
+
+/* Cabeçalho */
+.c-accordion__head {
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
+  justify-content: space-between;
+
+  &--left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+}
+
+/* Ícone */
+.c-accordion__icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Título */
+.c-accordion__title {
+  color: map-get($color-verde , 700);
+  @include type(text-md);
+
+  @media(min-width: $media-query-desktop) {
+    @include type(h6);
+  }
+}
+
+/* Arrow */
+.c-accordion__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .3s ease;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    transition: transform .3s ease;
+  }
+}
+
+.c-accordion__item.is-open {
+  .c-accordion__arrow svg {
+    transform: rotate(180deg);
+  }
+}
+
+/* Corpo do accordion */
+.c-accordion__body {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.35s ease;
+}
+
+.c-accordion__content {
+  padding-top: 1.5rem;
+
+  p,
+  li {
+    color: #36565E;
+    @include type(text-sm);
+
+    @media(min-width: $media-query-desktop) {
+      @include type(text-md);
+    }
+  }
+
+
+}

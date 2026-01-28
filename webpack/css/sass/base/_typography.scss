@@ -1,0 +1,313 @@
+.wf-loading body {
+	visibility: hidden;
+}
+
+.wf-active body {
+	font-family: $ff-primary;
+	letter-spacing: inherit;
+	visibility: visible;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-rendering: optimizeLegibility;
+	font-family: $ff-primary;
+}
+
+button {
+	border: none;
+	box-shadow: none;
+	outline: none;
+	text-rendering: optimizeLegibility;
+	font-family: $ff-primary;
+}
+
+a {
+	text-decoration: none;
+	font-family: $ff-primary;
+}
+
+// ============================
+// 🎯 Classes Utilitárias
+// ============================
+
+.u-default-h3 {
+	font-family: $ff-primary;
+	font-weight: 400;
+	font-size: $heading-small;
+	line-height: 140%;
+	color: #242424;
+
+	b,
+	strong {
+		font-weight: 700;
+	}
+
+	@media only screen and (min-width: 1024px) {
+		font-size: 29px;
+		line-height: 150%;
+	}
+}
+
+/* FONT FAMILY */
+$font-primary: 'Plus Jakarta Sans', sans-serif;
+
+/* FONT WEIGHTS */
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+
+/* LETTER SPACING CONVERSÃO:
+   - Percentual → em (1% = 0.01em)
+*/
+$ls-0: 0;
+$ls-2: 0.02em;
+$ls-8: 0.08em;
+
+/* ==========================================================================
+   TYPOGRAPHY MAP (Tamanhos, alturas, peso, espaçamento, caixa)
+   ========================================================================== */
+
+$typography: (
+	// TÍTULOS
+	h1: (size: 64px, line: 64px, weight: $fw-medium, ls: $ls-0, case: normal),
+	h2: (size: 42px, line: 64px, weight: $fw-medium, ls: $ls-0, case: normal),
+	h3: (size: 32px, line: 1.4, weight: $fw-medium, ls: $ls-0, case: normal),
+	h4: (size: 28px, line: 42px, weight: $fw-medium, ls: $ls-0, case: normal),
+	h5: (size: 24px, line: 36px, weight: $fw-medium, ls: $ls-0, case: normal),
+	h6: (size: 20px, line: 1.4, weight: $fw-semibold, ls: $ls-0, case: normal),
+
+	// TEXTOS
+	text-lg: (size: 20px, line: 1.4, weight: $fw-semibold, ls: $ls-0, case: normal),
+	text-md: (size: 16px, line: 26px, weight: $fw-regular, ls: $ls-2, case: normal),
+	text-sm: (size: 14px, line: 22px, weight: $fw-regular, ls: $ls-2, case: normal),
+
+	// UPPERCASE / HAT
+	text-hat: (size: 16px, line: 1.4, weight: $fw-semibold, ls: $ls-8, case: uppercase)
+);
+
+/* ==========================================================================
+   MIXIN PARA TIPOGRAFIA
+   ========================================================================== */
+
+@mixin type($token) {
+	$t: map-get($typography, $token);
+
+	font-family: $font-primary;
+	font-size: map-get($t, size);
+	line-height: map-get($t, line);
+	font-weight: map-get($t, weight);
+	letter-spacing: map-get($t, ls);
+
+	@if map-get($t, case)==uppercase {
+		text-transform: uppercase;
+	}
+
+	@else {
+		text-transform: none;
+	}
+}
+
+/* ==========================================================================
+   CLASSES GERADAS AUTOMATICAMENTE
+   ========================================================================== */
+
+/* Títulos */
+.h1 {
+	@include type(h1);
+}
+
+.h2 {
+	@include type(h2);
+}
+
+.h3 {
+	@include type(h3);
+}
+
+.h4 {
+	@include type(h4);
+}
+
+.h5 {
+	@include type(h5);
+}
+
+.h6 {
+	@include type(h6);
+}
+
+/* Textos */
+.text-lg {
+	@include type(text-lg);
+}
+
+.text-md {
+	@include type(text-md);
+}
+
+.text-sm {
+	@include type(text-sm);
+}
+
+/* Uppercase especial */
+.text-hat {
+	@include type(text-hat);
+}
+
+.u-subtitle__kicker {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: .75rem;
+	color: map-get($color-verde , 500);
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 46px;
+	margin-bottom: 1.5rem;
+
+	@media(min-width: $media-query-desktop) {
+		justify-content: flex-start;
+	}
+}
+
+.subtitulo {
+	font-family: Plus Jakarta Sans;
+	font-weight: 500;
+	font-style: Medium;
+	font-size: 12px;
+	leading-trim: NONE;
+	line-height: 120%;
+	letter-spacing: 8%;
+	text-transform: uppercase;
+}
+
+.title {
+	&__super {
+		font-family: Plus Jakarta Sans;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 600;
+		letter-spacing: -.02em;
+		line-height: 120%;
+		margin-bottom: 1.5rem;
+		text-align: center;
+		color: map-get($color_verde , 800);
+
+		strong {
+			font-weight: 700;
+		}
+
+		@media(min-width: 1024px) {
+			font-size: 52px;
+			line-height: 58px;
+		}
+	}
+
+	&__normal {
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 600;
+		letter-spacing: -.02em;
+		line-height: 120%;
+		margin-bottom: 1.5rem;
+		text-align: center;
+		color: map-get($color_verde , 800);
+
+		@media(min-width: 1024px) {
+			font-size: 32px;
+			line-height: 40px;
+			text-align: left;
+		}
+	}
+
+	&__small {
+		font-weight: 600;
+		font-style: SemiBold;
+		font-size: 21.01px;
+		leading-trim: NONE;
+		line-height: 140%;
+		letter-spacing: -1%;
+
+		@media(min-width: 1024px) {
+			font-weight: 600;
+			font-style: SemiBold;
+			font-size: 24px;
+			leading-trim: NONE;
+			line-height: 140%;
+			letter-spacing: -1%;
+		}
+	}
+}
+
+
+.text {
+	&__super {
+		color: #4e4e4e;
+		font-family: Inter;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		letter-spacing: -.5px;
+		line-height: 160%;
+		text-align: center;
+
+		@media(min-width: 1024px) {
+			font-size: 20px;
+			line-height: 160%;
+			text-align: left;
+		}
+	}
+
+	&__normal {
+		color: #4e4e4e;
+		font-family: Inter;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		letter-spacing: -.5px;
+		line-height: 160%;
+		text-align: center;
+
+		@media(min-width: 1024px) {
+			text-align: left;
+		}
+	}
+
+	&__small {
+		font-family: Inter;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		letter-spacing: -.002em;
+		line-height: 140%;
+		text-align: center;
+	}
+}
+
+.nav-link {
+	font-family: $ff-primary;
+	font-size: $body-nav-link;
+	font-weight: 400;
+}
+
+.link-small {
+	font-family: $ff-primary;
+	font-size: $body-link-small;
+	font-weight: 600;
+}
+
+.footer-link {
+	font-family: $ff-primary;
+	font-size: $body-footer-link;
+	font-weight: 400;
+}
+
+.text_center {
+	text-align: center;
+}

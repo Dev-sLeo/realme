@@ -1,0 +1,63 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  padding: .75rem 1.25rem;
+  border-radius: 25px;
+  transition: all .3s ease;
+  max-width: max-content;
+
+  @media(min-widht: $media-query-desktop) {
+    font-size: 16px;
+    line-height: 19px;
+    padding: 1rem 1.5rem;
+  }
+
+  &-border {
+    &__white {
+      border-color: #fff;
+      color: #fff;
+    }
+
+  }
+
+  &__orange {
+    background-color: #FF7201;
+    color: #fff;
+
+    &:hover {
+      background-color: #dd6300;
+    }
+  }
+
+  &__green {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    border-radius: 36px;
+    background-color: #334E40;
+    padding: 1.5rem 2rem;
+  }
+
+  &__outline-green,
+  &__outline {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    border-radius: 36px;
+    color: #334E40;
+    padding: 1.5rem 2rem;
+    border: 1px solid #334E40;
+  }
+
+}

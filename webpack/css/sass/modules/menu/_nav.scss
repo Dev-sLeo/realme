@@ -1,0 +1,61 @@
+.c-main-menu__list {
+  &#menu-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+
+    @media (min-width: 1280px) {
+      flex-direction: row;
+      gap: 4.25rem;
+    }
+
+    .menu-item {
+      a {
+        position: relative;
+        transition: color .3s ease;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #4B4B4B;
+
+        /* Linha animada */
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -12px;
+          width: 0%;
+          height: 2px;
+          border-radius: 8px;
+          background-color: currentColor;
+          transition: width .3s ease;
+        }
+      }
+
+      /* Hover */
+      &:hover>a::after {
+        width: 100%;
+      }
+
+      /* Página atual */
+      &.current_page_item>a,
+      &.current-menu-item>a,
+      &.current_page_ancestor>a,
+      &.current-menu-parent>a {
+        font-weight: 600;
+        color: #FF7201;
+      }
+
+      &.current_page_item>a::after,
+      &.current-menu-item>a::after,
+      &.current_page_ancestor>a::after,
+      &.current-menu-parent>a::after {
+        width: 100%;
+      }
+    }
+  }
+}
