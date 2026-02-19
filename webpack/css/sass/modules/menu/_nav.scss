@@ -6,21 +6,25 @@
     justify-content: center;
     gap: 1.5rem;
 
-    @media (min-width: 1280px) {
+    @media (min-width: $media-query-desktop-low) {
       flex-direction: row;
       gap: 4.25rem;
     }
 
     .menu-item {
-      a {
-        position: relative;
-        transition: color .3s ease;
-        font-family: 'Inter';
+      .c-main-menu__link {
+        color: var(--preto-400, #414B6C);
+        text-align: center;
+
+        /* 14/regular */
+        font-family: Inter;
+        font-size: 14px;
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
-        color: #4B4B4B;
+        line-height: 160%;
+        /* 22.4px */
+        position: relative;
+        z-index: 2;
 
         /* Linha animada */
         &::after {
@@ -28,33 +32,34 @@
           position: absolute;
           left: 0;
           bottom: -12px;
+          left: 50%;
           width: 0%;
           height: 2px;
           border-radius: 8px;
-          background-color: currentColor;
-          transition: width .3s ease;
+          background-color: #AED3E5;
+          transition: width .3s ease, left .3s ease;
         }
       }
 
-      /* Hover */
-      &:hover>a::after {
+      &:hover .c-main-menu__link::after {
         width: 100%;
+        left: 0;
       }
 
       /* Página atual */
-      &.current_page_item>a,
-      &.current-menu-item>a,
-      &.current_page_ancestor>a,
-      &.current-menu-parent>a {
-        font-weight: 600;
-        color: #FF7201;
+      &.current_page_item .c-main-menu__link,
+      &.current-menu-item .c-main-menu__link,
+      &.current_page_ancestor .c-main-menu__link,
+      &.current-menu-parent .c-main-menu__link {
+        color: #132728;
       }
 
-      &.current_page_item>a::after,
-      &.current-menu-item>a::after,
-      &.current_page_ancestor>a::after,
-      &.current-menu-parent>a::after {
+      &.current_page_item .c-main-menu__link::after,
+      &.current-menu-item .c-main-menu__link::after,
+      &.current_page_ancestor .c-main-menu__link::after,
+      &.current-menu-parent .c-main-menu__link::after {
         width: 100%;
+        left: 0;
       }
     }
   }

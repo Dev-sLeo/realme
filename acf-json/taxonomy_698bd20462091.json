@@ -1,0 +1,73 @@
+{
+    "key": "taxonomy_698bd20462091",
+    "title": "Tipos",
+    "menu_order": 0,
+    "active": true,
+    "taxonomy": "tipo",
+    "object_type": [
+        "depoimento"
+    ],
+    "advanced_configuration": 1,
+    "import_source": "",
+    "import_date": "",
+    "labels": {
+        "name": "Tipos",
+        "singular_name": "Tipo",
+        "menu_name": "Tipo Depoimento",
+        "all_items": "Todos os Tipo Depoimento",
+        "edit_item": "Editar Tipo",
+        "view_item": "Ver Tipo",
+        "update_item": "Atualizar Tipo",
+        "add_new_item": "Adicionar novo Tipo",
+        "new_item_name": "Novo nome de Tipo",
+        "parent_item": "",
+        "parent_item_colon": "",
+        "search_items": "Pesquisar Tipo Depoimento",
+        "most_used": "",
+        "not_found": "Não foi possível encontrar tipo depoimento",
+        "no_terms": "Não há tipo depoimento",
+        "name_field_description": "",
+        "slug_field_description": "",
+        "parent_field_description": "",
+        "desc_field_description": "",
+        "filter_by_item": "",
+        "items_list_navigation": "Navegação na lista de Tipo Depoimento",
+        "items_list": "Lista de Tipo Depoimento",
+        "back_to_items": "← Ir para tipo depoimento",
+        "item_link": "Link de Tipo",
+        "item_link_description": "Um link para um tipo"
+    },
+    "description": "",
+    "capabilities": {
+        "manage_terms": "manage_categories",
+        "edit_terms": "manage_categories",
+        "delete_terms": "manage_categories",
+        "assign_terms": "edit_posts"
+    },
+    "public": 1,
+    "publicly_queryable": 1,
+    "hierarchical": 1,
+    "show_ui": 1,
+    "show_in_menu": 1,
+    "show_in_nav_menus": 1,
+    "show_in_rest": 1,
+    "rest_base": "",
+    "rest_namespace": "wp\/v2",
+    "rest_controller_class": "WP_REST_Terms_Controller",
+    "show_tagcloud": 1,
+    "show_in_quick_edit": 1,
+    "show_admin_column": 0,
+    "rewrite": {
+        "permalink_rewrite": "no_permalink"
+    },
+    "query_var": "none",
+    "query_var_name": "",
+    "default_term": {
+        "default_term_enabled": "0"
+    },
+    "sort": 0,
+    "meta_box": "default",
+    "meta_box_cb": "",
+    "meta_box_sanitize_cb": "",
+    "modified": 1770771643
+}

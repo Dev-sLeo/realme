@@ -1,0 +1,16 @@
+.home {
+  .o-hero {
+
+    &__media {
+      @media(min-width: $media-query-desktop-low) {
+        margin-top: -8rem;
+      }
+
+      .c-media.o-hero__figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

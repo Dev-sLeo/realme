@@ -23,9 +23,25 @@ $img-path: '../images';
 @import './modules/components/filters/select';
 @import './modules/components/accordion/accordion';
 @import './modules/components/loading/loading';
+@import './modules/components/cards/recurso';
 
 @import './modules/pages/404/404';
 @import './modules/menu/nav';
 @import './modules/menu/nav-mobile';
 @import './modules/header/mobile-menu';
 @import './modules/footer/footer';
+
+@import './modules/pages/home/logos';
+@import './modules/pages/home/unifique';
+@import './modules/pages/home/tudo-precisa';
+@import './modules/pages/home/testimonials';
+@import './modules/pages/home/caso-de-sucesso';
+@import './modules/pages/home/case-studies';
+@import './modules/pages/home/integrations';
+@import './modules/pages/home/about';
+@import './modules/pages/home/final-cta';
+
+@import './modules/global/faq';
+@import './modules/pages/plataforma/recurso';
+@import './modules/pages/plataforma/resultado';
+@import './modules/pages/plataforma/testimonials-logo';

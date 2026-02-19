@@ -1,0 +1,27 @@
+.o-faq {
+  padding: 5.188rem 0;
+
+  &__container {
+    max-width: 924px;
+    margin: 0 auto;
+  }
+
+  &__eyebrow {
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin: 1.25rem 0 1rem;
+  }
+
+  &__content {
+    margin-top: 2.25rem;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.25rem;
+  }
+}

@@ -1,119 +1,156 @@
-.wf-loading body {
-	visibility: hidden;
-}
+/* ==========================================================================
+   TOKENS
+   ========================================================================== */
 
-.wf-active body {
-	font-family: $ff-primary;
-	letter-spacing: inherit;
-	visibility: visible;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	text-rendering: optimizeLegibility;
-	font-family: $ff-primary;
-}
-
-button {
-	border: none;
-	box-shadow: none;
-	outline: none;
-	text-rendering: optimizeLegibility;
-	font-family: $ff-primary;
-}
-
-a {
-	text-decoration: none;
-	font-family: $ff-primary;
-}
-
-// ============================
-// 🎯 Classes Utilitárias
-// ============================
-
-.u-default-h3 {
-	font-family: $ff-primary;
-	font-weight: 400;
-	font-size: $heading-small;
-	line-height: 140%;
-	color: #242424;
-
-	b,
-	strong {
-		font-weight: 700;
-	}
-
-	@media only screen and (min-width: 1024px) {
-		font-size: 29px;
-		line-height: 150%;
-	}
-}
-
-/* FONT FAMILY */
-$font-primary: 'Plus Jakarta Sans', sans-serif;
-
-/* FONT WEIGHTS */
 $fw-regular: 400;
 $fw-medium: 500;
 $fw-semibold: 600;
+$fw-bold: 700;
 
-/* LETTER SPACING CONVERSÃO:
+/* Letter-spacing:
    - Percentual → em (1% = 0.01em)
 */
 $ls-0: 0;
 $ls-2: 0.02em;
 $ls-8: 0.08em;
+$ls-10: 0.10em;
+
+/* Fonts (mantém teu padrão) */
+$font-primary: 'Inter', sans-serif !default;
+
 
 /* ==========================================================================
-   TYPOGRAPHY MAP (Tamanhos, alturas, peso, espaçamento, caixa)
+   TYPOGRAPHY MAP (mobile-first)
+   - base = mobile
+   - desk = desktop
    ========================================================================== */
 
 $typography: (
-	// TÍTULOS
-	h1: (size: 64px, line: 64px, weight: $fw-medium, ls: $ls-0, case: normal),
-	h2: (size: 42px, line: 64px, weight: $fw-medium, ls: $ls-0, case: normal),
-	h3: (size: 32px, line: 1.4, weight: $fw-medium, ls: $ls-0, case: normal),
-	h4: (size: 28px, line: 42px, weight: $fw-medium, ls: $ls-0, case: normal),
-	h5: (size: 24px, line: 36px, weight: $fw-medium, ls: $ls-0, case: normal),
-	h6: (size: 20px, line: 1.4, weight: $fw-semibold, ls: $ls-0, case: normal),
+	/* TÍTULOS (mantidos, mas mobile-first) */
+	h1: (family: $font-primary,
+		size: 42px, // mobile (ajuste se quiser)
+		line: 1.1,
+		weight: $fw-medium,
+		ls: $ls-0,
+		case: normal,
+		desk-size: 64px,
+		desk-line: 64px),
 
-	// TEXTOS
-	text-lg: (size: 20px, line: 1.4, weight: $fw-semibold, ls: $ls-0, case: normal),
-	text-md: (size: 16px, line: 26px, weight: $fw-regular, ls: $ls-2, case: normal),
-	text-sm: (size: 14px, line: 22px, weight: $fw-regular, ls: $ls-2, case: normal),
+	h2: (family: $font-primary,
+		size: 32px,
+		line: 1.2,
+		weight: $fw-medium,
+		ls: $ls-0,
+		case: normal,
+		desk-size: 42px,
+		desk-line: 64px),
 
-	// UPPERCASE / HAT
-	text-hat: (size: 16px, line: 1.4, weight: $fw-semibold, ls: $ls-8, case: uppercase)
+	h3: (family: $font-primary, size: 28px, line: 1.3, weight: $fw-medium, ls: $ls-0, case: normal),
+	h4: (family: $font-primary, size: 24px, line: 1.4, weight: $fw-medium, ls: $ls-0, case: normal),
+	h5: (family: $font-primary, size: 20px, line: 1.4, weight: $fw-medium, ls: $ls-0, case: normal),
+	h6: (family: $font-primary, size: 18px, line: 1.4, weight: $fw-semibold, ls: $ls-0, case: normal),
+
+	/* TEXTOS */
+	text-lg: (family: $font-primary, size: 18px, line: 1.5, weight: $fw-semibold, ls: $ls-0, case: normal),
+	text-md: (family: $font-primary, size: 16px, line: 26px, weight: $fw-regular, ls: $ls-2, case: normal),
+	text-sm: (family: $font-primary, size: 14px, line: 22px, weight: $fw-regular, ls: $ls-2, case: normal),
+
+	/* UPPERCASE / HAT */
+	text-hat: (family: $font-primary, size: 16px, line: 1.4, weight: $fw-semibold, ls: $ls-8, case: uppercase),
+
+	/* ==========================================================================
+     NOVOS TOKENS (do Figma) — classes globais
+     ========================================================================== */
+
+	/* Hero banner H1 (Forum) — mobile 40px, desk 56px */
+	hero-h1: (family: font-primary,
+		size: 40px, // MOBILE FIRST
+		line: 1, // 100%
+		weight: 400,
+		ls: $ls-0,
+		case: normal,
+		color: #132728,
+		align: center,
+
+		desk-size: 56px, // DESKTOP
+		desk-line: 1,
+		desk-align: left),
+
+	/* Eyebrow (Uncut Sans) */
+	eyebrow: (family: $font-primary,
+		size: 16px,
+		line: 1, // 100%
+		weight: 600,
+		ls: $ls-10, // 10%
+		case: uppercase,
+		color: #9E9D8F)
 );
 
 /* ==========================================================================
-   MIXIN PARA TIPOGRAFIA
+   MIXIN TIPOGRAFIA (mobile-first + opcional desktop override)
    ========================================================================== */
 
 @mixin type($token) {
 	$t: map-get($typography, $token);
 
-	font-family: $font-primary;
-	font-size: map-get($t, size);
-	line-height: map-get($t, line);
-	font-weight: map-get($t, weight);
-	letter-spacing: map-get($t, ls);
-
-	@if map-get($t, case)==uppercase {
-		text-transform: uppercase;
+	/* Se não achar o token, não quebra o build */
+	@if $t ==null {
+		/* opcional: deixar comentário no CSS final */
+		/* .type-error-#{$token} { } */
 	}
 
 	@else {
-		text-transform: none;
+		$family: map-get($t, family);
+		$size: map-get($t, size);
+		$line: map-get($t, line);
+		$weight: map-get($t, weight);
+		$ls: map-get($t, ls);
+		$case: map-get($t, case);
+
+		font-family: if($family !=null, $family, $font-primary);
+		font-size: $size;
+		line-height: $line;
+		font-weight: $weight;
+		letter-spacing: $ls;
+
+		@if map-has-key($t, color) {
+			color: map-get($t, color);
+		}
+
+		@if map-has-key($t, align) {
+			text-align: map-get($t, align);
+		}
+
+		@if $case ==uppercase {
+			text-transform: uppercase;
+		}
+
+		@else {
+			text-transform: none;
+		}
+
+		/* Desktop overrides */
+		@if map-has-key($t, desk-size) or map-has-key($t, desk-line) or map-has-key($t, desk-align) {
+			@media (min-width: $media-query-desktop) {
+				@if map-has-key($t, desk-size) {
+					font-size: map-get($t, desk-size);
+				}
+
+				@if map-has-key($t, desk-line) {
+					line-height: map-get($t, desk-line);
+				}
+
+				@if map-has-key($t, desk-align) {
+					text-align: map-get($t, desk-align);
+				}
+			}
+		}
 	}
 }
 
+
 /* ==========================================================================
-   CLASSES GERADAS AUTOMATICAMENTE
+   CLASSES GLOBAIS (geradas)
    ========================================================================== */
 
 /* Títulos */
@@ -154,160 +191,165 @@ $typography: (
 	@include type(text-sm);
 }
 
-/* Uppercase especial */
 .text-hat {
 	@include type(text-hat);
 }
 
-.u-subtitle__kicker {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: .75rem;
-	color: map-get($color-verde , 500);
-	font-style: normal;
-	font-weight: 500;
-	font-size: 18px;
-	line-height: 46px;
-	margin-bottom: 1.5rem;
-
-	@media(min-width: $media-query-desktop) {
-		justify-content: flex-start;
-	}
+/* NOVAS CLASSES (Figma) */
+.title-hero-h1 {
+	@include type(hero-h1);
 }
 
+.eyebrow {
+	@include type(eyebrow);
+}
+
+/* ==========================================================================
+   AJUSTES: remover "font-style: Medium/SemiBold/Regular" (inválido em CSS)
+   - Mantive suas classes, mas corrigindo style para normal e alinhando tokens
+   ========================================================================== */
+
 .subtitulo {
-	font-family: Plus Jakarta Sans;
-	font-weight: 500;
-	font-style: Medium;
-	font-size: 12px;
-	leading-trim: NONE;
-	line-height: 120%;
-	letter-spacing: 8%;
-	text-transform: uppercase;
+	background-color: $white;
+	display: flex;
+	padding: 6px 10px 6px 16px;
+	flex-direction: column;
+	align-items: center;
+	align-self: stretch;
+	color: var(--preto-400, #414B6C);
+	text-align: center;
+
+	/* 12/regular */
+	font-family: Inter;
+	font-size: var(--font-size-12, 12px);
+	font-style: normal;
+	font-weight: 400;
+	line-height: var(--line-height-16, 16px);
+	/* 133.333% */
+	border-radius: 9999px;
+	border: var(--stroke-weight-1, 1px) solid var(--Azul-2-100, #D9DDFE);
+	max-width: max-content;
 }
 
 .title {
 	&__super {
-		font-family: Plus Jakarta Sans;
-		font-size: 32px;
+		color: var(--preto-500, #111E47);
+		text-align: center;
+		font-family: Inter;
+		font-size: 28px;
 		font-style: normal;
 		font-weight: 600;
-		letter-spacing: -.02em;
-		line-height: 120%;
-		margin-bottom: 1.5rem;
-		text-align: center;
-		color: map-get($color_verde , 800);
+		line-height: 130%;
+		/* 36.4px */
+		letter-spacing: -0.28px;
 
-		strong {
-			font-weight: 700;
-		}
+		@media(min-width: $media-query-desktop-low) {
+			color: var(--preto-500, #111E47);
+			text-align: center;
 
-		@media(min-width: 1024px) {
-			font-size: 52px;
-			line-height: 58px;
+			/* 48/bold */
+			font-family: Inter;
+			font-size: 48px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 130%;
+			/* 62.4px */
+			letter-spacing: -0.48px;
 		}
 	}
 
 	&__normal {
-		font-size: 24px;
+
+		color: var(--preto-500, #111E47);
+		text-align: center;
+		font-family: Inter;
+		font-size: 22px;
 		font-style: normal;
 		font-weight: 600;
-		letter-spacing: -.02em;
-		line-height: 120%;
-		margin-bottom: 1.5rem;
-		text-align: center;
-		color: map-get($color_verde , 800);
+		line-height: 140%;
+		/* 30.8px */
 
-		@media(min-width: 1024px) {
+		@media (min-width: $media-query-desktop) {
+			color: var(--preto-500, #111E47);
+
+			/* 32/semi */
+			font-family: Inter;
 			font-size: 32px;
-			line-height: 40px;
-			text-align: left;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 140%;
+			/* 44.8px */
 		}
 	}
 
 	&__small {
-		font-weight: 600;
-		font-style: SemiBold;
-		font-size: 21.01px;
-		leading-trim: NONE;
+		color: var(--preto-400, #414B6C);
+		font-family: Inter;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 500;
 		line-height: 140%;
-		letter-spacing: -1%;
+		letter-spacing: -0.36px;
 
-		@media(min-width: 1024px) {
-			font-weight: 600;
-			font-style: SemiBold;
+		@media (min-width: $media-query-desktop) {
+			color: var(--preto-400, #414B6C);
+			font-family: Inter;
 			font-size: 24px;
-			leading-trim: NONE;
+			font-style: normal;
+			font-weight: 500;
 			line-height: 140%;
-			letter-spacing: -1%;
+			letter-spacing: -0.48px;
 		}
 	}
 }
-
 
 .text {
-	&__super {
-		color: #4e4e4e;
-		font-family: Inter;
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 400;
-		letter-spacing: -.5px;
-		line-height: 160%;
-		text-align: center;
-
-		@media(min-width: 1024px) {
-			font-size: 20px;
-			line-height: 160%;
-			text-align: left;
-		}
-	}
-
 	&__normal {
-		color: #4e4e4e;
+		color: var(--preto-400, #414B6C);
+		text-align: center;
 		font-family: Inter;
 		font-size: 16px;
 		font-style: normal;
 		font-weight: 400;
-		letter-spacing: -.5px;
 		line-height: 160%;
-		text-align: center;
+		/* 25.6px */
 
-		@media(min-width: 1024px) {
-			text-align: left;
+		@media(min-width: $media-query-desktop) {
+			color: var(--preto-400, #414B6C);
+			text-align: center;
+
+			/* 18/regular */
+			font-family: Inter;
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 160%;
+			/* 28.8px */
 		}
 	}
 
 	&__small {
-		font-family: Inter;
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 400;
-		letter-spacing: -.002em;
-		line-height: 140%;
+		color: var(--preto-400, #414B6C);
 		text-align: center;
+		font-family: var(--font-family-Font-1, Inter);
+		font-size: var(--font-size-14, 14px);
+		font-style: normal;
+		font-weight: var(--font-weight-400, 400);
+		line-height: var(--opacity-20, 20px);
+		/* 142.857% */
 	}
 }
 
-.nav-link {
-	font-family: $ff-primary;
-	font-size: $body-nav-link;
-	font-weight: 400;
-}
+.link_more {
+	display: flex;
+	gap: .5rem;
+	align-items: center;
 
-.link-small {
-	font-family: $ff-primary;
-	font-size: $body-link-small;
-	font-weight: 600;
-}
-
-.footer-link {
-	font-family: $ff-primary;
-	font-size: $body-footer-link;
-	font-weight: 400;
-}
-
-.text_center {
-	text-align: center;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 150%;
+	leading-trim: both;
+	text-edge: cap;
+	color: #214247;
 }

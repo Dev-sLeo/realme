@@ -83,28 +83,10 @@ p {
   }
 }
 
-.has-offcanvas,
-.has-not-accept-privacy {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.has-offcanvas {
-  @media #{$xlarge-up} {
-    position: static;
-  }
-}
-
 .main {
   flex: 1 0 auto;
   /* 2 */
   width: 100%;
-  padding-top: 66.33px;
-
-  @media(min-width: 1280px) {
-    padding-top: 114px;
-  }
 }
 
 .header,
@@ -122,6 +104,20 @@ p {
   @media #{$large-up} {
     padding-left: 30px;
     padding-right: 30px;
+  }
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 

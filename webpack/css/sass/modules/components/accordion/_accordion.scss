@@ -3,7 +3,7 @@
 }
 
 .c-accordion__item {
-  border: 1px solid #9CB7BD;
+  border: 1px solid #E0F0F5;
   border-radius: 12px;
   padding: 1.5rem;
   background: #fff;
@@ -41,12 +41,14 @@
 
 /* Título */
 .c-accordion__title {
-  color: map-get($color-verde , 700);
-  @include type(text-md);
+  color: var(--preto-400, #414B6C);
 
-  @media(min-width: $media-query-desktop) {
-    @include type(h6);
-  }
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  /* 28.8px */
 }
 
 /* Arrow */
@@ -81,7 +83,7 @@
 
   p,
   li {
-    color: #36565E;
+    color: var(--preto-400, #414B6C);
     @include type(text-sm);
 
     @media(min-width: $media-query-desktop) {

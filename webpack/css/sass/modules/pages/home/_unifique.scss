@@ -1,0 +1,108 @@
+.o-unifique {
+  padding: 3rem 0;
+  border-bottom: 1px solid #D0D5E3;
+
+  @media(min-width: $media-query-desktop-low) {
+    padding: 4.688rem 0 8.563rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media(min-width: $media-query-desktop-low) {
+      align-items: flex-start;
+    }
+  }
+
+  &__top {
+    margin-bottom: 2rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      display: grid;
+      grid-template-columns: 38.607594936709% 51.344936708861%;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .subtitulo {
+    margin: 0 auto;
+
+    @media(min-width: $media-query-desktop-low) {
+      margin: 0;
+    }
+  }
+
+  &__title {
+    margin: 1.5rem 0 1rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      text-align: left;
+    }
+  }
+
+  &__text {
+    margin-bottom: 1.5rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      text-align: left;
+    }
+  }
+
+  &__cards-title {
+    color: var(--preto-500, #111E47);
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    /* 22.4px */
+    margin-bottom: 1.5rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  &__card {
+    border-radius: 16px;
+    border: 1px solid #DEEAED;
+    background: #F7FCFD;
+    padding: 2.625rem 1rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      padding: 2.625rem;
+    }
+  }
+
+  .c-feature__title {
+    color: var(--preto-500, #111E47);
+
+    /* 16/regular */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    /* 22.4px */
+    margin-top: 1.5rem;
+  }
+}

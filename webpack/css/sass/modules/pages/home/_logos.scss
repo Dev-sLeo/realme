@@ -1,0 +1,19 @@
+.o-logos {
+  padding: 3.125rem 0 2.875rem;
+  border-bottom: 1px solid #D0D5E3;
+
+  @media(min-width: $media-query-desktop-low) {
+    padding: 5.688rem 0 4.625rem;
+  }
+
+  .s-container {
+    @media(min-width: $media-query-desktop-low) {
+      max-width: 922px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    margin-bottom: 2.25rem;
+  }
+}

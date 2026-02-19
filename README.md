@@ -23,7 +23,7 @@ O projeto pode ser construído com npm ou yarn, então escolha uma das abordagen
 - Para baixar o projeto siga as instruções abaixo:
 
 ```bash
-  1. git clone git@github.com:Dev-sLeo/tema.git
+  1. git clone git@github.com:Dev-sLeo/realme.git
   2. cd tema
 ```
 

@@ -1,0 +1,123 @@
+.o-testimonials {
+  padding: 4.438rem 0 4rem;
+
+  @media (min-width: $media-query-desktop-low) {
+    padding: 8rem 0;
+  }
+
+  &__subtitle {
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin: 1rem 0;
+  }
+
+  &__slider {
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(160, 165, 181, 0.20);
+    max-width: 645px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    margin: 1rem 0 3.188rem;
+  }
+
+  &__filter {
+    color: var(--preto-200, #A0A5B5);
+    font-family: var(--font-family-Font-1, Inter);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: var(--font-weight-400, 400);
+    line-height: 19.131px;
+    /* 159.428% */
+    display: flex;
+    padding: 11.479px 20.088px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 573.94px;
+    border: 0.957px solid rgba(160, 165, 181, 0.30);
+    background: #FFF;
+    box-shadow: 0 0.957px 1.913px 0 rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+
+    &.is-active,
+    &:hover {
+      color: var(--Azul-2-500, #4353FA);
+      border: 0.957px solid var(--Azul-2-100, #D9DDFE);
+    }
+  }
+
+  .o-testimonials__nav {
+    display: none;
+  }
+
+  .c-testimonial {
+    &__quote {
+      margin: 0;
+      color: var(--preto-400, #414B6C);
+      text-align: center;
+
+      /* 18/regular */
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
+      /* 28.8px */
+      padding: 0 1.75rem;
+
+      @media (min-width: $media-query-desktop-low) {
+        padding: 0;
+      }
+    }
+
+    &__information {
+      margin-top: 2.875rem;
+
+      @media (min-width: $media-query-desktop-low) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8.875rem;
+      }
+    }
+
+    &__meta {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    &__name {
+      color: var(--preto-500, #111E47);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
+    }
+
+    &__place {
+      color: var(--preto-400, #414B6C);
+      font-size: var(--font-size-12, 12px);
+      font-style: normal;
+      font-weight: 400;
+      line-height: var(--line-height-16, 16px);
+    }
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.438rem;
+    }
+  }
+}

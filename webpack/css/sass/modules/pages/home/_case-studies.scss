@@ -1,0 +1,215 @@
+.o-case-studies {
+  background: #F3FDFF;
+
+  position: relative;
+
+  .o-case-studies__container {
+    padding: 5.125rem 0 4.875rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      padding: 6.875rem 0;
+    }
+  }
+
+
+  .o-case-studies__swiper {
+    height: 100%;
+
+    .swiper-slide {
+      @media (min-width: $media-query-desktop-low) {
+        height: auto !important;
+      }
+    }
+  }
+
+
+  .o-case-studies__header {
+    max-width: 539px;
+    margin: 0 auto 3rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      margin: 0 auto 3.5rem;
+    }
+  }
+
+  .o-case-studies__eyebrow {
+    margin: 0 auto;
+  }
+
+  .o-case-studies__title {
+    margin: 1.25rem 0 1rem;
+  }
+
+  .o-case-studies__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3.438rem;
+  }
+
+  .c-case-card {
+    background-color: $white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #DEEAED;
+
+    @media(min-width: $media-query-desktop-low) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 3rem;
+    }
+
+    .c-case-card__content {
+      @media(min-width: $media-query-desktop-low) {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .c-case-card__content-header {
+
+      @media(min-width: $media-query-desktop-low) {
+        max-width: 185px;
+      }
+    }
+
+    .c-case-card__content-header-icon {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.875rem;
+    }
+
+    .c-case-card__metric {
+      color: var(--preto-500, #111E47);
+      text-align: center;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 140%;
+      /* 44.8px */
+      letter-spacing: -0.64px;
+    }
+
+    .c-case-card__title {
+      color: var(--preto-400, #414B6C);
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: var(--item-spacing-m, 32px);
+      /* 228.571% */
+    }
+
+    .c-case-card__text {
+
+      margin-top: 1.5rem;
+
+      @media(min-width: $media-query-desktop-low) {
+        margin: 0;
+        max-width: 546px;
+        display: flex;
+        align-items: flex-start;
+        gap: 2.25rem;
+      }
+
+      svg {
+        margin-bottom: 1rem;
+        flex: 28px 0 0;
+      }
+
+      p {
+
+        color: var(--preto-400, #414B6C);
+
+        /* 18/regular */
+        font-family: Inter;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        /* 28.8px */
+      }
+    }
+
+    .c-case-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid #E0F0F5;
+
+      @media(min-width: $media-query-desktop-low) {
+        padding-top: 0;
+        margin-top: 0;
+        border-top: none;
+        flex-direction: column;
+        border-left: 1px solid #E0F0F5;
+        padding-left: 6.25rem;
+      }
+
+    }
+
+    .c-case-card__meta {
+      display: flex;
+      flex-direction: column;
+
+      .c-case-card__client {
+        color: var(--dub-co-emperor, var(--color-grey-32, #525252));
+        text-align: left;
+
+        /* dub.co/Inter/Regular */
+        font-family: var(--font-family-Font-1, Inter);
+        font-size: var(--font-size-14, 14px);
+        font-style: normal;
+        font-weight: var(--font-weight-400, 400);
+        line-height: var(--opacity-20, 20px);
+        /* 142.857% */
+      }
+
+      .c-case-card__place {
+        color: var(--dub-co-dove-gray, var(--color-grey-45, #737373));
+
+        /* dub.co/Inter/Regular */
+        font-family: var(--font-family-Font-1, Inter);
+        font-size: var(--font-size-12, 12px);
+        font-style: normal;
+        font-weight: var(--font-weight-400, 400);
+        line-height: var(--line-height-16, 16px);
+        /* 133.333% */
+      }
+    }
+  }
+
+  .arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.25rem;
+    margin-top: 3rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      display: none;
+    }
+
+  }
+
+  .arrow-down-section {
+    position: absolute;
+    bottom: -43px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 20px 40px 0 rgba(77, 97, 172, 0.20);
+    border-radius: 999px;
+    display: none;
+
+    @media(min-width: $media-query-desktop-low) {
+      display: block;
+    }
+  }
+}

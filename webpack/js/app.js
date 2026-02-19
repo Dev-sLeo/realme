@@ -10,18 +10,26 @@ import ThemeWidget from "./react/ThemeWidget";
 import headerScrolling from "./scripts/headerScrolling";
 import mobileMenu from "./scripts/mobileMenu";
 import inputSelect from "./scripts/inputSelect";
-import parallax from "./scripts/parallax";
 import accordion from "./scripts/accordion";
 import gsapAnimations from "./scripts/gsapAnimations";
+
+import initTestimonialsAjax from "./scripts/slider/testimonails";
+import carrouselInfinite from "./scripts/slider/carrouselInfinite";
+import logoInfinite from "./scripts/slider/logoInfinite";
+import casesHomeSlider from "./scripts/slider/casesHomeSlider";
 
 window.gsap = gsap;
 
 headerScrolling();
 mobileMenu();
 inputSelect();
-parallax();
 accordion();
 gsapAnimations();
+
+initTestimonialsAjax();
+carrouselInfinite();
+casesHomeSlider();
+logoInfinite();
 
 /*
 const reactRoot = document.getElementById("theme-react-root");
