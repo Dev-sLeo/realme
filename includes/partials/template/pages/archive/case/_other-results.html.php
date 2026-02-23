@@ -1,4 +1,5 @@
 <?php
+global $tpl_engine;
 $data = isset($data) && is_array($data) ? $data : get_field('veja_outros_resultados');
 
 if (empty($data) || !is_array($data)) {
@@ -241,84 +242,3 @@ if (!empty($regiao_terms) && !is_wp_error($regiao_terms)) {
 </section>
 
 <?php wp_reset_postdata(); ?>
-
-<script>
-  (function () {
-    var root = document.querySelector('.js-archive-cases-results');
-    if (!root) return;
-
-    var form = root.querySelector('.js-archive-cases-filters');
-    var grid = root.querySelector('.js-archive-cases-grid');
-    var catButtons = root.querySelectorAll('.js-cat-filter');
-    var catInput = root.querySelector('.js-cat-input');
-    var select = form ? form.querySelector('select[name="regiao"]') : null;
-
-    var ajaxUrl = root.getAttribute('data-ajax-url');
-    var postType = root.getAttribute('data-post-type');
-    var taxCat = root.getAttribute('data-tax-cat');
-    var taxRegiao = root.getAttribute('data-tax-regiao');
-    var nonce = root.getAttribute('data-nonce');
-
-    function setActiveCat(slug) {
-      catButtons.forEach(function (btn) {
-        var isActive = (btn.getAttribute('data-cat') || '') === (slug || '');
-        btn.classList.toggle('is-active', isActive);
-        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      });
-    }
-
-    function fetchCases() {
-      if (!grid) return;
-
-      var cat = catInput ? (catInput.value || '') : '';
-      var regiao = select ? (select.value || '') : '';
-
-      grid.setAttribute('aria-busy', 'true');
-
-      var body = new URLSearchParams();
-      body.set('action', 'archive_cases_filter');
-      body.set('nonce', nonce || '');
-      body.set('post_type', postType || 'case');
-      body.set('tax_cat', taxCat || 'cat_case');
-      body.set('tax_regiao', taxRegiao || 'regiao');
-      body.set('cat', cat);
-      body.set('regiao', regiao);
-
-      fetch(ajaxUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-        body: body.toString()
-      })
-        .then(function (r) { return r.text(); })
-        .then(function (html) {
-          grid.innerHTML = html;
-          grid.setAttribute('aria-busy', 'false');
-        })
-        .catch(function () {
-          grid.setAttribute('aria-busy', 'false');
-        });
-    }
-
-    catButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var slug = btn.getAttribute('data-cat') || '';
-        if (catInput) catInput.value = slug;
-        setActiveCat(slug);
-        fetchCases();
-      });
-    });
-
-    if (select) {
-      select.addEventListener('change', function () {
-        fetchCases();
-      });
-    }
-
-    if (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        fetchCases();
-      });
-    }
-  })();
-</script>
