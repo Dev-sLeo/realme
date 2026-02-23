@@ -1,0 +1,157 @@
+.single-produto {
+  .o-hero,
+  .o-product-pain-points,
+  .o-product-features-grid,
+  .o-product-how-it-works,
+  .o-product-technology,
+  .o-product-security,
+  .o-product-comparison,
+  .o-product-faq,
+  .o-product-benefits,
+  .o-product-final-cta {
+    padding: 72px 0;
+  }
+
+  .o-product-pain-points__header,
+  .o-product-features-grid__header,
+  .o-product-how-it-works__header,
+  .o-product-technology__header,
+  .o-product-security__header,
+  .o-product-comparison__header,
+  .o-product-faq__header,
+  .o-product-benefits__header {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    text-align: center;
+  }
+
+  .o-product-pain-points__grid,
+  .o-product-how-it-works__grid,
+  .o-product-technology__cards,
+  .o-product-security__cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .o-product-card,
+  .o-product-feature-item,
+  .o-product-benefits__slide,
+  .o-product-comparison__column {
+    background: #fff;
+    border: 1px solid #edf0f6;
+    border-radius: 14px;
+    padding: 24px;
+  }
+
+  .o-product-feature-item__image,
+  .o-product-benefits__image,
+  .o-product-final-cta__image,
+  .o-product-security__mockup {
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+  }
+
+  .o-product-features-grid__grid,
+  .o-product-technology__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .o-product-how-it-works {
+    background: #3f4f77;
+    color: #fff;
+
+    .o-product-card {
+      color: #1e2b44;
+    }
+
+    .o-product-how-it-works__actions {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+  }
+
+  .o-product-security__content,
+  .o-product-final-cta__content,
+  .o-product-comparison__columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: center;
+  }
+
+  .o-product-comparison__column ul,
+  .o-product-benefits__slide ul,
+  .o-product-security__bullets,
+  .o-product-final-cta__bullets {
+    margin: 16px 0 0;
+    padding-left: 20px;
+    display: grid;
+    gap: 10px;
+  }
+
+  .o-product-comparison__actions {
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .o-product-faq__list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+  }
+
+  .o-product-faq__item {
+    border: 1px solid #edf0f6;
+    border-radius: 12px;
+    padding: 16px 20px;
+    background: #fff;
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+  }
+
+  .o-product-benefits__slider {
+    position: relative;
+  }
+
+  .o-product-benefits__arrows {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .o-product-benefits__arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #d5def4;
+    background: #fff;
+  }
+
+  @media (max-width: 1023px) {
+    .o-product-pain-points__grid,
+    .o-product-features-grid__grid,
+    .o-product-how-it-works__grid,
+    .o-product-technology__cards,
+    .o-product-technology__stats,
+    .o-product-security__cards,
+    .o-product-security__content,
+    .o-product-final-cta__content,
+    .o-product-comparison__columns {
+      grid-template-columns: 1fr;
+    }
+  }
+}

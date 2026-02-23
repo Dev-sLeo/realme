@@ -17,6 +17,7 @@ import initTestimonialsAjax from "./scripts/slider/testimonails";
 import carrouselInfinite from "./scripts/slider/carrouselInfinite";
 import logoInfinite from "./scripts/slider/logoInfinite";
 import casesHomeSlider from "./scripts/slider/casesHomeSlider";
+import productBenefitsSlider from "./scripts/slider/productBenefitsSlider";
 
 window.gsap = gsap;
 
@@ -29,6 +30,7 @@ gsapAnimations();
 initTestimonialsAjax();
 carrouselInfinite();
 casesHomeSlider();
+productBenefitsSlider();
 logoInfinite();
 
 /*
