@@ -715,10 +715,13 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "featured_image"
+    ],
     "active": true,
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771855077
+    "modified": 1771857804
 }
