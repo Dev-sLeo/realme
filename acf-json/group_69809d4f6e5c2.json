@@ -56,7 +56,7 @@
                 {
                     "key": "field_69839cd7f77b9",
                     "label": "Log In",
-                    "name": "singin",
+                    "name": "log_in",
                     "aria-label": "",
                     "type": "link",
                     "instructions": "",
@@ -501,5 +501,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770677803
+    "modified": 1771715541
 }

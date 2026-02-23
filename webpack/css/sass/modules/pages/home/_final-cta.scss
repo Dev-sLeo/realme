@@ -1,6 +1,8 @@
 .o-final-cta {
   position: relative;
   padding: 4.375rem 0 0;
+  background-color: $white;
+  z-index: 1;
 
   @media(min-width: $media-query-desktop-low) {
     padding: 8.313rem 0 0;

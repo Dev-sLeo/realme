@@ -2,6 +2,7 @@
   position: relative;
   z-index: 1;
   padding: 7.125rem 0 3.813rem;
+  background-color: $white;
 
   @media(min-width: $media-query-desktop-low) {
     padding: 10.938rem 0 3.813rem;

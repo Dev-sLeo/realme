@@ -5,7 +5,7 @@
 global $tpl_engine;
 
 ?>
-<div class="home">
+<div class="home s-border-sides">
   <?php $tpl_engine->partial('template/pages/home/hero') ?>
   <div class="full-vertical-line"></div>
   <?php $tpl_engine->partial('template/pages/home/logos') ?>

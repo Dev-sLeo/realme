@@ -5,7 +5,7 @@
 global $tpl_engine;
 
 ?>
-<div class="plataforma">
+<div class="plataforma s-border-sides">
   <?php $tpl_engine->partial('template/global/hero') ?>
   <?php $tpl_engine->partial('template/pages/plataforma/recursos') ?>
   <?php $tpl_engine->partial('template/pages/plataforma/resultado') ?>

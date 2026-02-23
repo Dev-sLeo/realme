@@ -1,0 +1,2172 @@
+{
+    "key": "group_realmete_lp_qualificacao",
+    "title": "Modelo Product",
+    "fields": [
+        {
+            "key": "tab_hero",
+            "label": "Hero",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_hero",
+            "label": "Hero",
+            "name": "hero",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_hero_badge",
+                    "label": "Badge (texto pequeno)",
+                    "name": "badge",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex.: \"Realmete\" ou uma frase curta acima do título.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_hero_title",
+                    "label": "Título",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex.: \"Identifique leads quentes automaticamente\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_hero_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_hero_cta_primary",
+                    "label": "CTA Primário",
+                    "name": "cta_primary",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Botão principal do hero.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_hero_cta_secondary",
+                    "label": "CTA Secundário",
+                    "name": "cta_secondary",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Botão secundário (opcional).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_hero_metrics",
+                    "label": "Métricas (3 itens)",
+                    "name": "metrics",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Ex.: 95%, 3x, 24h.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "min": 0,
+                    "max": 0,
+                    "button_label": "Adicionar métrica",
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_hero_metrics_value",
+                            "label": "Valor",
+                            "name": "value",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Ex.: 95%",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_hero_metrics"
+                        },
+                        {
+                            "key": "field_hero_metrics_label",
+                            "label": "Rótulo",
+                            "name": "label",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Texto abaixo do valor.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_hero_metrics"
+                        },
+                        {
+                            "key": "field_hero_metrics_icon",
+                            "label": "Ícone (opcional)",
+                            "name": "icon",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": 0,
+                            "min_height": 0,
+                            "min_size": 0,
+                            "max_width": 0,
+                            "max_height": 0,
+                            "max_size": 0,
+                            "mime_types": "",
+                            "parent_repeater": "field_hero_metrics"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_hero_art",
+                    "label": "Imagem\/Ilustração do Hero",
+                    "name": "art",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Área visual à direita no topo.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
+                }
+            ]
+        },
+        {
+            "key": "tab_pain_points",
+            "label": "Bloco: Dores (3 cards)",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_pain_points",
+            "label": "Bloco: Dores (3 cards)",
+            "name": "pain_points",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_pain_points_title",
+                    "label": "Título",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex.: \"Perder tempo com leads frios custa caro\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_pain_points_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_pain_points_cards",
+                    "label": "Cards",
+                    "name": "cards",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "3 cards no layout.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "row",
+                    "min": 0,
+                    "max": 0,
+                    "button_label": "Adicionar card",
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_pain_points_cards_icon",
+                            "label": "Ícone",
+                            "name": "icon",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "20",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": 0,
+                            "min_height": 0,
+                            "min_size": 0,
+                            "max_width": 0,
+                            "max_height": 0,
+                            "max_size": 0,
+                            "mime_types": "",
+                            "parent_repeater": "field_pain_points_cards"
+                        },
+                        {
+                            "key": "field_pain_points_cards_title",
+                            "label": "Título do card",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_pain_points_cards"
+                        },
+                        {
+                            "key": "field_pain_points_cards_text",
+                            "label": "Texto",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "rows": 3,
+                            "new_lines": "br",
+                            "maxlength": "",
+                            "parent_repeater": "field_pain_points_cards"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "tab_features_grid",
+            "label": "Bloco: Qualificação automática (grid)",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_features_grid",
+            "label": "Bloco: Qualificação automática (grid)",
+            "name": "features_grid",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_features_grid_title",
+                    "label": "Título",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex.: \"Qualificação automática que funciona 24\/7\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_features_grid_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_features_grid_items",
+                    "label": "Itens do grid",
+                    "name": "items",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Cards do grid (no layout aparecem vários).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "row",
+                    "min": 0,
+                    "max": 0,
+                    "button_label": "Adicionar item",
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_features_grid_items_image",
+                            "label": "Imagem\/Thumb",
+                            "name": "image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Se o card usar apenas ícone, pode enviar aqui.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": 0,
+                            "min_height": 0,
+                            "min_size": 0,
+                            "max_width": 0,
+                            "max_height": 0,
+                            "max_size": 0,
+                            "mime_types": "",
+                            "parent_repeater": "field_features_grid_items"
+                        },
+                        {
+                            "key": "field_features_grid_items_title",
+                            "label": "Título",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_features_grid_items"
+                        },
+                        {
+                            "key": "field_features_grid_items_text",
+                            "label": "Texto",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "40",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "rows": 3,
+                            "new_lines": "br",
+                            "maxlength": "",
+                            "parent_repeater": "field_features_grid_items"
+                        },
+                        {
+                            "key": "field_features_grid_items_link",
+                            "label": "Link (opcional)",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Se algum card tiver ação.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "10",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "parent_repeater": "field_features_grid_items"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "tab_how_it_works",
+            "label": "Bloco: Como funciona (faixa escura)",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_how_it_works",
+            "label": "Bloco: Como funciona (faixa escura)",
+            "name": "how_it_works",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_how_it_works_title",
+                    "label": "Título",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex.: \"Como funciona a qualificação\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_how_it_works_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_how_it_works_steps",
+                    "label": "Cards\/Passos",
+                    "name": "steps",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "No layout aparecem 3 cards.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "row",
+                    "min": 0,
+                    "max": 0,
+                    "button_label": "Adicionar passo",
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_how_it_works_steps_icon",
+                            "label": "Ícone",
+                            "name": "icon",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "20",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": 0,
+                            "min_height": 0,
+                            "min_size": 0,
+                            "max_width": 0,
+                            "max_height": 0,
+                            "max_size": 0,
+                            "mime_types": "",
+                            "parent_repeater": "field_how_it_works_steps"
+                        },
+                        {
+                            "key": "field_how_it_works_steps_title",
+                            "label": "Título",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_how_it_works_steps"
+                        },
+                        {
+                            "key": "field_how_it_works_steps_text",
+                            "label": "Texto",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "rows": 3,
+                            "new_lines": "br",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "parent_repeater": "field_how_it_works_steps"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_how_it_works_cta_primary",
+                    "label": "CTA Primário",
+                    "name": "cta_primary",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Botão na faixa (se existir).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_how_it_works_cta_secondary",
+                    "label": "CTA Secundário",
+                    "name": "cta_secondary",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Botão secundário (se existir).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "tab_technology",
+            "label": "Bloco: Tecnologia de IA",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_technology",
+            "label": "Bloco: Tecnologia de IA",
+            "name": "technology",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_technology_title",
+                    "label": "Título",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex.: \"Tecnologia de IA especializada\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_technology_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "maxlength": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_technology_cards",
+                    "label": "Cards superiores (3)",
+                    "name": "cards",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Cards com ícone, título e texto.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "row",
+                    "min": 0,
+                    "max": 0,
+                    "button_label": "Adicionar card",
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_technology_cards_icon",
+                            "label": "Ícone",
+                            "name": "icon",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "20",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": 0,
+                            "min_height": 0,
+                            "min_size": 0,
+                            "max_width": 0,
+                            "max_height": 0,
+                            "max_size": 0,
+                            "mime_types": "",
+                            "parent_repeater": "field_technology_cards"
+                        },
+                        {
+                            "key": "field_technology_cards_title",
+                            "label": "Título",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_technology_cards"
+                        },
+                        {
+                            "key": "field_technology_cards_text",
+                            "label": "Texto",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "rows": 3,
+                            "new_lines": "br",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "parent_repeater": "field_technology_cards"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_technology_stats",
+                    "label": "Métricas (3 itens)",
+                    "name": "stats",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Área com percentuais\/indicadores.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "min": 0,
+                    "max": 0,
+                    "button_label": "Adicionar métrica",
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_technology_stats_value",
+                            "label": "Valor",
+                            "name": "value",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_technology_stats"
+                        },
+                        {
+                            "key": "field_technology_stats_label",
+                            "label": "Rótulo",
+                            "name": "label",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "55",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_technology_stats"
+                        },
+                        {
+                            "key": "field_technology_stats_note",
+                            "label": "Observação (opcional)",
+                            "name": "note",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "20",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_technology_stats"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "tab_security",
+            "label": "Bloco: Segurança e compliance",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_security",
+            "label": "Bloco: Segurança e compliance",
+            "name": "security",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_security_title",
+                    "label": "Título",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex.: \"Segurança e compliance garantidos\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_security_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "maxlength": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_security_bullets",
+                    "label": "Lista de itens",
+                    "name": "bullets",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Lista ao lado do mockup.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "min": 0,
+                    "max": 0,
+                    "button_label": "Adicionar item",
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_security_bullets_text",
+                            "label": "Texto",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_security_bullets"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_security_mockup",
+                    "label": "Imagem\/Mockup",
+                    "name": "mockup",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Imagem de interface no bloco.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_security_cards",
+                    "label": "Cards inferiores (3)",
+                    "name": "cards",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Linha com 3 cards de segurança\/compliance.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "row",
+                    "min": 0,
+                    "max": 0,
+                    "button_label": "Adicionar card",
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_security_cards_icon",
+                            "label": "Ícone",
+                            "name": "icon",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "20",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": 0,
+                            "min_height": 0,
+                            "min_size": 0,
+                            "max_width": 0,
+                            "max_height": 0,
+                            "max_size": 0,
+                            "mime_types": "",
+                            "parent_repeater": "field_security_cards"
+                        },
+                        {
+                            "key": "field_security_cards_title",
+                            "label": "Título",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_security_cards"
+                        },
+                        {
+                            "key": "field_security_cards_text",
+                            "label": "Texto",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "rows": 3,
+                            "new_lines": "br",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "parent_repeater": "field_security_cards"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "tab_comparison",
+            "label": "Bloco: Comparativo (2 colunas)",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_comparison",
+            "label": "Bloco: Comparativo (2 colunas)",
+            "name": "comparison",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_comparison_title",
+                    "label": "Título",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex.: \"Por que a qualificação inteligente é essencial?\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_comparison_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "maxlength": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_comparison_left",
+                    "label": "Coluna esquerda",
+                    "name": "left",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "Ex.: \"Sem qualificação inteligente\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_comparison_left_title",
+                            "label": "Título",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_comparison_left_items",
+                            "label": "Itens",
+                            "name": "items",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "button_label": "Adicionar item",
+                            "min": 0,
+                            "max": 0,
+                            "rows_per_page": 20,
+                            "collapsed": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_comparison_left_items_text",
+                                    "label": "Texto",
+                                    "name": "text",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "80",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_comparison_left_items"
+                                },
+                                {
+                                    "key": "field_comparison_left_items_state",
+                                    "label": "Tipo",
+                                    "name": "state",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Use para controlar ícone (negativo\/positivo\/neutro).",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "20",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "negative": "Negativo",
+                                        "neutral": "Neutro",
+                                        "positive": "Positivo"
+                                    },
+                                    "default_value": "negative",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 1,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "create_options": 0,
+                                    "save_options": 0,
+                                    "parent_repeater": "field_comparison_left_items"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "field_comparison_right",
+                    "label": "Coluna direita",
+                    "name": "right",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "Ex.: \"Com qualificação inteligente\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_comparison_right_title",
+                            "label": "Título",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_comparison_right_items",
+                            "label": "Itens",
+                            "name": "items",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "button_label": "Adicionar item",
+                            "min": 0,
+                            "max": 0,
+                            "rows_per_page": 20,
+                            "collapsed": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_comparison_right_items_text",
+                                    "label": "Texto",
+                                    "name": "text",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "80",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_comparison_right_items"
+                                },
+                                {
+                                    "key": "field_comparison_right_items_state",
+                                    "label": "Tipo",
+                                    "name": "state",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Use para controlar ícone (negativo\/positivo\/neutro).",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "20",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "positive": "Positivo",
+                                        "neutral": "Neutro",
+                                        "negative": "Negativo"
+                                    },
+                                    "default_value": "positive",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 1,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "create_options": 0,
+                                    "save_options": 0,
+                                    "parent_repeater": "field_comparison_right_items"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "field_comparison_cta",
+                    "label": "CTA do bloco",
+                    "name": "cta",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Botão abaixo do comparativo (se existir).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "tab_faq",
+            "label": "FAQ",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_faq",
+            "label": "FAQ",
+            "name": "faq",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_faq_title",
+                    "label": "Título",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex.: \"Perguntas frequentes\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_faq_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "maxlength": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_faq_items",
+                    "label": "Perguntas",
+                    "name": "items",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "row",
+                    "min": 0,
+                    "max": 0,
+                    "button_label": "Adicionar pergunta",
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_faq_items_question",
+                            "label": "Pergunta",
+                            "name": "question",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "40",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_faq_items"
+                        },
+                        {
+                            "key": "field_faq_items_answer",
+                            "label": "Resposta",
+                            "name": "answer",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "60",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "rows": 4,
+                            "new_lines": "br",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "parent_repeater": "field_faq_items"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "tab_benefits",
+            "label": "Bloco: Benefícios (cards com imagem)",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_benefits",
+            "label": "Bloco: Benefícios (cards com imagem)",
+            "name": "benefits",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_benefits_title",
+                    "label": "Título",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex.: \"Conheça mais benefícios da Realmete Chat\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_benefits_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "maxlength": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_benefits_cards",
+                    "label": "Cards de benefícios",
+                    "name": "cards",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Cards com imagem, lista e CTA (se existir).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "row",
+                    "min": 0,
+                    "max": 0,
+                    "button_label": "Adicionar card",
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_benefits_cards_image",
+                            "label": "Imagem",
+                            "name": "image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": 0,
+                            "min_height": 0,
+                            "min_size": 0,
+                            "max_width": 0,
+                            "max_height": 0,
+                            "max_size": 0,
+                            "mime_types": "",
+                            "parent_repeater": "field_benefits_cards"
+                        },
+                        {
+                            "key": "field_benefits_cards_title",
+                            "label": "Título",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_benefits_cards"
+                        },
+                        {
+                            "key": "field_benefits_cards_text",
+                            "label": "Texto",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "rows": 3,
+                            "new_lines": "br",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "parent_repeater": "field_benefits_cards"
+                        },
+                        {
+                            "key": "field_benefits_cards_list",
+                            "label": "Lista",
+                            "name": "list",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Bullets do card.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "20",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "button_label": "Adicionar item",
+                            "min": 0,
+                            "max": 0,
+                            "rows_per_page": 20,
+                            "collapsed": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_benefits_cards_list_text",
+                                    "label": "Item",
+                                    "name": "text",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_benefits_cards_list"
+                                }
+                            ],
+                            "parent_repeater": "field_benefits_cards"
+                        },
+                        {
+                            "key": "field_benefits_cards_cta",
+                            "label": "CTA (opcional)",
+                            "name": "cta",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "parent_repeater": "field_benefits_cards"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "tab_final_cta",
+            "label": "CTA Final",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_final_cta",
+            "label": "CTA Final",
+            "name": "final_cta",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_final_cta_title",
+                    "label": "Título",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex.: \"Pronto para qualificar leads com inteligência artificial?\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_final_cta_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "maxlength": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_final_cta_cta_primary",
+                    "label": "CTA Primário",
+                    "name": "cta_primary",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_final_cta_cta_secondary",
+                    "label": "CTA Secundário",
+                    "name": "cta_secondary",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_final_cta_bullets",
+                    "label": "Bullets (opcional)",
+                    "name": "bullets",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Lista curta abaixo\/ao lado do CTA.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "button_label": "Adicionar bullet",
+                    "min": 0,
+                    "max": 0,
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_final_cta_bullets_text",
+                            "label": "Texto",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_final_cta_bullets"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_final_cta_art",
+                    "label": "Imagem\/Ilustração",
+                    "name": "art",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Imagem do bloco final (lado direito).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "produto"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1771688655
+}

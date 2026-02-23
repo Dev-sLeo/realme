@@ -1,6 +1,8 @@
 .o-tudo-precisa {
   position: relative;
   padding: 4.875rem 0 5.5rem;
+  background-color: $white;
+  z-index: 1;
 
   .o-tudo-precisa__header {
     max-width: 647px;

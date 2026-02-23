@@ -1,0 +1,13 @@
+.o-testimonials-logo {
+  .o-testimonials {
+
+    @media(min-width: $media-query-desktop-low) {
+      padding-top: 5.125rem;
+      padding-bottom: 6.25rem;
+    }
+  }
+
+  .o-logos {
+    padding-top: 0;
+  }
+}
