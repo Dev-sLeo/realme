@@ -1,0 +1,71 @@
+.o-security-cards {
+  background: #F3FDFF;
+  padding: 6.5rem 0 10.25rem;
+
+  &__header {
+    max-width: 615px;
+    margin: 0 auto 3.25rem;
+  }
+
+  &__eyebrow {
+    margin: 0 auto 1.5rem;
+  }
+
+  &__title {
+    margin-bottom: 1.25rem;
+    max-width: 539px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .o-security-cards__grid {
+    display: grid;
+    gap: 1rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .o-security-cards__card {
+    border-radius: 16px;
+    border: 1px solid #DEEAED;
+    background: #FFF;
+    display: flex;
+    padding: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+  }
+
+  .o-security-cards__card-icon {
+    margin-bottom: 1.5rem;
+  }
+
+  .o-security-cards__card-title {
+    color: var(--preto-500, #111E47);
+
+    /* 16/semi */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--opacity-20, 20px);
+    /* 125% */
+    margin-bottom: 1rem;
+  }
+
+  .o-security-cards__card-text {
+    p {
+      color: var(--preto-400, #414B6C);
+
+      /* 16/regular */
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+      /* 22.4px */
+    }
+  }
+}

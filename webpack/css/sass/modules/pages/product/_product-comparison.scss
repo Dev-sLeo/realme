@@ -1,3 +1,154 @@
 .o-product-comparison {
-  background: #F3FDFF;
+  padding: 7.313rem 0 5.938rem;
+  border-bottom: 1px solid #D0D5E3;
+
+  .s-container {
+    @media(min-width: $media-query-desktop-low) {
+      max-width: 1360px;
+    }
+  }
+
+  &__header {
+    max-width: 539px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .o-product-comparison__columns-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .o-product-comparison__columns {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 2.75rem;
+    padding: 4.563rem 0 5.25rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      grid-template-columns: 1fr 1fr;
+      max-width: 1112px;
+      margin: 0 auto;
+    }
+  }
+
+  .o-product-comparison__column {
+    border-radius: 24px;
+    border: 1px solid #D0D5E3;
+    background: #FFF;
+    box-shadow: 0 40px 80px 0 rgba(27, 23, 55, 0.05);
+    padding: 3.563rem 2.313rem;
+
+    h3 {
+      color: var(--preto-500, #111E47);
+      font-family: Inter;
+      font-size: var(--opacity-20, 20px);
+      font-style: normal;
+      font-weight: 600;
+      line-height: var(--line-height-28, 28px);
+      /* 140% */
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .o-product-comparison__item {
+      border-radius: 16px;
+      border: 1px solid #DEEAED;
+      display: flex;
+      padding: 24px 32px;
+      align-items: center;
+      gap: .5rem;
+      align-self: stretch;
+      color: var(--preto-400, #414B6C);
+      text-align: center;
+
+      /* 16/regular */
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+      /* 22.4px */
+      text-align: left;
+
+      .o-product-comparison__icon {
+        flex: 24px 0 0;
+      }
+
+      &.is-negative {
+        border: 1px solid #EDDEDE;
+        background: #FDF7F7;
+      }
+
+      &.is-positive {
+        border: 1px solid #DEEAED;
+        background: #F7FCFD;
+      }
+    }
+
+    .o-product-comparison__last {
+      border-radius: 16px;
+      border: 1px solid #DEEAED;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 32px;
+      align-items: flex-start;
+      align-self: stretch;
+      margin-top: 0.625rem;
+
+      .o-product-comparison__last-title {
+        color: var(--Azul-1-600, #5290A3);
+        text-align: center;
+
+        /* 20/semi */
+        font-family: Inter;
+        font-size: var(--opacity-20, 20px);
+        font-style: normal;
+        font-weight: 600;
+        line-height: var(--line-height-28, 28px);
+        /* 140% */
+        text-align: left;
+      }
+
+      .o-product-comparison__last-desc {
+        color: var(--preto-400, #414B6C);
+        text-align: center;
+
+        /* 16/regular */
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        /* 22.4px */
+        text-align: left;
+
+      }
+    }
+  }
+
+  .o-product-comparison__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      flex-direction: row;
+    }
+
+    .button {
+      margin: 0 auto;
+
+      @media(min-width: $media-query-desktop-low) {
+        margin: 0;
+      }
+    }
+  }
 }

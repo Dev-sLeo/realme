@@ -7,6 +7,7 @@
   <?php $tpl_engine->partial('template/pages/single/product/how-it-works') ?>
   <?php $tpl_engine->partial('template/pages/single/product/technology') ?>
   <?php $tpl_engine->partial('template/pages/single/product/security') ?>
+  <?php $tpl_engine->partial('template/pages/single/product/security-card') ?>
   <?php $tpl_engine->partial('template/pages/single/product/comparison') ?>
   <?php $tpl_engine->partial('template/global/faq') ?>
   <?php $tpl_engine->partial('template/pages/single/product/benefits') ?>
