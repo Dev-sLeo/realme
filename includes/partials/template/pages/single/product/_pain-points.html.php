@@ -4,6 +4,7 @@ if (empty($data) || !is_array($data)) {
   return;
 }
 $title = $data['title'] ?? '';
+$subtitle = $data['eyebrown'] ?? '';
 $description = $data['description'] ?? '';
 $cards = !empty($data['cards']) && is_array($data['cards']) ? $data['cards'] : array();
 if (empty($title) && empty($description) && empty($cards)) {
@@ -14,6 +15,9 @@ if (empty($title) && empty($description) && empty($cards)) {
   <div class="s-container">
     <?php if (!empty($title) || !empty($description)) : ?>
       <header class="o-product-pain-points__header">
+        <?php if (!empty($subtitle)) : ?>
+          <span class="subtitulo"><?php echo esc_html($subtitle); ?></span>
+        <?php endif; ?>
         <?php if (!empty($title)) : ?><h2 class="title__normal"><?php echo esc_html($title); ?></h2><?php endif; ?>
         <?php if (!empty($description)) : ?><div class="text__normal"><?php echo wpautop(wp_kses_post($description)); ?></div><?php endif; ?>
       </header>
