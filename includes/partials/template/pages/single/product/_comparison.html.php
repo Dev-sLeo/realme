@@ -10,6 +10,9 @@ $cta = is_array($data['cta'] ?? null) ? $data['cta'] : array();
 <section class="o-product-comparison">
   <div class="s-container">
     <header class="o-product-comparison__header">
+      <?php if (!empty($data['eyebrown'])) : ?>
+        <span class="subtitulo"><?php echo esc_html($data['eyebrown']); ?></span>
+      <?php endif; ?>
       <?php if (!empty($data['title'])) : ?><h2 class="title__normal"><?php echo esc_html($data['title']); ?></h2><?php endif; ?>
       <?php if (!empty($data['description'])) : ?><div class="text__normal"><?php echo wpautop(wp_kses_post($data['description'])); ?></div><?php endif; ?>
     </header>

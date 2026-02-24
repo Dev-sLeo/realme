@@ -471,6 +471,27 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_699db0367d6eb",
+                    "label": "Eyebrown",
+                    "name": "eyebrown",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_features_grid_title",
                     "label": "Título",
                     "name": "title",
@@ -2473,5 +2494,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771935900
+    "modified": 1771941963
 }

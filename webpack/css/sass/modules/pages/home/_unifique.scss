@@ -93,6 +93,12 @@
     }
   }
 
+  .c-feature__icon {
+    width: 36px;
+    height: 36px;
+    aspect-ratio: 1/1;
+  }
+
   .c-feature__title {
     color: var(--preto-500, #111E47);
 

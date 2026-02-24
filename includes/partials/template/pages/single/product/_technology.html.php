@@ -9,6 +9,7 @@ $cards = is_array($data['cards'] ?? null) ? $data['cards'] : array();
 $stats = is_array($data['stats'] ?? null) ? $data['stats'] : array();
 ?>
 <section class="o-product-technology">
+
   <div class="s-container">
     <header class="o-product-technology__header">
       <?php if (!empty($title)) : ?><h2 class="title__normal"><?php echo esc_html($title); ?></h2><?php endif; ?>
@@ -27,6 +28,9 @@ $stats = is_array($data['stats'] ?? null) ? $data['stats'] : array();
     <?php endif; ?>
     <?php if (!empty($stats)) : ?>
       <div class="o-product-technology__stats">
+        <div class="hero-bg">
+          <img src="<?= get_stylesheet_directory_uri() ?>/public/image/bg-tecnologia.webp" alt="">
+        </div>
         <?php foreach ($stats as $stat) : ?>
           <div class="o-product-stat">
             <?php if (!empty($stat['value'])) : ?><strong class="o-product-stat__value"><?php echo esc_html($stat['value']); ?></strong><?php endif; ?>

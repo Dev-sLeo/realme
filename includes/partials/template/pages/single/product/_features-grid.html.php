@@ -1,8 +1,10 @@
+<?php global $tpl_engine; ?>
 <?php
 $data = isset($data) && is_array($data) ? $data : get_field('features_grid');
 if (empty($data) || !is_array($data)) {
   return;
 }
+$subtitle = $data['eyebrown'] ?? '';
 $title = $data['title'] ?? '';
 $description = $data['description'] ?? '';
 $items = !empty($data['items']) && is_array($data['items']) ? $data['items'] : array();
@@ -11,11 +13,19 @@ if (empty($title) && empty($description) && empty($items)) {
 }
 ?>
 <section class="o-product-features-grid">
-  <div class="s-container">
-    <header class="o-product-features-grid__header">
+  <header class="o-product-features-grid__header">
+    <div class="s-container">
+      <?php if (!empty($subtitle)) : ?>
+        <span class="subtitulo"><?php echo esc_html($subtitle); ?></span>
+      <?php endif; ?>
       <?php if (!empty($title)) : ?><h2 class="title__normal"><?php echo esc_html($title); ?></h2><?php endif; ?>
       <?php if (!empty($description)) : ?><div class="text__normal"><?php echo wpautop(wp_kses_post($description)); ?></div><?php endif; ?>
-    </header>
+      <div class="o-product-features-grid__scroll" aria-hidden="true">
+        <?= $tpl_engine->svg('icons/arrow-down-section'); ?>
+      </div>
+    </div>
+  </header>
+  <div class="s-container">
     <?php if (!empty($items)) : ?>
       <div class="o-product-features-grid__grid">
         <?php foreach ($items as $item) :

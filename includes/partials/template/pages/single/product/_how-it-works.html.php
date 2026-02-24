@@ -1,3 +1,4 @@
+<?php global $tpl_engine; ?>
 <?php
 $data = isset($data) && is_array($data) ? $data : get_field('how_it_works');
 if (empty($data) || !is_array($data)) {
@@ -8,6 +9,16 @@ $description = $data['description'] ?? '';
 $steps = is_array($data['steps'] ?? null) ? $data['steps'] : array();
 $cta_primary = is_array($data['cta_primary'] ?? null) ? $data['cta_primary'] : array();
 $cta_secondary = is_array($data['cta_secondary'] ?? null) ? $data['cta_secondary'] : array();
+$resultado = is_array($data['resultado'] ?? null) ? $data['resultado'] : array();
+
+$res_title = (string) ($resultado['title'] ?? '');
+$res_number = (string) ($resultado['number'] ?? '');
+$res_desc = (string) ($resultado['descriptin'] ?? '');
+$res_icon = $resultado['icon'] ?? null;
+$res_icon_html = '';
+if (!empty($res_icon['ID'])) {
+  $res_icon_html = wp_get_attachment_image((int) $res_icon['ID'], 'thumbnail', false, array('loading' => 'lazy', 'decoding' => 'async'));
+}
 ?>
 <section class="o-product-how-it-works">
   <div class="s-container">
@@ -15,21 +26,62 @@ $cta_secondary = is_array($data['cta_secondary'] ?? null) ? $data['cta_secondary
       <?php if (!empty($title)) : ?><h2 class="title__normal"><?php echo esc_html($title); ?></h2><?php endif; ?>
       <?php if (!empty($description)) : ?><div class="text__normal"><?php echo wpautop(wp_kses_post($description)); ?></div><?php endif; ?>
     </header>
+
     <?php if (!empty($steps)) : ?>
       <div class="o-product-how-it-works__grid">
-        <?php foreach ($steps as $step) :
-          $icon = !empty($step['icon']['ID']) ? (int) $step['icon']['ID'] : 0;
+        <?php foreach ($steps as $i => $step) :
           $step_title = $step['title'] ?? '';
           $step_text = $step['text'] ?? '';
+          $num = str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT);
         ?>
-          <article class="o-product-card">
-            <?php if ($icon) : ?><div class="o-product-card__icon"><?php echo wp_get_attachment_image($icon, 'thumbnail', false, array('loading' => 'lazy')); ?></div><?php endif; ?>
-            <?php if (!empty($step_title)) : ?><h3 class="o-product-card__title"><?php echo esc_html($step_title); ?></h3><?php endif; ?>
-            <?php if (!empty($step_text)) : ?><div class="o-product-card__text"><?php echo wpautop(wp_kses_post($step_text)); ?></div><?php endif; ?>
+          <article class="c-step o-como-funciona__card" role="listitem">
+            <div class="c-step__top">
+              <span class="c-step__number" aria-hidden="true"><?= esc_html($num); ?></span>
+
+              <span class="c-step__arrow" aria-hidden="true">
+                <?= $tpl_engine->svg('icons/arrow-right'); ?>
+              </span>
+            </div>
+
+            <?php if ($step_title !== '') : ?>
+              <h3 class="c-step__title"><?= esc_html($step_title); ?></h3>
+            <?php endif; ?>
+
+            <?php if ($step_text !== '') : ?>
+              <div class="c-step__text">
+                <?= wpautop(wp_kses_post($step_text)); ?>
+              </div>
+            <?php endif; ?>
           </article>
         <?php endforeach; ?>
       </div>
     <?php endif; ?>
+
+    <?php if ($res_title !== '' || $res_number !== '' || $res_desc !== '' || $res_icon_html !== '') : ?>
+      <div class="o-product-how-it-works__result">
+        <?php if ($res_title !== '') : ?>
+          <div class="o-product-how-it-works__result-title"><?= esc_html($res_title); ?></div>
+        <?php endif; ?>
+
+
+
+        <?php if ($res_number !== '') : ?>
+          <span class="o-product-how-it-works__result-number">
+            <?php if ($res_icon_html !== '') : ?>
+              <span class="o-product-how-it-works__result-icon" aria-hidden="true"><?= $res_icon_html; ?></span>
+            <?php endif; ?>
+            <?= esc_html($res_number); ?>
+          </span>
+        <?php endif; ?>
+
+        <div class="o-product-how-it-works__result-body">
+          <?php if ($res_desc !== '') : ?>
+            <div class="o-product-how-it-works__result-desc"><?= wpautop(wp_kses_post($res_desc)); ?></div>
+          <?php endif; ?>
+        </div>
+      </div>
+    <?php endif; ?>
+
     <?php if (!empty($cta_primary['url']) || !empty($cta_secondary['url'])) : ?>
       <div class="o-product-how-it-works__actions">
         <?php if (!empty($cta_primary['url']) && !empty($cta_primary['title'])) : ?><a class="button button__blue" href="<?php echo esc_url($cta_primary['url']); ?>" target="<?php echo esc_attr($cta_primary['target'] ?? '_self'); ?>"><?php echo esc_html($cta_primary['title']); ?></a><?php endif; ?>
