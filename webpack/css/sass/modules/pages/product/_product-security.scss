@@ -55,10 +55,48 @@
   }
 
   .o-product-security__bullets {
+    display: grid;
+    gap: 1.5rem;
+
+    .o-product-security__bullet {
+      border-bottom: 1px solid #E0F0F5;
+      padding-bottom: 1.5rem;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
     .c-feature__header {
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .o-product-security__bullet-title {
+      color: var(--preto-500, #111E47);
+
+      /* 16/semi */
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: var(--opacity-20, 20px);
+      /* 125% */
+    }
+
+    .o-product-security__bullet-text {
+      color: var(--preto-400, #414B6C);
+
+      /* 16/regular */
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+      /* 22.4px */
     }
   }
 }
