@@ -131,7 +131,7 @@
         .c-mega__list {
           display: grid;
           gap: 4px;
-          height: 100%;
+          height: max-content;
         }
 
         .c-mega__list-link {

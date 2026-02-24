@@ -1,0 +1,58 @@
+.o-product-benefits {
+  padding: 5.938rem 0 0;
+  border-bottom: 1px solid #D0D5E3;
+
+  &__header {
+    position: relative;
+    padding-bottom: 4.438rem;
+    border-bottom: 1px solid #D0D5E3;
+
+    .subtitulo {
+      margin: 0 auto;
+    }
+
+    .title__normal {
+      margin: 1.5rem 0;
+    }
+
+    .s-container {
+      @media(min-width: $media-query-desktop-low) {
+        max-width: 670px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+
+  .o-product-benefits__slide {
+
+    border-bottom: 1px solid #D0D5E3;
+
+    @media(min-width: $media-query-desktop-low) {
+      border-right: 1px solid #D0D5E3;
+    }
+
+    &:nth-child(3n) {
+      border-right: none;
+    }
+
+    &:nth-last-child(-n+3) {
+      border-bottom: none;
+    }
+  }
+
+
+  .arrow-down-section {
+    position: absolute;
+    bottom: -43px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 20px 40px 0 rgba(77, 97, 172, 0.20);
+    border-radius: 999px;
+    display: none;
+
+    @media(min-width: $media-query-desktop-low) {
+      display: block;
+    }
+  }
+}

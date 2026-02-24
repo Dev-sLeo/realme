@@ -1,0 +1,175 @@
+.c-more-cases {
+  padding: 5.125rem 0 7.5rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background-color: $white;
+
+  &__list {
+    display: grid;
+    gap: 1.906rem;
+    margin-top: 3.5rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .c-more-cases__card {
+    border-radius: 16px;
+    border: 1px solid #D0D5E3;
+    background: #FFF;
+    box-shadow: 0 40px 80px 0 rgba(27, 23, 55, 0.05);
+    padding: 2.375rem 1.375rem;
+  }
+
+  &__company {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    align-items: center;
+    gap: 16px;
+
+    &__company-name {
+      color: var(--dub-co-emperor, var(--color-grey-32, #525252));
+      text-align: right;
+
+      /* dub.co/Inter/Regular */
+      font-family: var(--font-family-Font-1, Inter);
+      font-size: var(--font-size-14, 14px);
+      font-style: normal;
+      font-weight: var(--font-weight-400, 400);
+      line-height: var(--opacity-20, 20px);
+      /* 142.857% */
+    }
+
+    &__company-location {
+      color: var(--dub-co-dove-gray, var(--color-grey-45, #737373));
+
+      /* dub.co/Inter/Regular */
+      font-family: var(--font-family-Font-1, Inter);
+      font-size: var(--font-size-12, 12px);
+      font-style: normal;
+      font-weight: var(--font-weight-400, 400);
+      line-height: var(--line-height-16, 16px);
+      /* 133.333% */
+    }
+  }
+
+  &__highlight {
+    display: flex;
+    padding: 24px;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid var(--Azul-1-300, #A3D2E0);
+    background: #F7FCFD;
+
+    &-content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    &-number {
+      color: #414B6C;
+      text-align: center;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 140%;
+      /* 44.8px */
+      letter-spacing: -0.64px;
+    }
+
+    &-label {
+      color: var(--preto-400, #414B6C);
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+      /* 16.8px */
+      text-align: left;
+    }
+  }
+
+  &__quote {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    flex-shrink: 0;
+    align-self: stretch;
+    margin: 0 0 1.375rem;
+    padding: 1.375rem 0;
+    border-bottom: 1px solid #E0F0F5;
+
+    p {
+      color: var(--preto-400, #414B6C);
+
+      /* 16/regular */
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+      /* 22.4px */
+      text-align: left;
+    }
+
+    svg {
+      flex: 27.386px 0 0;
+    }
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin: 0 0 1.375rem;
+
+    &-photo {
+      flex: 57px 0 0;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &-name {
+      color: var(--dub-co-emperor, var(--color-grey-32, #525252));
+      text-align: left;
+
+      /* dub.co/Inter/Regular */
+      font-family: var(--font-family-Font-1, Inter);
+      font-size: var(--font-size-14, 14px);
+      font-style: normal;
+      font-weight: var(--font-weight-400, 400);
+      line-height: var(--opacity-20, 20px);
+      /* 142.857% */
+    }
+
+    &-role {
+      color: var(--dub-co-dove-gray, var(--color-grey-45, #737373));
+
+      /* dub.co/Inter/Regular */
+      font-family: var(--font-family-Font-1, Inter);
+      font-size: var(--font-size-12, 12px);
+      font-style: normal;
+      font-weight: var(--font-weight-400, 400);
+      line-height: var(--line-height-16, 16px);
+      /* 133.333% */
+    }
+
+  }
+
+  .button {
+    max-width: none;
+    width: 100%;
+  }
+
+}

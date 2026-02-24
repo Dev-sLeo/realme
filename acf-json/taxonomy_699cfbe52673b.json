@@ -1,0 +1,73 @@
+{
+    "key": "taxonomy_699cfbe52673b",
+    "title": "Categoria",
+    "menu_order": 0,
+    "active": true,
+    "taxonomy": "cat_cases",
+    "object_type": [
+        "case"
+    ],
+    "advanced_configuration": 1,
+    "import_source": "",
+    "import_date": "",
+    "labels": {
+        "name": "Categoria",
+        "singular_name": "Categorias",
+        "menu_name": "Categoria",
+        "all_items": "Todos os Categoria",
+        "edit_item": "Editar Categorias",
+        "view_item": "Ver Categorias",
+        "update_item": "Atualizar Categorias",
+        "add_new_item": "Adicionar novo Categorias",
+        "new_item_name": "Novo nome de Categorias",
+        "parent_item": "Categorias ascendente",
+        "parent_item_colon": "Categorias ascendente:",
+        "search_items": "Pesquisar Categoria",
+        "most_used": "",
+        "not_found": "Não foi possível encontrar categoria",
+        "no_terms": "Não há categoria",
+        "name_field_description": "",
+        "slug_field_description": "",
+        "parent_field_description": "",
+        "desc_field_description": "",
+        "filter_by_item": "Filtrar por categorias",
+        "items_list_navigation": "Navegação na lista de Categoria",
+        "items_list": "Lista de Categoria",
+        "back_to_items": "← Ir para categoria",
+        "item_link": "Link de Categorias",
+        "item_link_description": "Um link para um categorias"
+    },
+    "description": "",
+    "capabilities": {
+        "manage_terms": "manage_categories",
+        "edit_terms": "manage_categories",
+        "delete_terms": "manage_categories",
+        "assign_terms": "edit_posts"
+    },
+    "public": 1,
+    "publicly_queryable": 1,
+    "hierarchical": 1,
+    "show_ui": 1,
+    "show_in_menu": 1,
+    "show_in_nav_menus": 1,
+    "show_in_rest": 1,
+    "rest_base": "",
+    "rest_namespace": "wp\/v2",
+    "rest_controller_class": "WP_REST_Terms_Controller",
+    "show_tagcloud": 1,
+    "show_in_quick_edit": 1,
+    "show_admin_column": 0,
+    "rewrite": {
+        "permalink_rewrite": "no_permalink"
+    },
+    "query_var": "post_type_key",
+    "query_var_name": "",
+    "default_term": {
+        "default_term_enabled": "0"
+    },
+    "sort": 0,
+    "meta_box": "default",
+    "meta_box_cb": "",
+    "meta_box_sanitize_cb": "",
+    "modified": 1771895863
+}

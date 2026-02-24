@@ -1,0 +1,73 @@
+{
+    "key": "taxonomy_699cfc40598f2",
+    "title": "Regiões",
+    "menu_order": 0,
+    "active": true,
+    "taxonomy": "regiao",
+    "object_type": [
+        "case"
+    ],
+    "advanced_configuration": 1,
+    "import_source": "",
+    "import_date": "",
+    "labels": {
+        "name": "Regiões",
+        "singular_name": "Região",
+        "menu_name": "Regiões",
+        "all_items": "Todos os Regiões",
+        "edit_item": "Editar Rigião",
+        "view_item": "Ver Rigião",
+        "update_item": "Atualizar Rigião",
+        "add_new_item": "Adicionar novo Rigião",
+        "new_item_name": "Novo nome de Rigião",
+        "parent_item": "Rigião ascendente",
+        "parent_item_colon": "Rigião ascendente:",
+        "search_items": "Pesquisar Regiões",
+        "most_used": "",
+        "not_found": "Não foi possível encontrar regiões",
+        "no_terms": "Não há regiões",
+        "name_field_description": "",
+        "slug_field_description": "",
+        "parent_field_description": "",
+        "desc_field_description": "",
+        "filter_by_item": "Filtrar por rigião",
+        "items_list_navigation": "Navegação na lista de Regiões",
+        "items_list": "Lista de Regiões",
+        "back_to_items": "← Ir para regiões",
+        "item_link": "Link de Rigião",
+        "item_link_description": "Um link para um rigião"
+    },
+    "description": "",
+    "capabilities": {
+        "manage_terms": "manage_categories",
+        "edit_terms": "manage_categories",
+        "delete_terms": "manage_categories",
+        "assign_terms": "edit_posts"
+    },
+    "public": 1,
+    "publicly_queryable": 1,
+    "hierarchical": 1,
+    "show_ui": 1,
+    "show_in_menu": 1,
+    "show_in_nav_menus": 1,
+    "show_in_rest": 1,
+    "rest_base": "",
+    "rest_namespace": "wp\/v2",
+    "rest_controller_class": "WP_REST_Terms_Controller",
+    "show_tagcloud": 1,
+    "show_in_quick_edit": 1,
+    "show_admin_column": 0,
+    "rewrite": {
+        "permalink_rewrite": "no_permalink"
+    },
+    "query_var": "post_type_key",
+    "query_var_name": "",
+    "default_term": {
+        "default_term_enabled": "0"
+    },
+    "sort": 0,
+    "meta_box": "default",
+    "meta_box_cb": "",
+    "meta_box_sanitize_cb": "",
+    "modified": 1771895903
+}

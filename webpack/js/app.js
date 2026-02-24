@@ -9,6 +9,7 @@ import ThemeWidget from "./react/ThemeWidget";
 
 import headerScrolling from "./scripts/headerScrolling";
 import mobileMenu from "./scripts/mobileMenu";
+import megaMenu from "./scripts/megaMenu";
 import inputSelect from "./scripts/inputSelect";
 import accordion from "./scripts/accordion";
 import gsapAnimations from "./scripts/gsapAnimations";
@@ -19,11 +20,14 @@ import logoInfinite from "./scripts/slider/logoInfinite";
 import casesHomeSlider from "./scripts/slider/casesHomeSlider";
 import initCasesLayouts from "./scripts/casesLayouts";
 import productBenefitsSlider from "./scripts/slider/productBenefitsSlider";
+import casesInfinite from "./scripts/slider/casesInfinite";
+import highlightsCases from "./scripts/slider/highlightsCases";
 
 window.gsap = gsap;
 
 headerScrolling();
 mobileMenu();
+megaMenu();
 inputSelect();
 accordion();
 gsapAnimations();
@@ -34,6 +38,8 @@ casesHomeSlider();
 productBenefitsSlider();
 initCasesLayouts();
 logoInfinite();
+casesInfinite();
+highlightsCases();
 
 /*
 const reactRoot = document.getElementById("theme-react-root");

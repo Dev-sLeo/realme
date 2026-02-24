@@ -1,0 +1,227 @@
+.c-archive-cases-results {
+  padding: 5.125rem 0 7.5rem;
+  border-bottom: 1px solid #D0D5E3;
+
+  .c-archive-cases-results__filters {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 3.5rem 0;
+
+    @media(min-width: $media-query-desktop-low) {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    .c-archive-cases-results__filters-left {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 8px;
+      gap: 8px;
+      border-radius: 8px;
+      background: rgba(217, 221, 254, 0.50);
+
+      @media(min-width: $media-query-desktop-low) {
+        flex-direction: row;
+      }
+
+      .c-archive-cases-results__chip {
+        min-width: 160px;
+        width: 100%;
+        display: flex;
+        padding: 10px 12px;
+        justify-content: center;
+        align-items: center;
+        color: var(--preto-400, #414B6C);
+        border-radius: 8px;
+        background: #FFF;
+
+        /* 14/regular */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        /* 22.4px */
+        text-align: center;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+
+        &.is-active,
+        &:hover {
+          background: var(--Azul-2-500, #4353FA);
+          color: #FFF;
+        }
+
+        @media(min-width: $media-query-desktop-low) {
+          width: max-content;
+        }
+      }
+    }
+
+    .c-archive-cases-results__filters-right {
+      @media(min-width: $media-query-desktop-low) {
+        width: 401px;
+      }
+    }
+  }
+
+  .c-archive-cases-results__grid {
+    display: grid;
+    gap: 1.906rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .c-archive-cases-results__card {
+    border-radius: 16px;
+    border: 1px solid #D0D5E3;
+    background: #FFF;
+    box-shadow: 0 40px 80px 0 rgba(27, 23, 55, 0.05);
+    padding: 2.375rem 1.375rem;
+
+    .c-archive-cases-results__company {
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+      align-items: center;
+      gap: 16px;
+
+      .c-archive-cases-results__company-name {
+        color: var(--dub-co-emperor, var(--color-grey-32, #525252));
+        text-align: right;
+
+        /* dub.co/Inter/Regular */
+        font-family: var(--font-family-Font-1, Inter);
+        font-size: var(--font-size-14, 14px);
+        font-style: normal;
+        font-weight: var(--font-weight-400, 400);
+        line-height: var(--opacity-20, 20px);
+        /* 142.857% */
+      }
+
+      .c-archive-cases-results__company-location {
+        color: var(--dub-co-dove-gray, var(--color-grey-45, #737373));
+
+        /* dub.co/Inter/Regular */
+        font-family: var(--font-family-Font-1, Inter);
+        font-size: var(--font-size-12, 12px);
+        font-style: normal;
+        font-weight: var(--font-weight-400, 400);
+        line-height: var(--line-height-16, 16px);
+        /* 133.333% */
+      }
+    }
+
+    .c-archive-cases-results__highlight {
+      display: flex;
+      height: 82px;
+      padding: 24px;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 1px solid var(--Azul-1-300, #A3D2E0);
+      background: #F7FCFD;
+
+      .c-archive-cases-results__highlight-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .c-archive-cases-results__highlight-number {
+        color: #414B6C;
+        text-align: center;
+        font-family: Inter;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 140%;
+        /* 44.8px */
+        letter-spacing: -0.64px;
+      }
+
+      .c-archive-cases-results__highlight-label {
+        color: var(--preto-400, #414B6C);
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        /* 16.8px */
+      }
+    }
+
+    .c-archive-cases-results__quote {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      flex-shrink: 0;
+      align-self: stretch;
+      margin: 0 0 1.375rem;
+      padding: 1.375rem 0;
+      border-bottom: 1px solid #E0F0F5;
+
+      p {
+        color: var(--preto-400, #414B6C);
+
+        /* 16/regular */
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        /* 22.4px */
+        text-align: left;
+      }
+
+      svg {
+        flex: 27.386px 0 0;
+      }
+    }
+
+    .c-archive-cases-results__author {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      margin: 0 0 1.375rem;
+
+      .c-archive-cases-results__author-name {
+        color: var(--dub-co-emperor, var(--color-grey-32, #525252));
+        text-align: left;
+
+        /* dub.co/Inter/Regular */
+        font-family: var(--font-family-Font-1, Inter);
+        font-size: var(--font-size-14, 14px);
+        font-style: normal;
+        font-weight: var(--font-weight-400, 400);
+        line-height: var(--opacity-20, 20px);
+        /* 142.857% */
+      }
+
+      .c-archive-cases-results__author-role {
+        color: var(--dub-co-dove-gray, var(--color-grey-45, #737373));
+
+        /* dub.co/Inter/Regular */
+        font-family: var(--font-family-Font-1, Inter);
+        font-size: var(--font-size-12, 12px);
+        font-style: normal;
+        font-weight: var(--font-weight-400, 400);
+        line-height: var(--line-height-16, 16px);
+        /* 133.333% */
+      }
+
+    }
+
+    .button {
+      max-width: none;
+      width: 100%;
+    }
+  }
+}

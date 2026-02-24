@@ -11,6 +11,10 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 
 	private array $opened_li_depth = [];
 
+	/* ======================================================
+   * SVGs
+   * ====================================================== */
+
 	private function toggle_svg(): string
 	{
 		return '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,6 +28,10 @@ class Main_Menu_Walker extends Walker_Nav_Menu
       <path d="M8.0874 3.76556L5.00073 6.85223L1.91406 3.76556" stroke="#4353FA" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>';
 	}
+
+	/* ======================================================
+   * Helpers base
+   * ====================================================== */
 
 	private function get_menu_items(int $menu_id): array
 	{
@@ -82,6 +90,24 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		return $menu_id > 0 ? $menu_id : 0;
 	}
 
+	private function normalize_image_html($img, string $size = 'thumbnail', array $attrs = []): string
+	{
+		$attrs = array_merge([
+			'loading'  => 'lazy',
+			'decoding' => 'async',
+		], $attrs);
+
+		if (is_array($img) && !empty($img['ID'])) {
+			return wp_get_attachment_image((int) $img['ID'], $size, false, $attrs);
+		}
+
+		if (is_numeric($img)) {
+			return wp_get_attachment_image((int) $img, $size, false, $attrs);
+		}
+
+		return '';
+	}
+
 	private function get_icon_html(int $menu_item_id): string
 	{
 		if (!function_exists('get_field')) return '';
@@ -90,22 +116,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		if (!$enable) return '';
 
 		$icon = get_field('icone', $menu_item_id);
-
-		if (is_array($icon) && !empty($icon['ID'])) {
-			return wp_get_attachment_image((int) $icon['ID'], 'thumbnail', false, [
-				'loading'  => 'lazy',
-				'decoding' => 'async',
-			]);
-		}
-
-		if (is_numeric($icon)) {
-			return wp_get_attachment_image((int) $icon, 'thumbnail', false, [
-				'loading'  => 'lazy',
-				'decoding' => 'async',
-			]);
-		}
-
-		return '';
+		return $this->normalize_image_html($icon, 'thumbnail');
 	}
 
 	private function find_controller(array $children): array
@@ -136,16 +147,42 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		return ['has_controller' => false, 'enable_mega' => false, 'menu_id' => 0, 'controller_id' => 0];
 	}
 
-	private function render_link_button($link, string $class): string
+	private function render_link_button($link, string $class, bool $force_blank_if_target = false): string
 	{
 		if (empty($link) || !is_array($link) || empty($link['url'])) return '';
 
 		$url    = esc_url($link['url']);
 		$title  = $link['title'] ?? '';
-		$target = !empty($link['target']) ? ' target="' . esc_attr($link['target']) . '"' : '';
+		$target = '';
+
+		if (!empty($link['target'])) {
+			$target = ' target="' . esc_attr($link['target']) . '"';
+		} elseif ($force_blank_if_target) {
+			$target = ' target="_blank"';
+		}
 
 		return "<a class='{$class}' href='{$url}'{$target}><span>" . esc_html($title) . "</span></a>";
 	}
+
+	private function render_post_card_link(int $post_id, ?array $link_override, string $class, bool $primary = false): string
+	{
+		$url = get_permalink($post_id);
+		$target = '';
+
+		if (!empty($link_override) && is_array($link_override) && !empty($link_override['url'])) {
+			$url = $link_override['url'];
+			if (!empty($link_override['target'])) {
+				$target = ' target="' . esc_attr($link_override['target']) . '"';
+			}
+		}
+
+		$btn_class = $primary ? "button button__blue" : "button button-border__blue";
+		return "<a class='{$class} {$btn_class}' href='" . esc_url($url) . "'{$target}><span>" . esc_html__('Saiba mais', 'textdomain') . "</span></a>";
+	}
+
+	/* ======================================================
+   * Blocos: Banner / Case
+   * ====================================================== */
 
 	private function render_mega_banner(array $mega_banner): string
 	{
@@ -155,18 +192,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		$btn1 = $mega_banner['button'] ?? null;
 		$btn2 = $mega_banner['button_2'] ?? null;
 
-		$img_html = '';
-		if (is_array($img) && !empty($img['ID'])) {
-			$img_html = wp_get_attachment_image((int) $img['ID'], 'large', false, [
-				'loading'  => 'lazy',
-				'decoding' => 'async',
-			]);
-		} elseif (is_numeric($img)) {
-			$img_html = wp_get_attachment_image((int) $img, 'large', false, [
-				'loading'  => 'lazy',
-				'decoding' => 'async',
-			]);
-		}
+		$img_html = $this->normalize_image_html($img, 'large');
 
 		$out  = "<div class='c-mega__banner'>";
 		$out .= $img_html ? "<div class='c-mega__banner-media'>{$img_html}</div>" : "";
@@ -195,45 +221,10 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		$estat = is_array($banner_case['estatistica'] ?? null) ? $banner_case['estatistica'] : [];
 		$btn   = $banner_case['button'] ?? null;
 
-		$bg_html = '';
-		if (is_array($bg) && !empty($bg['ID'])) {
-			$bg_html = wp_get_attachment_image((int) $bg['ID'], 'large', false, [
-				'loading'  => 'lazy',
-				'decoding' => 'async',
-			]);
-		} elseif (is_numeric($bg)) {
-			$bg_html = wp_get_attachment_image((int) $bg, 'large', false, [
-				'loading'  => 'lazy',
-				'decoding' => 'async',
-			]);
-		}
+		$bg_html   = $this->normalize_image_html($bg, 'large');
+		$logo_html = $this->normalize_image_html($logo, 'thumbnail');
 
-		$logo_html = '';
-		if (is_array($logo) && !empty($logo['ID'])) {
-			$logo_html = wp_get_attachment_image((int) $logo['ID'], 'thumbnail', false, [
-				'loading'  => 'lazy',
-				'decoding' => 'async',
-			]);
-		} elseif (is_numeric($logo)) {
-			$logo_html = wp_get_attachment_image((int) $logo, 'thumbnail', false, [
-				'loading'  => 'lazy',
-				'decoding' => 'async',
-			]);
-		}
-
-		$estat_icon = '';
-		if (!empty($estat['icone']) && is_array($estat['icone']) && !empty($estat['icone']['ID'])) {
-			$estat_icon = wp_get_attachment_image((int) $estat['icone']['ID'], 'thumbnail', false, [
-				'loading'  => 'lazy',
-				'decoding' => 'async',
-			]);
-		} elseif (!empty($estat['icone']) && is_numeric($estat['icone'])) {
-			$estat_icon = wp_get_attachment_image((int) $estat['icone'], 'thumbnail', false, [
-				'loading'  => 'lazy',
-				'decoding' => 'async',
-			]);
-		}
-
+		$estat_icon = $this->normalize_image_html($estat['icone'] ?? null, 'thumbnail');
 		$estat_num  = $estat['numero'] ?? '';
 		$estat_desc = $estat['descricao'] ?? '';
 
@@ -246,10 +237,11 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		}
 
 		$out .= "<div class='c-mega__case-body'>";
+
 		$out .= $t ? "<div class='c-mega__case-title'>{$t}</div>" : "";
 		$out .= $d ? "<div class='c-mega__case-desc'>{$d}</div>" : "";
 
-		if ($estat_num || $estat_desc || $estat_icon) {
+		if ($estat_icon || $estat_num || $estat_desc) {
 			$out .= "<div class='c-mega__case-stat'>";
 			$out .= "<div class='c-mega__case-stat-top'>";
 			$out .= $estat_icon ? "<span class='c-mega__case-stat-icon'>{$estat_icon}</span>" : "";
@@ -267,6 +259,13 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		$out .= "</div></div>";
 		return $out;
 	}
+
+	/* ======================================================
+   * type_menu: banner
+   * - left: mega_banner
+   * - center: c-mega__list (com ícones)
+   * - right: banner_case
+   * ====================================================== */
 
 	private function render_type_banner(int $menu_id, array $cfg): string
 	{
@@ -297,6 +296,10 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		$out .= "</div></div>";
 		return $out;
 	}
+
+	/* ======================================================
+   * type_menu: list (já existente)
+   * ====================================================== */
 
 	private function render_type_list(int $menu_id): string
 	{
@@ -341,6 +344,14 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		return $out;
 	}
 
+	/* ======================================================
+   * type_menu: submenu (tabs)
+   * ACF (no MENU termo): sub_menu (repeater)
+   * - esquerda: c-mega__list (botões)
+   * - meio: mega_banner do menu selecionado
+   * - direita: c-mega__list do menu selecionado (com ícones por ITEM)
+   * ====================================================== */
+
 	private function render_submenu_right_panel(int $menu_id, bool $active, string $panel_id): string
 	{
 		$items = $this->get_menu_items($menu_id);
@@ -369,21 +380,12 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		return $out;
 	}
 
-
 	private function get_submenu_menus_cfg(int $menu_id): array
 	{
 		$val = $this->get_menu_term_field('sub_menu', $menu_id);
 		return is_array($val) ? $val : [];
 	}
 
-	/**
-	 * type_menu = submenu
-	 * - esquerda: tabs do ACF do MENU (term) -> sub_menu (repeater) [icone, title, menu]
-	 * - meio: banner do MENU SELECIONADO
-	 * - direita: itens do MENU SELECIONADO com ícones por item (ativar_icone/icone)
-	 *
-	 * Regras: "o menu é igual ao type lista" => a direita usa os itens/estrutura existente (grid/c-card), e os ícones vêm do menu selecionado.
-	 */
 	private function render_type_submenu_tabs_from_parent(int $parent_menu_id): string
 	{
 		$rows = $this->get_submenu_menus_cfg($parent_menu_id);
@@ -397,24 +399,11 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 			$menu_id = $this->normalize_menu_id($row['menu'] ?? 0);
 			if (!$title || !$menu_id) continue;
 
-			$icon = $row['icone'] ?? null;
-			$icon_html = '';
-
-			if (is_array($icon) && !empty($icon['ID'])) {
-				$icon_html = wp_get_attachment_image((int) $icon['ID'], 'thumbnail', false, [
-					'loading'  => 'lazy',
-					'decoding' => 'async',
-				]);
-			} elseif (is_numeric($icon)) {
-				$icon_html = wp_get_attachment_image((int) $icon, 'thumbnail', false, [
-					'loading'  => 'lazy',
-					'decoding' => 'async',
-				]);
-			}
+			$icon_html = $this->normalize_image_html($row['icone'] ?? null, 'thumbnail');
 
 			$tabs[] = [
-				'title' => $title,
-				'menu_id' => $menu_id,
+				'title'     => $title,
+				'menu_id'   => $menu_id,
 				'icon_html' => $icon_html,
 			];
 		}
@@ -426,10 +415,8 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		$out  = "<div class='c-main-menu__dropdown c-main-menu__dropdown--mega'>";
 		$out .= "<div class='c-mega c-mega--submenu-tabs' data-mega-tabs='{$uid}'>";
 
-		// ESQUERDA: lista igual ao banner (c-mega__list)
 		$out .= "<div class='c-mega__left'>";
 		$out .= "<ul class='c-mega__list'>";
-
 		foreach ($tabs as $i => $tab) {
 			$is_active    = ($i === 0);
 			$panel_id     = $uid . '_p' . $i;
@@ -442,11 +429,9 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 			$out .= "</button>";
 			$out .= "</li>";
 		}
-
 		$out .= "</ul>";
 		$out .= "</div>";
 
-		// MEIO: banner do menu selecionado (painéis)
 		$out .= "<div class='c-mega__center'>";
 		foreach ($tabs as $i => $tab) {
 			$panel_id = $uid . '_p' . $i;
@@ -463,7 +448,6 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		}
 		$out .= "</div>";
 
-		// DIREITA: lista igual ao banner (c-mega__list) com ícones do menu selecionado
 		$out .= "<div class='c-mega__right'>";
 		foreach ($tabs as $i => $tab) {
 			$panel_id = $uid . '_p' . $i;
@@ -472,45 +456,128 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		$out .= "</div>";
 
 		$out .= "</div>";
-
-		// JS tabs
-		$out .= "<script>
-    (function(){
-      var root = document.querySelector('[data-mega-tabs=\"{$uid}\"]');
-      if(!root) return;
-
-      var tabBtns = root.querySelectorAll('[data-mega-tab]');
-      var panels  = root.querySelectorAll('[data-mega-panel]');
-
-      function setActive(id){
-        tabBtns.forEach(function(b){
-          var on = b.getAttribute('data-mega-tab') === id;
-          b.classList.toggle('is-active', on);
-          b.setAttribute('aria-expanded', on ? 'true' : 'false');
-        });
-        panels.forEach(function(p){
-          p.style.display = (p.getAttribute('data-mega-panel') === id) ? '' : 'none';
-        });
-      }
-
-      tabBtns.forEach(function(b){
-        b.addEventListener('mouseenter', function(){ setActive(b.getAttribute('data-mega-tab')); });
-        b.addEventListener('click', function(){ setActive(b.getAttribute('data-mega-tab')); });
-      });
-    })();
-  </script>";
-
 		$out .= "</div>";
 
 		return $out;
 	}
 
+	/* ======================================================
+   * type_menu: cliente
+   * ACF (no MENU termo): clientes (group)
+   * - 4 colunas:
+   *   col1: icone + title + description + button
+   *   col2/3/4: cards (repeater itens -> item post object)
+   *     - thumb + title + get_field('resumo')
+   *     - link: permalink; se existir link_cliente (link array) usa ele (e target se tiver)
+   *     - botão: col1 = button button__blue, demais = button button-border__blue
+   * ====================================================== */
+
+	private function render_type_cliente(int $menu_id): string
+	{
+		$cfg = (array) $this->get_menu_term_field('clientes', $menu_id);
+		if (empty($cfg)) return '';
+
+		$icon_html = $this->normalize_image_html($cfg['icone'] ?? null, 'thumbnail');
+		$title     = (string) ($cfg['title'] ?? '');
+		$desc      = (string) ($cfg['description'] ?? '');
+		$btn       = (!empty($cfg['button']) && is_array($cfg['button'])) ? $cfg['button'] : null;
+
+		$rows = (array) ($cfg['itens'] ?? []);
+
+		if (!$icon_html && $title === '' && $desc === '' && empty($btn) && empty($rows)) return '';
+
+		$out  = "<div class='c-main-menu__dropdown c-main-menu__dropdown--mega'>";
+		$out .= "<div class='c-mega c-mega--list c-mega--client'>";
+		$out .= "<div class='c-mega__list-groups c-mega__list-groups--client'>";
+
+		$out .= "<div class='c-mega__group c-mega__group--client-intro'>";
+		$out .= "<div class='c-mega__client-intro'>";
+		$out .= $icon_html ? "<div class='c-mega__client-icon'>{$icon_html}</div>" : "";
+		$out .= $title ? "<div class='c-mega__client-title'>" . esc_html($title) . "</div>" : "";
+		$out .= $desc ? "<div class='c-mega__client-desc'>" . esc_html($desc) . "</div>" : "";
+		if ($btn) {
+			$out .= "<div class='c-mega__client-actions'>";
+			$out .= $this->render_link_button($btn, "button button__blue");
+			$out .= "</div>";
+		}
+		$out .= "</div>";
+		$out .= "</div>";
+
+		$cards = [];
+		$count = 0;
+
+		foreach ($rows as $row) {
+			if (!is_array($row)) continue;
+
+			$post = $row['item'] ?? null;
+			$post_id = 0;
+
+			if ($post instanceof WP_Post) $post_id = (int) $post->ID;
+			elseif (is_numeric($post)) $post_id = (int) $post;
+
+			if ($post_id <= 0) continue;
+
+			$count++;
+			if ($count > 3) break;
+
+			$thumb = get_the_post_thumbnail($post_id, 'full', [
+				'loading'  => 'lazy',
+				'decoding' => 'async',
+			]);
+
+			$p_title = (string) get_the_title($post_id);
+
+			$resumo = function_exists('get_field') ? (string) get_field('resumo', $post_id) : '';
+			if ($resumo === '') {
+				$ex = get_the_excerpt($post_id);
+				$resumo = is_string($ex) ? $ex : '';
+			}
+
+			$url = get_permalink($post_id);
+			$target = '';
+
+			$link_cliente = function_exists('get_field') ? get_field('link_cliente', $post_id) : null;
+			if (is_array($link_cliente) && !empty($link_cliente['url'])) {
+				$url = (string) $link_cliente['url'];
+				if (!empty($link_cliente['target'])) {
+					$target = ' target="' . esc_attr($link_cliente['target']) . '"';
+				}
+			}
+
+			$card  = "<div class='c-mega__client-card'>";
+			$card .= $thumb ? "<div class='c-mega__client-card-media'>{$thumb}</div>" : "<div class='c-mega__client-card-media c-mega__client-card-media--empty'></div>";
+			$card .= "<div class='c-mega__client-card-body'>";
+			$card .= $p_title ? "<div class='c-mega__client-card-title'>" . esc_html($p_title) . "</div>" : "";
+			$card .= $resumo ? "<div class='c-mega__client-card-desc'>" . esc_html($resumo) . "</div>" : "";
+			$card .= "</div>";
+			$card .= "<div class='c-mega__client-card-actions'>";
+			$card .= "<a class='button button-border__blue' onfocus='blur();' href='" . esc_url($url) . "'{$target}><span>" . esc_html__('Saiba mais', 'textdomain') . "</span></a>";
+			$card .= "</div>";
+			$card .= "</div>";
+
+			$cards[] = $card;
+		}
+
+		for ($i = 0; $i < 3; $i++) {
+			$out .= "<div class='c-mega__group c-mega__group--client-card'>";
+			$out .= $cards[$i] ?? "<div class='c-mega__client-card c-mega__client-card--empty'></div>";
+			$out .= "</div>";
+		}
+
+		$out .= "</div></div></div>";
+
+		return $out;
+	}
+	/* ======================================================
+   * Render mega por menu id
+   * ====================================================== */
 
 	private function render_mega_from_menu_id(int $menu_id): string
 	{
 		if ($menu_id <= 0) return '';
 
 		$ativar_mega = (bool) $this->get_menu_term_field('ativar_mega', $menu_id);
+
 		if (!$ativar_mega) {
 			$items = $this->get_menu_items($menu_id);
 			$tree  = $this->build_tree($items);
@@ -539,17 +606,21 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		}
 
 		if ($type === 'submenu') {
-			// ✅ submenu agora usa ACF sub_menu do MENU (pai) para listar menus
-			// e renderiza banner/itens com base no menu selecionado.
 			$tabs = $this->render_type_submenu_tabs_from_parent($menu_id);
 			return $tabs ?: $this->render_type_list($menu_id);
 		}
 
-		// list
+		if ($type === 'client') {
+			$cliente = $this->render_type_cliente($menu_id);
+			return $cliente ?: $this->render_type_list($menu_id);
+		}
+
 		return $this->render_type_list($menu_id);
 	}
 
-	/* ================= WALKER CORE ================= */
+	/* ======================================================
+   * WALKER CORE
+   * ====================================================== */
 
 	public function display_element($element, &$children_elements, $max_depth, $depth = 0, $args = [], &$output = '')
 	{

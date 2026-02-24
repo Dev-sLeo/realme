@@ -1,0 +1,134 @@
+.c-hero-case {
+  padding: 10.188rem 0;
+  background-color: $white;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+
+  .c-hero-case__grid {
+    display: grid;
+    gap: 28px;
+    align-items: center;
+
+    @media(min-width: $media-query-desktop-low) {
+      grid-template-columns: 38.62660944206% 34.592274678112%;
+      justify-content: space-between;
+    }
+  }
+
+  .c-hero-case__left {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .c-hero-case__card,
+  .c-hero-case__highlight {
+    border-radius: 11.727px;
+    background: #FFF;
+    display: flex;
+    padding: 32px;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .c-hero-case__company-name {
+    color: var(--dub-co-emperor, var(--color-grey-32, #525252));
+    text-align: left;
+    font-family: var(--font-family-Font-1, Inter);
+    font-size: 20.522px;
+    font-style: normal;
+    font-weight: var(--font-weight-400, 400);
+    line-height: 29.317px;
+    /* 142.857% */
+  }
+
+  .c-hero-case__company-location {
+    color: var(--dub-co-dove-gray, var(--color-grey-45, #737373));
+    font-family: var(--font-family-Font-1, Inter);
+    font-size: 17.59px;
+    font-style: normal;
+    font-weight: var(--font-weight-400, 400);
+    line-height: 23.453px;
+    /* 133.333% */
+  }
+
+  .c-hero-case__highlight-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+
+    .c-hero-case__highlight-title {
+      color: #414B6C;
+      text-align: center;
+      font-family: Inter;
+      font-size: 48.172px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 140%;
+      /* 67.441px */
+      letter-spacing: -0.963px;
+    }
+
+    .c-hero-case__highlight-description {
+      color: var(--preto-400, #414B6C);
+      font-family: Inter;
+      font-size: 21.075px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+      /* 25.29px */
+    }
+  }
+
+  .c-hero-case__quote {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin: 0;
+
+    p {
+      color: var(--preto-400, #414B6C);
+
+      /* 16/regular */
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+      /* 22.4px */
+    }
+
+
+  }
+
+  .c-hero-case__author {
+    margin-top: 4.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+
+    .c-hero-case__author-name {
+      color: var(--dub-co-emperor, var(--color-grey-32, #525252));
+      font-family: var(--font-family-Font-1, Inter);
+      font-size: 20.522px;
+      font-style: normal;
+      font-weight: var(--font-weight-400, 400);
+      line-height: 29.317px;
+      /* 142.857% */
+    }
+
+    .c-hero-case__author-role {
+      color: var(--dub-co-dove-gray, var(--color-grey-45, #737373));
+      font-family: var(--font-family-Font-1, Inter);
+      font-size: 17.59px;
+      font-style: normal;
+      font-weight: var(--font-weight-400, 400);
+      line-height: 23.453px;
+      /* 133.333% */
+    }
+  }
+
+}

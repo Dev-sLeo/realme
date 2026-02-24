@@ -10,7 +10,6 @@ if (empty($data) || !is_array($data)) {
       <?php if (!empty($data['title'])) : ?><h2 class="title__normal"><?php echo esc_html($data['title']); ?></h2><?php endif; ?>
       <?php if (!empty($data['description'])) : ?><div class="text__normal"><?php echo wpautop(wp_kses_post($data['description'])); ?></div><?php endif; ?>
     </header>
-
     <div class="o-product-security__content">
       <?php if (!empty($data['bullets']) && is_array($data['bullets'])) : ?>
         <ul class="o-product-security__bullets">
@@ -18,17 +17,11 @@ if (empty($data) || !is_array($data)) {
             if (empty($bullet['text'])) {
               continue;
             }
-          ?>
-            <li><?php echo esc_html($bullet['text']); ?></li>
-          <?php endforeach; ?>
+          ?><li><?php echo esc_html($bullet['text']); ?></li><?php endforeach; ?>
         </ul>
       <?php endif; ?>
-
-      <?php if (!empty($data['mockup']['ID'])) : ?>
-        <div class="o-product-security__mockup"><?php echo wp_get_attachment_image((int) $data['mockup']['ID'], 'large', false, array('loading' => 'lazy')); ?></div>
-      <?php endif; ?>
+      <?php if (!empty($data['mockup']['ID'])) : ?><div class="o-product-security__mockup"><?php echo wp_get_attachment_image((int) $data['mockup']['ID'], 'large', false, array('loading' => 'lazy')); ?></div><?php endif; ?>
     </div>
-
     <?php if (!empty($data['cards']) && is_array($data['cards'])) : ?>
       <div class="o-product-security__cards">
         <?php foreach ($data['cards'] as $card) : ?>

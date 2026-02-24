@@ -49,6 +49,13 @@ $img-path: '../images';
 @import './modules/pages/contact/contact';
 @import './modules/pages/inteligencia/como-funciona';
 @import './modules/pages/inteligencia/pratica';
-@import './modules/pages/product/single';
 
-@import './modules/pages/cases/cases';
+@import './modules/pages/cases/archive/highlight-cases';
+@import './modules/pages/cases/archive/more-results';
+
+@import './modules/pages/cases/single/testimonials';
+@import './modules/pages/cases/single/content';
+@import './modules/pages/cases/single/result';
+
+@import './modules/pages/product/final-cta';
+@import './modules/pages/product/benefits';

@@ -1,0 +1,134 @@
+.o-hero-product {
+  padding: 6rem 0;
+  position: relative;
+
+  @media(min-width: $media-query-desktop-low) {
+    padding: 10.188rem 0 7.188rem;
+  }
+
+  .o-hero-product__container {
+    display: grid;
+
+    @media(min-width: $media-query-desktop-low) {
+      grid-template-columns: 587px 1fr;
+    }
+
+  }
+
+  .o-hero-product__media {
+    display: none;
+
+    @media(min-width: $media-query-desktop-low) {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 65%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+
+  &__badge {
+    margin: 0 auto;
+
+    @media(min-width: $media-query-desktop-low) {
+      margin: 0;
+    }
+  }
+
+  &__title.title__super {
+    margin: 1.5rem 0;
+
+    @media(min-width: $media-query-desktop-low) {
+      text-align: left;
+    }
+  }
+
+  &__text {
+    p {
+      color: var(--preto-400, #414B6C);
+
+      /* 20/regular */
+      font-family: Inter;
+      font-size: var(--opacity-20, 20px);
+      font-style: normal;
+      font-weight: 400;
+      line-height: var(--line-height-28, 28px);
+      /* 140% */
+      text-align: center;
+
+      @media(min-width: $media-query-desktop-low) {
+        text-align: left;
+      }
+    }
+  }
+
+  .button {
+    margin: 2.563rem auto 0;
+
+    @media(min-width: $media-query-desktop-low) {
+      margin: 2.563rem 0 0;
+    }
+  }
+
+  .o-hero-product__metrics {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    .o-hero-product__metric {
+      .c-metric__content {
+        display: flex;
+        flex-direction: column;
+
+        @media(min-width: $media-query-desktop-low) {
+          padding: 0 .8rem;
+          border-right: 1px solid #C8C8C8;
+        }
+
+      }
+
+      &:last-child .c-metric__content {
+        border: none;
+      }
+    }
+
+    .c-metric__value {
+      color: var(--preto-500, #111E47);
+
+      font-family: Inter;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 140%;
+
+      @media(min-width: $media-query-desktop-low) {
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 140%;
+      }
+    }
+
+    .c-metric__label {
+      color: var(--preto-400, #414B6C);
+
+      /* 16/regular */
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+      /* 22.4px */
+
+      @media(min-width: $media-query-desktop-low) {
+        font-size: 16px;
+      }
+    }
+  }
+
+}

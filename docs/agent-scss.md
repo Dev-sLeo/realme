@@ -109,6 +109,125 @@ Sempre validar:
 
 ──────────────────────────────────────────────────────────────
 
+2.1) VALIDAÇÃO OBRIGATÓRIA — ARQUITETURA webpack/css/sass/base
+
+Antes de criar qualquer SCSS novo, você DEVE validar os arquivos em:
+
+webpack/css/sass/base/
+
+Essa pasta contém configurações globais importantes como:
+
+- typography.scss
+- titles.scss
+- reset.scss
+- helpers.scss
+- variables.scss
+- functions.scss
+- mixins.scss
+
+Esses arquivos definem:
+
+✔ tamanhos de títulos padrão  
+✔ tipografia global  
+✔ espaçamentos padrão  
+✔ cores padrão  
+✔ resets  
+✔ helpers reutilizáveis
+
+Regra obrigatória:
+
+➡ Nunca recriar estilos de títulos, textos ou tipografia.
+➡ Sempre usar os estilos existentes da pasta base.
+➡ Se um título já existe em base/titles.scss, reutilizar classe existente.
+➡ Não criar novos font-sizes se já existir token ou classe equivalente.
+
+Exemplo:
+
+Se existir em base:
+
+.title**normal
+.title**large
+.text\_\_normal
+
+Você deve usar essas classes no módulo,
+não criar novos estilos como:
+
+.o-modulo\_\_title {
+font-size: 32px;
+}
+
+Se precisar de variação, verificar primeiro:
+
+✔ existe classe pronta?
+✔ existe token pronto?
+✔ existe mixin pronto?
+
+Só criar novo estilo se NÃO existir equivalente.
+
+──────────────────────────────────────────────────────────────
+
+2.2) TIPOGRAFIA PADRÃO
+
+Os títulos do projeto são repetidos e consistentes.
+Eles vêm da base.
+
+Regra:
+
+➡ Não redefinir font-size de títulos dentro dos módulos.
+➡ Não redefinir line-height de títulos.
+➡ Não redefinir font-family.
+
+Use apenas classes base.
+
+Exemplo correto:
+
+<h2 class="title__normal">
+
+Exemplo errado:
+
+.o-hero\_\_title {
+font-size: 36px;
+}
+
+──────────────────────────────────────────────────────────────
+
+2.3) VALIDAÇÃO DE RESET E HELPERS
+
+Antes de criar SCSS novo, verificar:
+
+- Existe reset que já resolve o problema?
+- Existe helper (ex.: .container, .grid, .flex-center)?
+- Existe placeholder (%container, %title)?
+
+Sempre reutilizar.
+
+──────────────────────────────────────────────────────────────
+
+2.4) IMPORTS DA BASE
+
+Nunca mudar ordem de imports de base.
+
+Normalmente base é importado antes de modules/components.
+
+Se criar SCSS novo:
+
+✔ colocar no lugar correto (modules ou components)
+✔ não mexer em base sem autorização
+
+──────────────────────────────────────────────────────────────
+
+CHECK EXTRA ANTES DE ENTREGAR SCSS
+
+- Validou webpack/css/sass/base ?
+- Reutilizou titles existentes ?
+- Não criou novos font-size desnecessários ?
+- Não duplicou helpers ?
+- Não criou tipografia nova fora da base ?
+
+Se qualquer resposta for NÃO → SCSS está errado.
+
+──────────────────────────────────────────────────────────────
+
 3. REGRA GLOBAL — MOBILE-FIRST (SEM EXCEÇÃO)
 
 Padrão obrigatório:
@@ -185,6 +304,75 @@ padding: 48px;
 padding: 80px;
 }
 }
+
+──────────────────────────────────────────────────────────────
+4.1) REGRA OBRIGATÓRIA — 1 SCSS POR MÓDULO / COMPONENTE
+
+Cada módulo ou componente deve ter seu próprio arquivo SCSS.
+
+Nunca juntar estilos de vários módulos em um único arquivo.
+
+Estrutura obrigatória:
+
+modules/
+\_o-hero.scss
+\_o-blog.scss
+\_o-pacote.scss
+
+components/
+\_c-select.scss
+\_c-button.scss
+
+utilities/
+\_u-spacing.scss
+
+Motivo:
+
+- Manutenção fácil
+- Reutilização
+- Performance
+- Organização com tpl_engine
+
+Se o módulo PHP for:
+includes/partials/template/pages/home/\_hero.html.php
+
+O SCSS deve ser:
+assets/src/scss/modules/\_o-hero.scss
+
+Se o componente PHP for:
+includes/partials/components/select/\_select.html.php
+
+O SCSS deve ser:
+assets/src/scss/components/\_c-select.scss
+
+──────────────────────────────────────────────────────────────
+4.2) IMPORTAÇÃO DOS ARQUIVOS
+
+Cada pasta deve ter um index:
+
+modules/\_index.scss
+components/\_index.scss
+
+E o app.scss importa apenas os index.
+
+Nunca importar módulo direto no app.scss.
+
+Exemplo:
+
+app.scss
+@use "base/index";
+@use "components/index";
+@use "modules/index";
+
+──────────────────────────────────────────────────────────────
+4.3) PROIBIDO
+
+❌ Criar um arquivo gigante com todos os módulos  
+❌ Colocar SCSS de módulo dentro de base/  
+❌ Colocar SCSS dentro de PHP inline  
+❌ Misturar componentes e módulos
+
+Se isso acontecer → SCSS está errado.
 
 ──────────────────────────────────────────────────────────────
 

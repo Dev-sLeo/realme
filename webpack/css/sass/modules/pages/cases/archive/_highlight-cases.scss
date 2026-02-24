@@ -1,0 +1,176 @@
+.c-cases-destaque {
+  padding: 5.813rem 0 7.188rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #D0D5E3;
+  background-color: $white;
+  z-index: 1;
+
+  .c-cases-destaque__slider-wrap {
+    margin-top: 3.5rem;
+    position: relative;
+  }
+
+  &__card {
+    border-radius: 16px;
+    border: 1px solid #D0D5E3;
+    background: #FFF;
+    box-shadow: 0 40px 80px 0 rgba(27, 23, 55, 0.05);
+    padding: 1.5rem;
+
+    @media(min-width: $media-query-desktop-low) {
+      padding: 3.5rem 5.125rem;
+    }
+
+    .c-cases-destaque__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+
+      @media(min-width: $media-query-desktop-low) {
+        grid-template-columns: 35.862691960253% 46.43179765131%;
+        justify-content: space-between;
+      }
+    }
+
+    .c-cases-destaque__logo {
+      margin-bottom: 3rem;
+    }
+
+    .c-cases-destaque__company-name {
+      color: var(--dub-co-emperor, var(--color-grey-32, #525252));
+      text-align: left;
+      font-family: var(--font-family-Font-1, Inter);
+      font-size: 20.522px;
+      font-style: normal;
+      font-weight: var(--font-weight-400, 400);
+      line-height: 29.317px;
+      /* 142.857% */
+    }
+
+    .c-cases-destaque__company-location {
+      color: var(--dub-co-dove-gray, var(--color-grey-45, #737373));
+      font-family: var(--font-family-Font-1, Inter);
+      font-size: 17.59px;
+      font-style: normal;
+      font-weight: var(--font-weight-400, 400);
+      line-height: 23.453px;
+      /* 133.333% */
+      text-align: left;
+    }
+
+    .c-cases-destaque__quote {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin: 0;
+
+      @media(min-width: $media-query-desktop-low) {
+        gap: 1.5rem;
+      }
+
+      p {
+        color: var(--preto-400, #414B6C);
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        /* 25.6px */
+      }
+
+      svg {
+        flex: 27px 0 0;
+      }
+    }
+
+    .c-cases-destaque__author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-top: 2.719rem;
+
+      @media(min-width: $media-query-desktop-low) {
+        padding-right: 3.672rem;
+        justify-content: flex-end;
+      }
+
+
+
+      .c-cases-destaque__author-photo {
+        flex: 58px 0 0;
+      }
+
+      .c-cases-destaque__author-name {
+        color: var(--dub-co-emperor, var(--color-grey-32, #525252));
+        font-family: var(--font-family-Font-1, Inter);
+        font-size: 20.522px;
+        font-style: normal;
+        font-weight: var(--font-weight-400, 400);
+        line-height: 29.317px;
+        /* 142.857% */
+      }
+
+      .c-cases-destaque__author-role {
+        color: var(--dub-co-dove-gray, var(--color-grey-45, #737373));
+        font-family: var(--font-family-Font-1, Inter);
+        font-size: 17.59px;
+        font-style: normal;
+        font-weight: var(--font-weight-400, 400);
+        line-height: 23.453px;
+        /* 133.333% */
+      }
+    }
+
+    .c-cases-destaque__cta {
+      margin-top: 4rem;
+
+      @media(min-width: $media-query-desktop-low) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+    }
+
+    .button {
+
+
+      display: flex;
+      padding: 16px 16px 16px 32px;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+      border-radius: 600px;
+      background: rgba(217, 221, 254, 0.50);
+      color: var(--Azul-2-700, #283296);
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 160%;
+      /* 25.6px */
+      max-width: none;
+      width: 100%;
+      text-align: left;
+
+      svg {
+        flex: 43.26px 0 0;
+      }
+    }
+  }
+
+  .c-cases-destaque__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    &--prev {
+      left: -5rem;
+    }
+
+    &--next {
+      right: -5rem;
+    }
+  }
+}

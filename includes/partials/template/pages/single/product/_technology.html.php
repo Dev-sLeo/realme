@@ -25,7 +25,6 @@ $stats = is_array($data['stats'] ?? null) ? $data['stats'] : array();
         <?php endforeach; ?>
       </div>
     <?php endif; ?>
-
     <?php if (!empty($stats)) : ?>
       <div class="o-product-technology__stats">
         <?php foreach ($stats as $stat) : ?>

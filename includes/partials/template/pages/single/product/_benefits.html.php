@@ -1,3 +1,4 @@
+<?php global $tpl_engine; ?>
 <?php
 $data = isset($data) && is_array($data) ? $data : get_field('benefits');
 if (empty($data) || !is_array($data)) {
@@ -6,12 +7,26 @@ if (empty($data) || !is_array($data)) {
 $cards = is_array($data['cards'] ?? null) ? $data['cards'] : array();
 ?>
 <section class="o-product-benefits">
-  <div class="s-container">
-    <header class="o-product-benefits__header">
-      <?php if (!empty($data['title'])) : ?><h2 class="title__normal"><?php echo esc_html($data['title']); ?></h2><?php endif; ?>
-      <?php if (!empty($data['description'])) : ?><div class="text__normal"><?php echo wpautop(wp_kses_post($data['description'])); ?></div><?php endif; ?>
-    </header>
 
+  <header class="o-product-benefits__header">
+    <div class="s-container">
+      <?php if (!empty($data['eyebrown'])) : ?>
+        <span class="subtitulo"><?php echo esc_html($data['eyebrown']); ?></span>
+      <?php endif; ?>
+
+      <?php if (!empty($data['title'])) : ?>
+        <h2 class="title__normal"><?php echo esc_html($data['title']); ?></h2>
+      <?php endif; ?>
+
+      <?php if (!empty($data['description'])) : ?>
+        <div class="text__normal"><?php echo wpautop(wp_kses_post($data['description'])); ?></div>
+      <?php endif; ?>
+    </div>
+    <div class="o-product-benefits__scroll" aria-hidden="true">
+      <?= $tpl_engine->svg('icons/arrow-down-section'); ?>
+    </div>
+  </header>
+  <div class="s-container">
     <?php if (!empty($cards)) : ?>
       <div class="o-product-benefits__slider">
         <div class="swiper o-product-benefits__swiper" data-swiper="product-benefits">
@@ -25,14 +40,10 @@ $cards = is_array($data['cards'] ?? null) ? $data['cards'] : array();
                 <?php if (!empty($card['text'])) : ?><div><?php echo wpautop(wp_kses_post($card['text'])); ?></div><?php endif; ?>
                 <?php if (!empty($card['list']) && is_array($card['list'])) : ?>
                   <ul>
-                    <?php foreach ($card['list'] as $item) : if (empty($item['text'])) continue; ?>
-                      <li><?php echo esc_html($item['text']); ?></li>
-                    <?php endforeach; ?>
+                    <?php foreach ($card['list'] as $item) : if (empty($item['text'])) continue; ?><li><?php echo esc_html($item['text']); ?></li><?php endforeach; ?>
                   </ul>
                 <?php endif; ?>
-                <?php if (!empty($cta['url']) && !empty($cta['title'])) : ?>
-                  <a class="o-product-benefits__cta" href="<?php echo esc_url($cta['url']); ?>" target="<?php echo esc_attr($cta['target'] ?? '_self'); ?>"><?php echo esc_html($cta['title']); ?></a>
-                <?php endif; ?>
+                <a class="o-product-benefits__cta button button-border__blue" href="<?php echo esc_url($cta['url']); ?>" target="<?php echo esc_attr($cta['target'] ?? '_self'); ?>"><?php echo 'Ver mais'; ?></a>
               </article>
             <?php endforeach; ?>
           </div>
