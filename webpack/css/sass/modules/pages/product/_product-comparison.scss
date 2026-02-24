@@ -91,6 +91,15 @@
       }
     }
 
+    &.is-left {
+      .o-product-comparison__last {
+        .o-product-comparison__last-title {
+          color: #E21717;
+        }
+      }
+    }
+
+
     .o-product-comparison__last {
       border-radius: 16px;
       border: 1px solid #DEEAED;
@@ -103,7 +112,6 @@
 
       .o-product-comparison__last-title {
         color: var(--Azul-1-600, #5290A3);
-        text-align: center;
 
         /* 20/semi */
         font-family: Inter;
@@ -117,7 +125,6 @@
 
       .o-product-comparison__last-desc {
         color: var(--preto-400, #414B6C);
-        text-align: center;
 
         /* 16/regular */
         font-family: Inter;
