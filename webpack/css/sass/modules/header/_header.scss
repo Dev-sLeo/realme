@@ -217,6 +217,16 @@
                   justify-content: center;
                 }
 
+                .c-mega__list-icon {
+                  width: 24px;
+                  height: 24px;
+
+                  img {
+                    width: 24px;
+                    height: 24px;
+                  }
+                }
+
                 .c-main-menu__card-title {
                   font-style: normal;
                   font-weight: 400;
@@ -264,7 +274,6 @@
               }
             }
           }
-
 
         }
       }
