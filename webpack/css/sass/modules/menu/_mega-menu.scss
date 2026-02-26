@@ -344,25 +344,21 @@
                       height: 24px;
                     }
                   }
-                }
 
-                &:hover {
-                  background: var(--Azul-2-500, #4353FA);
-                  color: $white;
+                  &:hover {
+                    background: var(--Azul-2-500, #4353FA);
+                    color: $white;
 
-                  .c-mega__group-arrow {
-                    svg {
-                      path {
-                        stroke: $white;
+                    .c-mega__group-arrow {
+                      svg {
+                        path {
+                          stroke: $white;
+                        }
                       }
                     }
                   }
                 }
 
-                .c-mega__group-arrow {
-                  flex: 8px 0 0;
-                  transform: rotate(270deg);
-                }
               }
             }
           }
