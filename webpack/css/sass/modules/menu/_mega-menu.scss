@@ -147,6 +147,16 @@
           align-self: stretch;
           transition: background .3s ease;
 
+          .c-mega__list-icon {
+            width: 24px;
+            height: 24px;
+
+            img {
+              width: 24px;
+              height: 24px;
+            }
+          }
+
           &:hover {
             background: var(--Azul-2-500, #4353FA);
 
