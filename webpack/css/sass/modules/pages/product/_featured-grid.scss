@@ -29,6 +29,7 @@
 
     @media(min-width: $media-query-desktop-low) {
       grid-template-columns: repeat(3, 1fr);
+      gap: 0;
     }
   }
 

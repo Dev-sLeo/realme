@@ -1,6 +1,8 @@
 .o-hero-product {
   padding: 6rem 0;
   position: relative;
+  z-index: 1;
+  background-color: $white;
 
   @media(min-width: $media-query-desktop-low) {
     padding: 10.188rem 0 7.188rem;

@@ -153,6 +153,14 @@
           /* 28.8px */
         }
       }
+
+      &:last-child {
+        .c-step__top {
+          .c-step__arrow {
+            display: none;
+          }
+        }
+      }
     }
   }
 }
