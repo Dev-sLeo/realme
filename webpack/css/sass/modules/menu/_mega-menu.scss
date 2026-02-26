@@ -322,7 +322,7 @@
                   display: flex;
                   padding: 12px 16px;
                   justify-content: space-between;
-                  flex-direction: row-reverse;
+                  flex-direction: row;
                   align-items: center;
                   gap: 16px;
                   align-self: stretch;
@@ -333,111 +333,122 @@
                   font-weight: 400;
                   line-height: 140%;
                   height: 100%;
+
                   /* 19.6px */
+                  .c-mega__list-icon {
+                    width: 24px;
+                    height: 24px;
 
-                  &:hover {
-                    background: var(--Azul-2-500, #4353FA);
-                    color: $white;
+                    img {
+                      width: 24px;
+                      height: 24px;
+                    }
+                  }
+                }
 
-                    .c-mega__group-arrow {
-                      svg {
-                        path {
-                          stroke: $white;
-                        }
+                &:hover {
+                  background: var(--Azul-2-500, #4353FA);
+                  color: $white;
+
+                  .c-mega__group-arrow {
+                    svg {
+                      path {
+                        stroke: $white;
                       }
                     }
                   }
+                }
 
-                  .c-mega__group-arrow {
-                    flex: 8px 0 0;
-                    transform: rotate(270deg);
-                  }
+                .c-mega__group-arrow {
+                  flex: 8px 0 0;
+                  transform: rotate(270deg);
                 }
               }
             }
           }
         }
-
-        .c-mega__group--client-intro {
-          .c-mega__client-icon {
-            margin-bottom: 4rem;
-          }
-
-          .c-mega__client-title {
-            color: var(--preto-500, #111E47);
-
-            /* 32/semi */
-            font-family: Inter;
-            font-size: 32px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 140%;
-            /* 44.8px */
-          }
-
-          .c-mega__client-desc {
-            color: var(--preto-400, #414B6C);
-
-            /* 20/regular */
-            font-family: Inter;
-            font-size: var(--opacity-20, 20px);
-            font-style: normal;
-            font-weight: 400;
-            line-height: var(--line-height-28, 28px);
-            /* 140% */
-          }
-
-          .c-mega__client-actions {
-            margin-top: 2.938rem;
-          }
-        }
-
-        .c-mega__group--client-card {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-
-          .c-mega__client-card-body {
-            margin: 1.813rem 0;
-          }
-
-          .c-mega__client-card-media {
-            img {
-              width: 100%;
-            }
-          }
-
-          .c-mega__client-card-title {
-            color: var(--preto-500, #111E47);
-
-            /* 16/semi */
-            font-family: Inter;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: var(--opacity-20, 20px);
-            /* 125% */
-            margin-bottom: 1rem;
-          }
-
-          .c-mega__client-card-desc {
-            color: var(--preto-400, #414B6C);
-
-            /* 14/regular */
-            font-family: Inter;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 160%;
-            /* 22.4px */
-          }
-
-          .button {
-            padding: 9px 21px;
-          }
-        }
-
       }
+
+      .c-mega__group--client-intro {
+        .c-mega__client-icon {
+          margin-bottom: 4rem;
+        }
+
+        .c-mega__client-title {
+          color: var(--preto-500, #111E47);
+
+          /* 32/semi */
+          font-family: Inter;
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 140%;
+          /* 44.8px */
+        }
+
+        .c-mega__client-desc {
+          color: var(--preto-400, #414B6C);
+
+          /* 20/regular */
+          font-family: Inter;
+          font-size: var(--opacity-20, 20px);
+          font-style: normal;
+          font-weight: 400;
+          line-height: var(--line-height-28, 28px);
+          /* 140% */
+        }
+
+        .c-mega__client-actions {
+          margin-top: 2.938rem;
+        }
+      }
+
+      .c-mega__group--client-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .c-mega__client-card-body {
+          margin: 1.813rem 0;
+        }
+
+        .c-mega__client-card-media {
+          img {
+            width: 100%;
+          }
+        }
+
+        .c-mega__client-card-title {
+          color: var(--preto-500, #111E47);
+
+          /* 16/semi */
+          font-family: Inter;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: var(--opacity-20, 20px);
+          /* 125% */
+          margin-bottom: 1rem;
+        }
+
+        .c-mega__client-card-desc {
+          color: var(--preto-400, #414B6C);
+
+          /* 14/regular */
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%;
+          /* 22.4px */
+        }
+
+        .button {
+          padding: 9px 21px;
+        }
+      }
+
     }
   }
+}
 }
