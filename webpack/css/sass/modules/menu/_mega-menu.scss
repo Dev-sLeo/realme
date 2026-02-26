@@ -151,7 +151,8 @@
             width: 24px;
             height: 24px;
 
-            img {
+            img,
+            svg {
               width: 24px;
               height: 24px;
             }
@@ -162,6 +163,15 @@
 
             .c-mega__list-text {
               color: $white;
+            }
+
+            .c-mega__list-icon {
+
+              svg {
+                path {
+                  stroke: $white;
+                }
+              }
             }
           }
         }
@@ -321,7 +331,7 @@
                   background: #F1F2FF;
                   display: flex;
                   padding: 12px 16px;
-                  justify-content: space-between;
+                  justify-content: flex-start;
                   flex-direction: row;
                   align-items: center;
                   gap: 16px;
@@ -338,8 +348,10 @@
                   .c-mega__list-icon {
                     width: 24px;
                     height: 24px;
+                    flex: 24px 0 0;
 
-                    img {
+                    img,
+                    svg {
                       width: 24px;
                       height: 24px;
                     }
@@ -349,7 +361,7 @@
                     background: var(--Azul-2-500, #4353FA);
                     color: $white;
 
-                    .c-mega__group-arrow {
+                    .c-mega__list-icon {
                       svg {
                         path {
                           stroke: $white;
