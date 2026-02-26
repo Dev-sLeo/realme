@@ -33,172 +33,6 @@ class Main_Menu_Walker extends Walker_Nav_Menu
    * Helpers base
    * ====================================================== */
 
-	private function is_svg_attachment(int $attachment_id): bool
-	{
-		$mime = (string) get_post_mime_type($attachment_id);
-		if ($mime === 'image/svg+xml') return true;
-
-		$file = get_attached_file($attachment_id);
-		if (is_string($file) && $file !== '') {
-			$ext = strtolower((string) pathinfo($file, PATHINFO_EXTENSION));
-			if ($ext === 'svg') return true;
-		}
-
-		$url = wp_get_attachment_url($attachment_id);
-		if (is_string($url) && $url !== '') {
-			$ext = strtolower((string) pathinfo(parse_url($url, PHP_URL_PATH) ?: '', PATHINFO_EXTENSION));
-			if ($ext === 'svg') return true;
-		}
-
-		return false;
-	}
-
-	private function render_inline_svg_from_attachment(int $attachment_id, array $attrs = []): string
-	{
-		$file = get_attached_file($attachment_id);
-		if (!is_string($file) || $file === '' || !file_exists($file) || !is_readable($file)) return '';
-
-		$svg = file_get_contents($file);
-		if (!is_string($svg) || $svg === '') return '';
-
-		$allowed = [
-			'svg' => [
-				'class' => true,
-				'xmlns' => true,
-				'width' => true,
-				'height' => true,
-				'viewBox' => true,
-				'fill' => true,
-				'stroke' => true,
-				'role' => true,
-				'aria-hidden' => true,
-				'aria-label' => true,
-				'focusable' => true,
-				'preserveAspectRatio' => true,
-			],
-			'g' => [
-				'fill' => true,
-				'stroke' => true,
-				'transform' => true,
-				'opacity' => true,
-				'clip-path' => true,
-				'mask' => true,
-			],
-			'path' => [
-				'd' => true,
-				'fill' => true,
-				'stroke' => true,
-				'stroke-width' => true,
-				'stroke-linecap' => true,
-				'stroke-linejoin' => true,
-				'opacity' => true,
-				'transform' => true,
-			],
-			'rect' => [
-				'x' => true,
-				'y' => true,
-				'width' => true,
-				'height' => true,
-				'rx' => true,
-				'ry' => true,
-				'fill' => true,
-				'stroke' => true,
-				'opacity' => true,
-				'transform' => true,
-			],
-			'circle' => [
-				'cx' => true,
-				'cy' => true,
-				'r' => true,
-				'fill' => true,
-				'stroke' => true,
-				'opacity' => true,
-				'transform' => true,
-			],
-			'ellipse' => [
-				'cx' => true,
-				'cy' => true,
-				'rx' => true,
-				'ry' => true,
-				'fill' => true,
-				'stroke' => true,
-				'opacity' => true,
-				'transform' => true,
-			],
-			'polygon' => [
-				'points' => true,
-				'fill' => true,
-				'stroke' => true,
-				'opacity' => true,
-				'transform' => true,
-			],
-			'polyline' => [
-				'points' => true,
-				'fill' => true,
-				'stroke' => true,
-				'opacity' => true,
-				'transform' => true,
-			],
-			'line' => [
-				'x1' => true,
-				'y1' => true,
-				'x2' => true,
-				'y2' => true,
-				'stroke' => true,
-				'stroke-width' => true,
-				'stroke-linecap' => true,
-				'opacity' => true,
-				'transform' => true,
-			],
-			'defs' => [],
-			'clipPath' => ['id' => true],
-			'mask' => ['id' => true],
-			'linearGradient' => ['id' => true, 'x1' => true, 'y1' => true, 'x2' => true, 'y2' => true, 'gradientUnits' => true],
-			'radialGradient' => ['id' => true, 'cx' => true, 'cy' => true, 'r' => true, 'fx' => true, 'fy' => true, 'gradientUnits' => true],
-			'stop' => ['offset' => true, 'stop-color' => true, 'stop-opacity' => true],
-			'title' => [],
-			'desc' => [],
-		];
-
-		$svg = wp_kses($svg, $allowed);
-
-		$attrs_map = [];
-		foreach ($attrs as $k => $v) {
-			$k = (string) $k;
-			if ($k === '' || $v === null) continue;
-			$attrs_map[$k] = (string) $v;
-		}
-
-		$class_to_add = $attrs_map['class'] ?? '';
-		unset($attrs_map['class']);
-
-		$inject = '';
-		foreach ($attrs_map as $k => $v) {
-			$inject .= ' ' . esc_attr($k) . '="' . esc_attr($v) . '"';
-		}
-
-		if ($class_to_add !== '') {
-			if (preg_match('/<svg\b[^>]*\bclass\s*=\s*([\'"])(.*?)\1/i', $svg)) {
-				$svg = preg_replace('/(<svg\b[^>]*\bclass\s*=\s*)([\'"])(.*?)\2/i', '$1$2$3 ' . esc_attr($class_to_add) . '$2', $svg, 1);
-			} else {
-				$svg = preg_replace('/<svg\b/i', '<svg class="' . esc_attr($class_to_add) . '"', $svg, 1);
-			}
-		}
-
-		if ($inject !== '') {
-			$svg = preg_replace('/<svg\b(?![^>]*\sdata-svg-injected=)[^>]*>/i', function ($m) use ($inject) {
-				$tag = $m[0];
-				if (stripos($tag, 'data-svg-injected=') === false) {
-					$tag = rtrim($tag, '>');
-					$tag .= ' data-svg-injected="1"' . $inject . '>';
-				}
-				return $tag;
-			}, $svg, 1);
-		}
-
-		return $svg;
-	}
-
 	private function get_menu_items(int $menu_id): array
 	{
 		$items = wp_get_nav_menu_items($menu_id);
@@ -263,21 +97,15 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 			'decoding' => 'async',
 		], $attrs);
 
-		$attachment_id = 0;
-
 		if (is_array($img) && !empty($img['ID'])) {
-			$attachment_id = (int) $img['ID'];
-		} elseif (is_numeric($img)) {
-			$attachment_id = (int) $img;
+			return wp_get_attachment_image((int) $img['ID'], $size, false, $attrs);
 		}
 
-		if ($attachment_id <= 0) return '';
-
-		if ($this->is_svg_attachment($attachment_id)) {
-			return $this->render_inline_svg_from_attachment($attachment_id, $attrs);
+		if (is_numeric($img)) {
+			return wp_get_attachment_image((int) $img, $size, false, $attrs);
 		}
 
-		return wp_get_attachment_image($attachment_id, $size, false, $attrs);
+		return '';
 	}
 
 	private function get_icon_html(int $menu_item_id): string
