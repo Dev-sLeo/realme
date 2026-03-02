@@ -66,51 +66,55 @@ if (!$sub_titulo && !$title && !trim($text) && !$image_id && !$has_features) {
       </div>
 
       <?php if ($has_features) : ?>
-        <div class="o-about__features" role="list" aria-label="Destaques">
-          <?php foreach ($features as $feature) :
-            if (!is_array($feature)) {
-              continue;
-            }
+        <div class="o-about__features o-about__swiper swiper" data-swiper="about-features" role="region" aria-label="Destaques">
+          <div class="swiper-wrapper" role="list">
+            <?php foreach ($features as $feature) :
+              if (!is_array($feature)) {
+                continue;
+              }
 
-            $f_icon = isset($feature['icon']) ? $feature['icon'] : null;
-            $f_icon_id = is_array($f_icon) && !empty($f_icon['ID']) ? (int) $f_icon['ID'] : 0;
+              $f_icon = isset($feature['icon']) ? $feature['icon'] : null;
+              $f_icon_id = is_array($f_icon) && !empty($f_icon['ID']) ? (int) $f_icon['ID'] : 0;
 
-            $f_title = isset($feature['title']) ? trim((string) $feature['title']) : '';
-            $f_text  = isset($feature['text']) ? (string) $feature['text'] : '';
+              $f_title = isset($feature['title']) ? trim((string) $feature['title']) : '';
+              $f_text  = isset($feature['text']) ? (string) $feature['text'] : '';
 
-            if (!$f_icon_id && !$f_title && !trim($f_text)) {
-              continue;
-            }
-          ?>
-            <div class="c-feature" role="listitem">
-              <?php if ($f_icon_id) : ?>
-                <div class="c-feature__icon" aria-hidden="true">
-                  <?php
-                  echo wp_get_attachment_image(
-                    $f_icon_id,
-                    'thumbnail',
-                    false,
-                    array('class' => 'c-feature__icon-img', 'loading' => 'lazy')
-                  );
-                  ?>
-                </div>
-              <?php endif; ?>
+              if (!$f_icon_id && !$f_title && !trim($f_text)) {
+                continue;
+              }
+            ?>
+              <div class="swiper-slide" role="listitem">
+                <div class="c-feature">
+                  <?php if ($f_icon_id) : ?>
+                    <div class="c-feature__icon" aria-hidden="true">
+                      <?php
+                      echo wp_get_attachment_image(
+                        $f_icon_id,
+                        'thumbnail',
+                        false,
+                        array('class' => 'c-feature__icon-img', 'loading' => 'lazy')
+                      );
+                      ?>
+                    </div>
+                  <?php endif; ?>
 
-              <div class="c-feature__body">
-                <?php if ($f_title) : ?>
-                  <h3 class="c-feature__title"><?php echo esc_html($f_title); ?></h3>
-                <?php endif; ?>
+                  <div class="c-feature__body">
+                    <?php if ($f_title) : ?>
+                      <h3 class="c-feature__title"><?php echo esc_html($f_title); ?></h3>
+                    <?php endif; ?>
 
-                <?php if (trim($f_text)) : ?>
-                  <div class="c-feature__text">
-                    <?php echo wpautop(wp_kses_post($f_text)); ?>
+                    <?php if (trim($f_text)) : ?>
+                      <div class="c-feature__text">
+                        <?php echo wpautop(wp_kses_post($f_text)); ?>
+                      </div>
+                    <?php endif; ?>
+
+                    <a href="" class="button button-border__blue">Veja mais</a>
                   </div>
-                <?php endif; ?>
-
-                <a href="" class="button button-border__blue">Veja mais</a>
+                </div>
               </div>
-            </div>
-          <?php endforeach; ?>
+            <?php endforeach; ?>
+          </div>
         </div>
       <?php endif; ?>
 

@@ -33,26 +33,26 @@ $button_target = $has_button ? (!empty($button['target']) ? $button['target'] : 
 
       <header class="o-case-studies__header">
         <?php if ($sub_titulo) : ?>
-          <p class="o-case-studies__eyebrow subtitulo">
+          <p class="o-case-studies__eyebrow subtitulo" data-animate="fade-up" data-animate-delay="0.1">
             <?php echo esc_html($sub_titulo); ?>
           </p>
         <?php endif; ?>
 
         <?php if ($title) : ?>
-          <h2 class="o-case-studies__title title__normal">
+          <h2 class="o-case-studies__title title__normal" data-animate="fade-up" data-animate-delay="0.15">
             <?php echo esc_html($title); ?>
           </h2>
         <?php endif; ?>
 
         <?php if (trim($text)) : ?>
-          <div class="o-case-studies__text text__normal">
+          <div class="o-case-studies__text text__normal" data-animate="fade-up" data-animate-delay="0.2">
             <?php echo wpautop(wp_kses_post($text)); ?>
           </div>
         <?php endif; ?>
       </header>
 
       <?php if ($has_items) : ?>
-        <div class="o-case-studies__slider">
+        <div class="o-case-studies__slider" data-animate="fade-up" data-animate-delay="0.25">
 
           <div class="swiper o-case-studies__swiper" data-swiper="case-studies">
             <div class="swiper-wrapper">
@@ -184,7 +184,7 @@ $button_target = $has_button ? (!empty($button['target']) ? $button['target'] : 
       <?php endif; ?>
 
       <?php if ($has_button) : ?>
-        <div class="o-case-studies__cta">
+        <div class="o-case-studies__cta" data-animate="fade-up" data-animate-delay="0.3">
           <a
             class="c-button button button__blue"
             href="<?php echo esc_url($button['url']); ?>"

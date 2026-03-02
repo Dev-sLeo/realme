@@ -23,6 +23,7 @@ import productBenefitsSlider from "./scripts/slider/productBenefitsSlider";
 import casesInfinite from "./scripts/slider/casesInfinite";
 import highlightsCases from "./scripts/slider/highlightsCases";
 import animationBar from "./scripts/animationBar";
+import aboutFeaturesSlider from "./scripts/slider/aboutFeaturesSlider";
 
 window.gsap = gsap;
 
@@ -42,6 +43,7 @@ logoInfinite();
 casesInfinite();
 highlightsCases();
 animationBar();
+aboutFeaturesSlider();
 
 /*
 const reactRoot = document.getElementById("theme-react-root");

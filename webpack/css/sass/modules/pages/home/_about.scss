@@ -25,12 +25,12 @@
   }
 
   .o-about__features {
-    display: grid;
+    //display: grid;
     margin-top: 2.875rem;
 
     @media(min-width: $media-query-desktop-low) {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2.75rem;
+      //grid-template-columns: repeat(4, 1fr);
+      //gap: 2.75rem;
       margin-top: 4.688rem;
     }
 

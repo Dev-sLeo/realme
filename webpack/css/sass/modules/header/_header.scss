@@ -72,6 +72,12 @@
       border: var(--stroke-weight-1, 1px) solid var(--Azul-2-100, #D9DDFE);
       background: #FFF;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+      &:hover {
+        background: var(--Azul-2-500, #4353FA);
+        border-color: var(--Azul-2-500, #4353FA);
+        color: $white;
+      }
     }
 
     .header__desk {

@@ -33,19 +33,19 @@ $secondary_target = $has_secondary ? (!empty($button_secondary['target']) ? $but
     <div class="o-cta-next__container">
       <div class="c-cta-card">
         <?php if ($title) : ?>
-          <h2 class="c-cta-card__title title__normal">
+          <h2 class="c-cta-card__title title__normal" data-animate="fade-up" data-animate-delay="0.1">
             <?php echo esc_html($title); ?>
           </h2>
         <?php endif; ?>
 
         <?php if (trim($text)) : ?>
-          <div class="c-cta-card__text text__normal">
+          <div class="c-cta-card__text text__normal" data-animate="fade-up" data-animate-delay="0.15">
             <?= $text ?>
           </div>
         <?php endif; ?>
 
         <?php if ($has_primary || $has_secondary) : ?>
-          <div class="c-cta-card__actions" role="group" aria-label="Ações">
+          <div class="c-cta-card__actions" role="group" aria-label="Ações" data-animate="fade-up" data-animate-delay="0.2">
             <?php if ($has_primary) : ?>
               <a
                 class="button button__blue c-button--primary"
