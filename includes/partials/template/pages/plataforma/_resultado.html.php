@@ -47,21 +47,21 @@ if (!$has_top && !$has_bottom)
         <div class="o-unifique__content">
 
           <?php if ($sub_titulo !== ''): ?>
-            <div class="o-unifique__subtitle subtitulo"><?= esc_html($sub_titulo); ?></div>
+            <div class="o-unifique__subtitle subtitulo" data-animate="fade-up" data-animate-delay="0.1"><?= esc_html($sub_titulo); ?></div>
           <?php endif; ?>
 
           <?php if ($titulo !== ''): ?>
-            <h2 class="o-unifique__title title__normal"><?= esc_html($titulo); ?></h2>
+            <h2 class="o-unifique__title title__normal" data-animate="fade-up" data-animate-delay="0.2"><?= esc_html($titulo); ?></h2>
           <?php endif; ?>
 
           <?php if ($texto !== ''): ?>
-            <div class="o-unifique__text text__normal">
+            <div class="o-unifique__text text__normal" data-animate="fade-up" data-animate-delay="0.3">
               <?= wpautop(wp_kses_post($texto)); ?>
             </div>
           <?php endif; ?>
 
           <?php if (!empty($lista)): ?>
-            <ul class="o-unifique__list" role="list">
+            <ul class="o-unifique__list" role="list" data-animate="fade-up" data-animate-delay="0.4">
               <?php foreach ($lista as $row):
                 if (!is_array($row))
                   continue;
@@ -83,7 +83,7 @@ if (!$has_top && !$has_bottom)
 
                 if ($pct === 0 && $ltxt === '')
                   continue;
-                ?>
+              ?>
                 <li class="o-unifique__list-item">
                   <?php if ($pct): ?>
                     <strong class="o-unifique__list-pct"><?= esc_html($pct); ?></strong>
@@ -120,7 +120,7 @@ if (!$has_top && !$has_bottom)
           <?php endif; ?>
 
           <?php if ($btn_has): ?>
-            <div class="o-unifique__actions">
+            <div class="o-unifique__actions" data-animate="fade-up" data-animate-delay="0.5">
               <a class="button button__blue" href="<?= esc_url($btn_url); ?>" target="<?= esc_attr($btn_tgt); ?>"
                 <?= $btn_rel ? 'rel="' . esc_attr($btn_rel) . '"' : ''; ?>>
                 <?= esc_html($btn_lbl); ?>
@@ -131,7 +131,7 @@ if (!$has_top && !$has_bottom)
         </div>
 
         <?php if ($img_id): ?>
-          <div class="o-unifique__media">
+          <div class="o-unifique__media" data-animate="fade-up" data-animate-delay="0.6">
             <figure class="o-unifique__figure">
               <?php
               echo wp_get_attachment_image(
@@ -154,7 +154,7 @@ if (!$has_top && !$has_bottom)
     <?php endif; ?>
 
     <?php if ($has_bottom): ?>
-      <div class="o-unifique__bottom">
+      <div class="o-unifique__bottom" data-animate="fade-up" data-animate-delay="0.7">
 
         <?php if ($title_cards !== '' || $description_cards !== ''): ?>
           <div class="o-unifique__bottom-head">
@@ -172,7 +172,7 @@ if (!$has_top && !$has_bottom)
 
         <?php if (!empty($cards)): ?>
           <div class="o-unifique__cards o-unifique__cards--steps" role="list">
-            <?php foreach ($cards as $card):
+            <?php foreach ($cards as $i => $card):
               if (!is_array($card))
                 continue;
 
@@ -184,8 +184,8 @@ if (!$has_top && !$has_bottom)
                 continue;
 
               $num_lbl = $num ? str_pad((string) $num, 2, '0', STR_PAD_LEFT) : '';
-              ?>
-              <article class="c-step o-unifique__card" role="listitem">
+            ?>
+              <article class="c-step o-unifique__card" role="listitem" data-animate="fade-up" data-animate-delay="<?php echo 0.8 + ($i * 0.05); ?>">
                 <div class="c-step__top">
                   <?php if ($num_lbl !== ''): ?>
                     <div class="c-step__number"><?= esc_html($num_lbl); ?></div>

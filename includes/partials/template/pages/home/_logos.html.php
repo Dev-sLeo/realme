@@ -33,11 +33,11 @@ $fallback_logo_url = trailingslashit(get_stylesheet_directory_uri()) . 'public/i
   <div class="s-container">
 
     <?php if ($text) : ?>
-      <h2 class="o-logos__text title__small"><?= $text ?></h2>
+      <h2 class="o-logos__text title__small" data-animate="fade-up" data-animate-delay="0.1"><?= $text ?></h2>
     <?php endif; ?>
 
     <?php if (!empty($items)) : ?>
-      <div class="o-logos__slider">
+      <div class="o-logos__slider" data-animate="fade-up" data-animate-delay="0.1">
         <div class="splide o-logos__swiper" aria-label="logos">
           <div class="splide__track">
             <ul class="splide__list">

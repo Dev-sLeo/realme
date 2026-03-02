@@ -72,23 +72,23 @@ if (!$has_left && !$has_right)
         <div class="o-contact__content">
 
           <?php if ($subtitle !== ''): ?>
-            <div class="o-contact__subtitle subtitulo"><?= esc_html($subtitle); ?></div>
-            <?php
+            <div class="o-contact__subtitle subtitulo" data-animate="fade-up" data-animate-delay="0.1"><?= esc_html($subtitle); ?></div>
+          <?php
           endif; ?>
 
           <?php if ($title !== ''): ?>
-            <h2 class="o-contact__title title__super"><?= esc_html($title); ?></h2>
-            <?php
+            <h2 class="o-contact__title title__super" data-animate="fade-up" data-animate-delay="0.2"><?= esc_html($title); ?></h2>
+          <?php
           endif; ?>
 
           <?php if ($description !== ''): ?>
-            <div class="o-contact__description">
+            <div class="o-contact__description" data-animate="fade-up" data-animate-delay="0.3">
               <?= wpautop(wp_kses_post($description)); ?>
             </div>
-            <?php
+          <?php
           endif; ?>
           <?php if ($desc_icon !== ''): ?>
-            <div class="o-contact__highlight">
+            <div class="o-contact__highlight" data-animate="fade-up" data-animate-delay="0.4">
               <span class="o-contact__highlight-icon" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -102,79 +102,79 @@ if (!$has_left && !$has_right)
                 </svg>
 
               </span>
-              <span class="o-contact__highlight-text"><?= esc_html($desc_icon); ?></span>
+              <span class="o-contact__highlight-text" data-animate="fade-up" data-animate-delay="0.4"><?= esc_html($desc_icon); ?></span>
             </div>
-            <?php
+          <?php
           endif; ?>
 
           <?php if ($title_list !== '' || !empty($lista)): ?>
             <div class="o-contact__list-block">
 
               <?php if ($title_list !== ''): ?>
-                <h3 class="o-contact__list-title"><?= esc_html($title_list); ?></h3>
-                <?php
+                <h3 class="o-contact__list-title" data-animate="fade-up" data-animate-delay="0.5"><?= esc_html($title_list); ?></h3>
+              <?php
               endif; ?>
 
               <?php if (!empty($lista)): ?>
                 <ul class="o-contact__list" role="list">
-                  <?php foreach ($lista as $row):
+                  <?php foreach ($lista as $i => $row):
                     if (!is_array($row))
                       continue;
                     $item = !empty($row['item']) ? (string) $row['item'] : '';
                     if ($item === '')
                       continue;
-                    ?>
-                    <li class="o-contact__list-item">
+                  ?>
+                    <li class="o-contact__list-item" data-animate="fade-up" data-animate-delay="<?php echo 0.6 + ($i * 0.05); ?>">
                       <span class="o-contact__list-icon" aria-hidden="true">
                         <?= $tpl_engine->svg('icons/check'); ?>
                       </span>
                       <span class="o-contact__list-text"><?= esc_html($item); ?></span>
                     </li>
-                    <?php
+                  <?php
                   endforeach; ?>
                 </ul>
-                <?php
+              <?php
               endif; ?>
 
             </div>
-            <?php
+          <?php
           endif; ?>
 
         </div>
-        <?php
+      <?php
       endif; ?>
 
       <?php if ($has_right): ?>
-        <div class="o-contact__aside">
+        <div class="o-contact__aside" data-animate="fade-up" data-animate-delay="0.7">
           <div class="o-contact__form-card">
 
             <?php if ($title_form !== '' || $desc_form !== ''): ?>
               <header class="o-contact__form-head">
                 <?php if ($title_form !== ''): ?>
                   <h3 class="o-contact__form-title"><?= esc_html($title_form); ?></h3>
-                  <?php
+                <?php
                 endif; ?>
 
                 <?php if ($desc_form !== ''): ?>
                   <div class="o-contact__form-desc">
                     <?= wpautop(wp_kses_post($desc_form)); ?>
                   </div>
-                  <?php
+                <?php
                 endif; ?>
               </header>
-              <?php
+            <?php
             endif; ?>
 
             <?php if ($cf7_shortcode !== ''): ?>
               <div class="o-contact__form">
                 <?= do_shortcode($cf7_shortcode); ?>
               </div>
-              <?php
+            <?php
             endif; ?>
 
           </div>
         </div>
-        <?php
+      <?php
       endif; ?>
 
     </div>

@@ -32,14 +32,14 @@ $highlight_description = $highlight['descricao'] ?? '';
           <?php if ($logo):
             $logo_id = is_array($logo) ? ($logo['ID'] ?? null) : $logo;
             if ($logo_id): ?>
-              <div class="c-hero-case__logo">
+              <div class="c-hero-case__logo" data-animate="fade-up" data-animate-delay="0.1">
                 <?php echo wp_get_attachment_image($logo_id, 'full', false, ['class' => 'c-hero-case__logo-img']); ?>
               </div>
           <?php endif;
           endif; ?>
 
           <?php if ($company || $location): ?>
-            <div class="c-hero-case__company">
+            <div class="c-hero-case__company" data-animate="fade-up" data-animate-delay="0.2">
               <?php if ($company): ?>
                 <p class=" c-hero-case__company-name">
                   <?php echo esc_html($company); ?>
@@ -57,7 +57,7 @@ $highlight_description = $highlight['descricao'] ?? '';
         </div>
 
         <?php if ($highlight_text || $highlight_description): ?>
-          <div class="c-hero-case__highlight">
+          <div class="c-hero-case__highlight" data-animate="fade-up" data-animate-delay="0.3">
 
             <div class="c-hero-case__highlight-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52" fill="none">
@@ -88,7 +88,7 @@ $highlight_description = $highlight['descricao'] ?? '';
       </div>
 
       <?php if ($quote || $author || $role || $author_image): ?>
-        <div class="c-hero-case__right">
+        <div class="c-hero-case__right" data-animate="fade-up" data-animate-delay="0.4">
           <div class="c-hero-case__testimonial">
 
             <?php if ($quote): ?>

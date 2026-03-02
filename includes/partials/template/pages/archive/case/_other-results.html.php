@@ -76,14 +76,14 @@ if (!empty($regiao_terms) && !is_wp_error($regiao_terms)) {
 
     <?php if ($titulo): ?>
       <header class="c-archive-cases-results__header">
-        <h2 class="title__normal c-archive-cases-results__title">
+        <h2 class="title__normal c-archive-cases-results__title" data-animate="fade-up" data-animate-delay="0.1">
           <?php echo esc_html($titulo); ?>
         </h2>
       </header>
     <?php endif; ?>
 
     <form class="c-archive-cases-results__filters js-archive-cases-filters" method="get"
-      action="<?php echo esc_url(get_post_type_archive_link($post_type)); ?>">
+      action="<?php echo esc_url(get_post_type_archive_link($post_type)); ?>" data-animate="fade-up" data-animate-delay="0.2">
       <div class="c-archive-cases-results__filters-left" role="tablist"
         aria-label="<?php echo esc_attr__('Filtrar por categoria', 'textdomain'); ?>">
         <button type="button"
@@ -107,7 +107,7 @@ if (!empty($regiao_terms) && !is_wp_error($regiao_terms)) {
         <input type="hidden" name="cat_case" value="<?php echo esc_attr($cat_current); ?>" class="js-cat-input" />
       </div>
 
-      <div class="c-archive-cases-results__filters-right">
+      <div class="c-archive-cases-results__filters-right" data-animate="fade-up" data-animate-delay="0.3">
         <?php
         echo $tpl_engine->partial('components/filters/select', [
           'label' => __('Região', 'textdomain'),
@@ -124,7 +124,7 @@ if (!empty($regiao_terms) && !is_wp_error($regiao_terms)) {
       </div>
     </form>
 
-    <div class="c-archive-cases-results__grid js-archive-cases-grid" aria-live="polite" aria-busy="false">
+    <div class="c-archive-cases-results__grid js-archive-cases-grid" aria-live="polite" aria-busy="false" data-animate="fade-up" data-animate-delay="0.4">
       <?php if ($q->have_posts()): ?>
         <?php while ($q->have_posts()):
           $q->the_post();
@@ -159,19 +159,19 @@ if (!empty($regiao_terms) && !is_wp_error($regiao_terms)) {
 
               <div class="c-archive-cases-results__company">
                 <?php if ($logo_id): ?>
-                  <div class="c-archive-cases-results__logo">
+                  <div class="c-archive-cases-results__logo" data-animate="fade-up" data-animate-delay="0.5">
                     <?php echo wp_get_attachment_image($logo_id, 'thumbnail', false, ['class' => 'c-archive-cases-results__logo-img']); ?>
                   </div>
                 <?php endif; ?>
 
                 <div class="c-archive-cases-results__company-info">
                   <?php if ($company): ?>
-                    <p class="c-archive-cases-results__company-name">
+                    <p class="c-archive-cases-results__company-name" data-animate="fade-up" data-animate-delay="0.6">
                       <?php echo esc_html($company); ?>
                     </p>
                   <?php endif; ?>
                   <?php if ($location): ?>
-                    <p class="c-archive-cases-results__company-location">
+                    <p class="c-archive-cases-results__company-location" data-animate="fade-up" data-animate-delay="0.7">
                       <?php echo esc_html($location); ?>
                     </p>
                   <?php endif; ?>
@@ -179,7 +179,7 @@ if (!empty($regiao_terms) && !is_wp_error($regiao_terms)) {
               </div>
 
               <?php if ($h_text || $h_desc || $h_icon_id): ?>
-                <div class="c-archive-cases-results__highlight">
+                <div class="c-archive-cases-results__highlight" data-animate="fade-up" data-animate-delay="0.8">
 
                   <div class="c-archive-cases-results__highlight-icon" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">

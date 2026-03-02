@@ -23,8 +23,8 @@ if (!empty($res_icon['ID'])) {
 <section class="o-product-how-it-works">
   <div class="s-container">
     <header class="o-product-how-it-works__header">
-      <?php if (!empty($title)) : ?><h2 class="title__normal"><?php echo esc_html($title); ?></h2><?php endif; ?>
-      <?php if (!empty($description)) : ?><div class="text__normal"><?php echo wpautop(wp_kses_post($description)); ?></div><?php endif; ?>
+      <?php if (!empty($title)) : ?><h2 class="title__normal" data-animate="fade-up" data-animate-delay="0.1"><?php echo esc_html($title); ?></h2><?php endif; ?>
+      <?php if (!empty($description)) : ?><div class="text__normal" data-animate="fade-up" data-animate-delay="0.2"><?php echo wpautop(wp_kses_post($description)); ?></div><?php endif; ?>
     </header>
 
     <?php if (!empty($steps)) : ?>
@@ -34,7 +34,7 @@ if (!empty($res_icon['ID'])) {
           $step_text = $step['text'] ?? '';
           $num = str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT);
         ?>
-          <article class="c-step o-como-funciona__card" role="listitem">
+          <article class="c-step o-como-funciona__card" role="listitem" data-animate="fade-up" data-animate-delay="<?php echo 0.3 + ($i * 0.1); ?>s">
             <div class="c-step__top">
               <span class="c-step__number" aria-hidden="true"><?= esc_html($num); ?></span>
 
@@ -60,13 +60,13 @@ if (!empty($res_icon['ID'])) {
     <?php if ($res_title !== '' || $res_number !== '' || $res_desc !== '' || $res_icon_html !== '') : ?>
       <div class="o-product-how-it-works__result">
         <?php if ($res_title !== '') : ?>
-          <div class="o-product-how-it-works__result-title"><?= esc_html($res_title); ?></div>
+          <div class="o-product-how-it-works__result-title" data-animate="fade-up" data-animate-delay="0.1"><?= esc_html($res_title); ?></div>
         <?php endif; ?>
 
 
 
         <?php if ($res_number !== '') : ?>
-          <span class="o-product-how-it-works__result-number">
+          <span class="o-product-how-it-works__result-number" data-animate="fade-up" data-animate-delay="0.2">
             <?php if ($res_icon_html !== '') : ?>
               <span class="o-product-how-it-works__result-icon" aria-hidden="true"><?= $res_icon_html; ?></span>
             <?php endif; ?>
@@ -76,7 +76,7 @@ if (!empty($res_icon['ID'])) {
 
         <div class="o-product-how-it-works__result-body">
           <?php if ($res_desc !== '') : ?>
-            <div class="o-product-how-it-works__result-desc"><?= wpautop(wp_kses_post($res_desc)); ?></div>
+            <div class="o-product-how-it-works__result-desc" data-animate="fade-up" data-animate-delay="0.3"><?= wpautop(wp_kses_post($res_desc)); ?></div>
           <?php endif; ?>
         </div>
       </div>

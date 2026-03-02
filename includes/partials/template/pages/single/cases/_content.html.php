@@ -83,13 +83,13 @@ if ($has_file && !$is_image && !$is_video && empty($file['mime'])) {
     <?php if ($has_header): ?>
       <header class="c-case-content__header">
         <?php if ($title): ?>
-          <h1 class="title__normal c-case-content__title">
+          <h1 class="title__normal c-case-content__title" data-animate="fade-up" data-animate-delay="0.1">
             <?php echo esc_html($title); ?>
           </h1>
         <?php endif; ?>
 
         <?php if ($description): ?>
-          <p class="text__normal c-case-content__description">
+          <p class="text__normal c-case-content__description" data-animate="fade-up" data-animate-delay="0.2">
             <?php echo esc_html($description); ?>
           </p>
         <?php endif; ?>
@@ -97,7 +97,7 @@ if ($has_file && !$is_image && !$is_video && empty($file['mime'])) {
     <?php endif; ?>
 
     <?php if ($has_file): ?>
-      <div class="c-case-content__media">
+      <div class="c-case-content__media" data-animate="fade-up" data-animate-delay="0.3">
         <?php if ($is_video): ?>
           <div class="c-case-content__video">
             <video class="c-case-content__video-el" controls playsinline preload="metadata">
@@ -129,7 +129,7 @@ if ($has_file && !$is_image && !$is_video && empty($file['mime'])) {
       </div>
     <?php endif; ?>
 
-    <div class="c-case-content__grid">
+    <div class="c-case-content__grid" data-animate="fade-up" data-animate-delay="0.4">
 
       <div class="c-case-content__main">
         <?php if ($has_body): ?>
@@ -162,7 +162,7 @@ if ($has_file && !$is_image && !$is_video && empty($file['mime'])) {
       </div>
 
       <?php if ($has_results): ?>
-        <aside class="c-case-content__aside"
+        <aside class="c-case-content__aside" data-animate="fade-up" data-animate-delay="0.5"
           aria-label="<?php echo esc_attr__('Resultados em números', 'textdomain'); ?>">
           <h2 class="c-case-content__aside-title">
             <?php echo esc_html__('Resultados em Números', 'textdomain'); ?>

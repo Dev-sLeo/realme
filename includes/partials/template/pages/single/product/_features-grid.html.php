@@ -16,10 +16,10 @@ if (empty($title) && empty($description) && empty($items)) {
   <header class="o-product-features-grid__header">
     <div class="s-container">
       <?php if (!empty($subtitle)) : ?>
-        <span class="subtitulo"><?php echo esc_html($subtitle); ?></span>
+        <span class="subtitulo" data-animate="fade-up" data-animate-delay="0.1"><?php echo esc_html($subtitle); ?></span>
       <?php endif; ?>
-      <?php if (!empty($title)) : ?><h2 class="title__normal"><?php echo esc_html($title); ?></h2><?php endif; ?>
-      <?php if (!empty($description)) : ?><div class="text__normal"><?php echo wpautop(wp_kses_post($description)); ?></div><?php endif; ?>
+      <?php if (!empty($title)) : ?><h2 class="title__normal" data-animate="fade-up" data-animate-delay="0.2"><?php echo esc_html($title); ?></h2><?php endif; ?>
+      <?php if (!empty($description)) : ?><div class="text__normal" data-animate="fade-up" data-animate-delay="0.3"><?php echo wpautop(wp_kses_post($description)); ?></div><?php endif; ?>
       <div class="o-product-features-grid__scroll" aria-hidden="true">
         <?= $tpl_engine->svg('icons/arrow-down-section'); ?>
       </div>
@@ -37,7 +37,7 @@ if (empty($title) && empty($description) && empty($items)) {
           $link_title = $link['title'] ?? '';
           $target = $link['target'] ?? '_self';
         ?>
-          <article class="o-product-feature-item">
+          <article class="o-product-feature-item" data-animate="fade-up" data-animate-delay="<?php echo 0.4 + ($i * 0.1); ?>s">
             <?php if ($image) : ?><div class="o-product-feature-item__image"><?php echo wp_get_attachment_image($image, 'medium', false, array('loading' => 'lazy')); ?></div><?php endif; ?>
             <?php if (!empty($item_title)) : ?><h3 class="o-product-feature-item__title"><?php echo esc_html($item_title); ?></h3><?php endif; ?>
             <?php if (!empty($item_text)) : ?><div class="o-product-feature-item__text"><?php echo wpautop(wp_kses_post($item_text)); ?></div><?php endif; ?>

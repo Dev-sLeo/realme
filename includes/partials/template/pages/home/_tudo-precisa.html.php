@@ -45,11 +45,11 @@ if (!$has_top && !$has_items) {
     <?php if ($has_top) : ?>
       <header class="o-tudo-precisa__header">
         <?php if ($sub_title !== '') : ?>
-          <div class="o-tudo-precisa__eyebrow subtitulo"><?php echo $sub_title; ?></div>
+          <div class="o-tudo-precisa__eyebrow subtitulo" data-animate="fade-up" data-animate-delay="0.1"><?php echo $sub_title; ?></div>
         <?php endif; ?>
 
         <?php if ($title !== '') : ?>
-          <h2 class="o-tudo-precisa__title title__normal"><?php echo $title; ?></h2>
+          <h2 class="o-tudo-precisa__title title__normal" data-animate="fade-up" data-animate-delay="0.15"><?php echo $title; ?></h2>
         <?php endif; ?>
 
         <?php if ($text !== '') : ?>
@@ -60,7 +60,7 @@ if (!$has_top && !$has_items) {
 
     <?php if ($has_items) : ?>
       <div class="o-tudo-precisa__grid" role="list">
-        <?php foreach ($items as $item) :
+        <?php foreach ($items as $i => $item) :
           if (!is_array($item)) continue;
 
           $it_title = isset($item['title']) ? (string) $item['title'] : '';
@@ -80,7 +80,7 @@ if (!$has_top && !$has_items) {
           $has_card = ($it_title !== '' || $it_text !== '' || $btn_has || $img_id);
           if (!$has_card) continue;
         ?>
-          <article class="c-tudo-card o-tudo-precisa__card" role="listitem">
+          <article class="c-tudo-card o-tudo-precisa__card" role="listitem" data-animate="fade-up" data-animate-delay="<?php echo 0.2 + ($i * 0.05); ?>">
             <div class="c-tudo-card__body">
               <?php if ($it_title !== '') : ?>
                 <h3 class="c-tudo-card__title"><?php echo $it_title; ?></h3>

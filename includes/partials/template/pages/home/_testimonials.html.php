@@ -34,21 +34,21 @@ $svg_next = '<svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="
     <?php if ($has_header) : ?>
       <header class="o-testimonials__header">
         <?php if ($sub_title !== '') : ?>
-          <div class="o-testimonials__subtitle subtitulo"><?php echo $sub_title; ?></div>
+          <div class="o-testimonials__subtitle subtitulo" data-animate="fade-up" data-animate-delay="0.1"><?php echo $sub_title; ?></div>
         <?php endif; ?>
 
         <?php if ($title !== '') : ?>
-          <h2 class="o-testimonials__title title__normal"><?php echo $title; ?></h2>
+          <h2 class="o-testimonials__title title__normal" data-animate="fade-up" data-animate-delay="0.15"><?php echo $title; ?></h2>
         <?php endif; ?>
 
         <?php if ($text !== '') : ?>
-          <div class="o-testimonials__text text__normal"><?php echo $text; ?></div>
+          <div class="o-testimonials__text text__normal" data-animate="fade-up" data-animate-delay="0.2"><?php echo $text; ?></div>
         <?php endif; ?>
       </header>
     <?php endif; ?>
 
     <?php if ($has_terms) : ?>
-      <div class="o-testimonials__filters" role="tablist" aria-label="Filtro de depoimentos">
+      <div class="o-testimonials__filters" role="tablist" aria-label="Filtro de depoimentos" data-animate="fade-up" data-animate-delay="0.25">
         <?php foreach ($terms as $t) : ?>
           <button
             class="c-pill o-testimonials__filter js-filter-btn"

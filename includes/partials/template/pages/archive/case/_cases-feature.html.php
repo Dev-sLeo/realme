@@ -20,12 +20,12 @@ if (!$titulo && (empty($slider) || !is_array($slider))) {
   <div class="s-container">
     <?php if ($titulo): ?>
       <header class="c-cases-destaque__header">
-        <h2 class="title__normal c-cases-destaque__title"><?php echo esc_html($titulo); ?></h2>
+        <h2 class="title__normal c-cases-destaque__title" data-animate="fade-up" data-animate-delay="0.1"><?php echo esc_html($titulo); ?></h2>
       </header>
     <?php endif; ?>
 
     <?php if (!empty($slider) && is_array($slider)): ?>
-      <div class="c-cases-destaque__slider-wrap">
+      <div class="c-cases-destaque__slider-wrap" data-animate="fade-up" data-animate-delay="0.2">
         <div class="swiper c-cases-destaque__slider js-cases-destaque-swiper" data-swiper="cases-destaque">
           <div class="swiper-wrapper">
             <?php foreach ($slider as $item):

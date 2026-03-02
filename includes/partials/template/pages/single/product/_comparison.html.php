@@ -25,12 +25,12 @@ $render_column = function (array $col, string $side = '') {
 ?>
   <article class="o-product-comparison__column<?php echo esc_attr($side_class); ?>">
     <?php if ($title) : ?>
-      <h3><?php echo esc_html($title); ?></h3>
+      <h3 data-animate="fade-up" data-animate-delay="0.1"><?php echo esc_html($title); ?></h3>
     <?php endif; ?>
 
     <?php if (!empty($items)) : ?>
       <ul>
-        <?php foreach ($items as $item) :
+        <?php foreach ($items as $i => $item) :
           if (!is_array($item)) continue;
 
           $text  = isset($item['text']) ? trim((string) $item['text']) : '';
@@ -38,7 +38,7 @@ $render_column = function (array $col, string $side = '') {
 
           if ($text === '') continue;
         ?>
-          <li class="o-product-comparison__item is-<?php echo esc_attr($state); ?>">
+          <li class="o-product-comparison__item is-<?php echo esc_attr($state); ?>" data-animate="fade-up" data-animate-delay="<?php echo 0.2 + ($i * 0.1); ?>s">
 
             <span class="o-product-comparison__icon" aria-hidden="true">
               <?php if ($state === 'positive') : ?>
@@ -80,13 +80,13 @@ $render_column = function (array $col, string $side = '') {
     <?php if ($last_title || $last_desc) : ?>
       <div class="o-product-comparison__last">
         <?php if ($last_title) : ?>
-          <strong class="o-product-comparison__last-title">
+          <strong class="o-product-comparison__last-title" data-animate="fade-up" data-animate-delay="0.1">
             <?php echo esc_html($last_title); ?>
           </strong>
         <?php endif; ?>
 
         <?php if ($last_desc) : ?>
-          <span class="o-product-comparison__last-desc">
+          <span class="o-product-comparison__last-desc" data-animate="fade-up" data-animate-delay="0.2">
             <?php echo esc_html($last_desc); ?>
           </span>
         <?php endif; ?>
@@ -102,22 +102,22 @@ $render_column = function (array $col, string $side = '') {
 
     <header class="o-product-comparison__header">
       <?php if (!empty($data['eyebrown'])) : ?>
-        <span class="subtitulo"><?php echo esc_html($data['eyebrown']); ?></span>
+        <span class="subtitulo" data-animate="fade-up" data-animate-delay="0.1"><?php echo esc_html($data['eyebrown']); ?></span>
       <?php endif; ?>
 
       <?php if (!empty($data['title'])) : ?>
-        <h2 class="title__normal"><?php echo esc_html($data['title']); ?></h2>
+        <h2 class="title__normal" data-animate="fade-up" data-animate-delay="0.2"><?php echo esc_html($data['title']); ?></h2>
       <?php endif; ?>
 
       <?php if (!empty($data['description'])) : ?>
-        <div class="text__normal"><?php echo wpautop(wp_kses_post($data['description'])); ?></div>
+        <div class="text__normal" data-animate="fade-up" data-animate-delay="0.3"><?php echo wpautop(wp_kses_post($data['description'])); ?></div>
       <?php endif; ?>
     </header>
     <div class="o-product-comparison__columns-container">
       <div class="hero-bg">
         <img src="<?= get_stylesheet_directory_uri() ?>/public/image/bg-comparsion.webp" alt="">
       </div>
-      <div class="o-product-comparison__columns">
+      <div class="o-product-comparison__columns" data-animate="fade-up" data-animate-delay="0.4">
         <?php $render_column($left, 'left'); ?>
         <?php $render_column($right, 'right'); ?>
       </div>

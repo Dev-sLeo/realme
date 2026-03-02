@@ -74,12 +74,12 @@ if (!$q->have_posts()) {
 
             <div class="c-more-cases__company">
               <?php if ($logo_id): ?>
-                <div class="c-more-cases__logo">
+                <div class="c-more-cases__logo" data-animate="fade-up" data-animate-delay="0.1">
                   <?php echo wp_get_attachment_image($logo_id, 'thumbnail', false, ['class' => 'c-more-cases__logo-img']); ?>
                 </div>
               <?php endif; ?>
 
-              <div class="c-more-cases__company-info">
+              <div class="c-more-cases__company-info" data-animate="fade-up" data-animate-delay="0.2">
                 <?php if ($company): ?>
                   <p class="c-more-cases__company-name">
                     <?php echo esc_html($company); ?>
@@ -94,7 +94,7 @@ if (!$q->have_posts()) {
             </div>
 
             <?php if ($h_text || $h_desc || $h_icon_id): ?>
-              <div class="c-more-cases__highlight">
+              <div class="c-more-cases__highlight" data-animate="fade-up" data-animate-delay="0.3" aria-label="<?php echo esc_attr__('Destaque do case', 'textdomain'); ?>">
                 <div class="c-more-cases__highlight-icon" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
                     <path d="M29.043 15.304V28.054C29.043 28.714 29.043 29.0441 28.9352 29.3044C28.7914 29.6515 28.5155 29.9274 28.1685 30.0711C27.9081 30.179 27.578 30.179 26.918 30.179C26.2579 30.179 25.9279 30.179 25.6675 30.0711C25.3204 29.9274 25.0446 29.6515 24.9008 29.3044C24.793 29.0441 24.793 28.714 24.793 28.054V15.304C24.793 14.6439 24.793 14.3138 24.9008 14.0535C25.0446 13.7064 25.3204 13.4306 25.6675 13.2868C25.9279 13.179 26.2579 13.179 26.918 13.179C27.578 13.179 27.9081 13.179 28.1685 13.2868C28.5155 13.4306 28.7914 13.7064 28.9352 14.0535C29.043 14.3138 29.043 14.6439 29.043 15.304Z" stroke="#A3D2E0" stroke-width="2.125" stroke-linejoin="round" />
@@ -123,7 +123,7 @@ if (!$q->have_posts()) {
           </div>
 
           <?php if ($t_text): ?>
-            <blockquote class="c-more-cases__quote text__normal">
+            <blockquote class="c-more-cases__quote text__normal" data-animate="fade-up" data-animate-delay="0.4" aria-label="<?php echo esc_attr__('Depoimento', 'textdomain'); ?>">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="21" viewBox="0 0 28 21" fill="none">
                 <path d="M0 21V15.4737C0 13.7953 0.296784 12.0146 0.890351 10.1316C1.50439 8.22807 2.3845 6.3962 3.5307 4.63597C4.69737 2.85526 6.09941 1.30994 7.73684 0L11.6667 3.19298C10.3772 5.03509 9.25146 6.95906 8.28947 8.96491C7.34795 10.9503 6.87719 13.0789 6.87719 15.3509V21H0ZM15.7193 21V15.4737C15.7193 13.7953 16.0161 12.0146 16.6096 10.1316C17.2237 8.22807 18.1038 6.3962 19.25 4.63597C20.4167 2.85526 21.8187 1.30994 23.4561 0L27.386 3.19298C26.0965 5.03509 24.9708 6.95906 24.0088 8.96491C23.0672 10.9503 22.5965 13.0789 22.5965 15.3509V21H15.7193Z" fill="#A3D2E0" />
               </svg>
@@ -132,7 +132,7 @@ if (!$q->have_posts()) {
           <?php endif; ?>
 
           <?php if ($t_author || $t_role || $author_image_id): ?>
-            <div class="c-more-cases__author">
+            <div class="c-more-cases__author" data-animate="fade-up" data-animate-delay="0.5" aria-label="<?php echo esc_attr__('Autor do depoimento', 'textdomain'); ?>">
 
               <?php if ($author_image_id): ?>
                 <div class="c-more-cases__author-photo" aria-hidden="true">
@@ -168,7 +168,7 @@ if (!$q->have_posts()) {
             </div>
           <?php endif; ?>
 
-          <div class="c-more-cases__cta">
+          <div class="c-more-cases__cta" data-animate="fade-up" data-animate-delay="0.6">
             <a class="button button__blue c-more-cases__button" href="<?php echo esc_url($permalink); ?>">
               <?php echo esc_html__('Veja mais', 'textdomain'); ?>
             </a>

@@ -79,7 +79,7 @@ $btn_secondary = $btn_norm($button_secondary);
     <?php if ($has_header): ?>
       <header class="o-como-funciona__header">
         <?php if ($titulo !== ''): ?>
-          <h2 class="o-como-funciona__title title__normal"><?= esc_html($titulo); ?></h2>
+          <h2 class="o-como-funciona__title title__normal" data-animate="fade-up" data-animate-delay="0.1"><?= esc_html($titulo); ?></h2>
         <?php endif; ?>
 
         <?php if ($descricao_html !== ''): ?>
@@ -104,8 +104,8 @@ $btn_secondary = $btn_norm($button_secondary);
 
           $num = str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT);
           $cd_html = $format_p_class($cd, 'text__normal');
-          ?>
-          <article class="c-step o-como-funciona__card" role="listitem">
+        ?>
+          <article class="c-step o-como-funciona__card" role="listitem" data-animate="fade-up" data-animate-delay="<?php echo 0.2 + ($i * 0.05); ?>">
             <div class="c-step__top">
               <span class="c-step__number" aria-hidden="true"><?= esc_html($num); ?></span>
 
@@ -129,7 +129,7 @@ $btn_secondary = $btn_norm($button_secondary);
     <?php endif; ?>
 
     <?php if ($btn_primary || $btn_secondary): ?>
-      <div class="o-como-funciona__actions">
+      <div class="o-como-funciona__actions" data-animate="fade-up" data-animate-delay="<?php echo 0.2 + ($has_cards ? (count($cards) * 0.05) : 0); ?>">
 
         <?php if ($btn_primary): ?>
           <a class="button button__blue" href="<?= esc_url($btn_primary['url']); ?>"

@@ -50,25 +50,25 @@ $art_id = $img_id($art);
 
       <div class="o-hero-product__content">
         <?php if (!empty($badge)): ?>
-          <p class="subtitulo o-hero-product__badge">
+          <p class="subtitulo o-hero-product__badge" aria-label="Badge" role="note" aria-hidden="true" data-animate="fade-up" data-animate-delay="0.1">
             <?php echo esc_html($badge); ?>
           </p>
         <?php endif; ?>
 
         <?php if (!empty($title)): ?>
-          <h1 class="title__super o-hero-product__title">
+          <h1 class="title__super o-hero-product__title" data-animate="fade-up" data-animate-delay="0.2">
             <?php echo esc_html($title); ?>
           </h1>
         <?php endif; ?>
 
         <?php if (!empty($description)): ?>
-          <div class="o-hero-product__text">
+          <div class="o-hero-product__text" data-animate="fade-up" data-animate-delay="0.3">
             <?php echo wpautop(wp_kses_post($description)); ?>
           </div>
         <?php endif; ?>
 
         <?php if (!empty($cta_primary_url) || !empty($cta_secondary_url)): ?>
-          <div class="o-hero-product__ctas" role="group" aria-label="Ações do hero">
+          <div class="o-hero-product__ctas" role="group" aria-label="Ações do hero" data-animate="fade-up" data-animate-delay="0.4">
 
             <?php if (!empty($cta_primary_url) && !empty($cta_primary_title)): ?>
               <a class="button button__blue o-hero-product__cta" href="<?php echo esc_url($cta_primary_url); ?>"
@@ -82,8 +82,8 @@ $art_id = $img_id($art);
         <?php endif; ?>
 
         <?php if (!empty($metrics) && is_array($metrics)): ?>
-          <ul class="o-hero-product__metrics" aria-label="Métricas">
-            <?php foreach ($metrics as $m):
+          <ul class="o-hero-product__metrics" aria-label="Métricas" data-animate="fade-up" data-animate-delay="0.5">
+            <?php foreach ($metrics as $i => $m):
               if (empty($m) || !is_array($m))
                 continue;
 
@@ -95,7 +95,7 @@ $art_id = $img_id($art);
               if (empty($value) && empty($label) && empty($icon_id))
                 continue;
             ?>
-              <li class="c-metric o-hero-product__metric">
+              <li class="c-metric o-hero-product__metric" role="group" aria-label="<?php echo esc_attr($label ?: 'Métrica'); ?>" data-animate="fade-up" data-animate-delay="0.5">
                 <?php if (!empty($icon_id)): ?>
                   <div class="c-metric__icon">
                     <?php echo wp_get_attachment_image($icon_id, 'full', false, array('loading' => 'lazy')); ?>
@@ -122,7 +122,7 @@ $art_id = $img_id($art);
       </div>
 
       <?php if (!empty($art_id)): ?>
-        <div class="o-hero-product__media" aria-hidden="true">
+        <div class="o-hero-product__media" aria-hidden="true" data-animate="fade-up" data-animate-delay="0.6">
           <?php echo wp_get_attachment_image($art_id, 'full', false, array('loading' => 'lazy')); ?>
         </div>
       <?php endif; ?>

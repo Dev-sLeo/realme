@@ -32,21 +32,21 @@ if (!$has_left && !$has_right) {
 
           <header class="o-product-security__header">
             <?php if ($eyebrow !== '') : ?>
-              <span class="o-product-security__eyebrow subtitulo"><?php echo esc_html($eyebrow); ?></span>
+              <span class="o-product-security__eyebrow subtitulo" data-animate="fade-up" data-animate-delay="0.1"><?php echo esc_html($eyebrow); ?></span>
             <?php endif; ?>
 
             <?php if ($title !== '') : ?>
-              <h2 class="o-product-security__title title__normal"><?php echo esc_html($title); ?></h2>
+              <h2 class="o-product-security__title title__normal " data-animate="fade-up" data-animate-delay="0.2"><?php echo esc_html($title); ?></h2>
             <?php endif; ?>
 
             <?php if ($description !== '') : ?>
-              <div class="o-product-security__desc text__normal"><?php echo wpautop(wp_kses_post($description)); ?></div>
+              <div class="o-product-security__desc text__normal" data-animate="fade-up" data-animate-delay="0.3"><?php echo wpautop(wp_kses_post($description)); ?></div>
             <?php endif; ?>
           </header>
 
           <?php if (!empty($bullets)) : ?>
             <div class="o-product-security__bullets" role="list">
-              <?php foreach ($bullets as $bullet) :
+              <?php foreach ($bullets as $i => $bullet) :
                 if (!is_array($bullet)) continue;
 
                 $b_icon = (!empty($bullet['icon']) && is_array($bullet['icon'])) ? $bullet['icon'] : null;
@@ -58,7 +58,7 @@ if (!$has_left && !$has_right) {
                 $b_icon_id  = (!empty($b_icon['ID'])) ? (int) $b_icon['ID'] : 0;
                 $b_icon_alt = (!empty($b_icon['alt'])) ? (string) $b_icon['alt'] : '';
               ?>
-                <div class="c-feature o-product-security__bullet" role="listitem">
+                <div class="c-feature o-product-security__bullet" role="listitem" data-animate="fade-up" data-animate-delay="<?php echo 0.4 + ($i * 0.1); ?>s">
                   <div class="c-feature__header">
                     <?php if ($b_icon_id) : ?>
                       <div class="c-feature__icon o-product-security__bullet-icon">
@@ -97,7 +97,7 @@ if (!$has_left && !$has_right) {
       <?php endif; ?>
 
       <?php if ($has_right) : ?>
-        <div class="o-product-security__media">
+        <div class="o-product-security__media" data-animate="fade-up" data-animate-delay="0.4">
           <figure class="o-product-security__figure">
             <?php
             echo wp_get_attachment_image(

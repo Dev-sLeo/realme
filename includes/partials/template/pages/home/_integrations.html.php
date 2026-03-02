@@ -43,7 +43,7 @@ $button_target = $has_button ? (!empty($button['target']) ? $button['target'] : 
 
       <header class="o-integrations__header">
         <?php if ($sub_titulo) : ?>
-          <p class="o-integrations__eyebrow subtitulo">
+          <p class="o-integrations__eyebrow subtitulo" data-animate="fade-up" data-animate-delay="0.1">
             <?php echo esc_html($sub_titulo); ?>
           </p>
         <?php endif; ?>
@@ -51,20 +51,20 @@ $button_target = $has_button ? (!empty($button['target']) ? $button['target'] : 
         <div class="o-integrations__header-grid">
           <div class="o-integrations__header-left">
             <?php if ($title) : ?>
-              <h2 class="o-integrations__title title__normal">
+              <h2 class="o-integrations__title title__normal" data-animate="fade-up" data-animate-delay="0.15">
                 <?php echo esc_html($title); ?>
               </h2>
             <?php endif; ?>
 
             <?php if (trim($text)) : ?>
-              <div class="o-integrations__text text__normal">
+              <div class="o-integrations__text text__normal" data-animate="fade-up" data-animate-delay="0.2">
                 <?php echo wpautop(wp_kses_post($text)); ?>
               </div>
             <?php endif; ?>
           </div>
 
           <?php if ($text_right) : ?>
-            <div class="o-integrations__header-right">
+            <div class="o-integrations__header-right" data-animate="fade-up" data-animate-delay="0.25">
               <p class="o-integrations__text-right">
                 <?php echo esc_html($text_right); ?>
               </p>
@@ -76,7 +76,7 @@ $button_target = $has_button ? (!empty($button['target']) ? $button['target'] : 
       <?php if ($has_logos) : ?>
         <div
           class="splide o-integrations__splide"
-          aria-label="<?php echo esc_attr($title ?: 'Integrações'); ?>">
+          aria-label="<?php echo esc_attr($title ?: 'Integrações'); ?>" data-animate="fade-up" data-animate-delay="0.3">
           <div class="splide__track">
             <ul class="splide__list">
               <?php foreach ($logos as $row) :
@@ -137,7 +137,7 @@ $button_target = $has_button ? (!empty($button['target']) ? $button['target'] : 
       <?php endif; ?>
 
       <?php if ($description_footer || $has_button) : ?>
-        <footer class="o-integrations__footer">
+        <footer class="o-integrations__footer" data-animate="fade-up" data-animate-delay="0.35">
           <?php if ($description_footer) : ?>
             <div class="o-integrations__footer-left">
               <p class="o-integrations__footer-text">
@@ -155,7 +155,7 @@ $button_target = $has_button ? (!empty($button['target']) ? $button['target'] : 
           <?php endif; ?>
 
           <?php if ($text_right) : ?>
-            <div class="o-integrations__header-right">
+            <div class="o-integrations__header-right" data-animate="fade-up" data-animate-delay="0.4">
               <p class="o-integrations__text-right text__normal">
                 <?php echo esc_html($text_right); ?>
               </p>
@@ -163,7 +163,7 @@ $button_target = $has_button ? (!empty($button['target']) ? $button['target'] : 
           <?php endif; ?>
 
           <?php if ($has_button) : ?>
-            <div class="o-integrations__footer-right">
+            <div class="o-integrations__footer-right" data-animate="fade-up" data-animate-delay="0.45">
               <a
                 class="c-button button button-border__blue"
                 href="<?php echo esc_url($button['url']); ?>"

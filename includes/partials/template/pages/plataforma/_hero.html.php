@@ -37,19 +37,19 @@ $secondary_target = $has_secondary ? (!empty($btn_secondary['target']) ? $btn_se
 
       <div class="o-hero-platform__content">
         <?php if ($titulo) : ?>
-          <h1 class="o-hero-platform__title">
+          <h1 class="o-hero-platform__title" data-animate="fade-up" data-animate-delay="0.1">
             <?php echo esc_html($titulo); ?>
           </h1>
         <?php endif; ?>
 
         <?php if (trim($descricao)) : ?>
-          <div class="o-hero-platform__text">
+          <div class="o-hero-platform__text" data-animate="fade-up" data-animate-delay="0.2">
             <?php echo wpautop(wp_kses_post($descricao)); ?>
           </div>
         <?php endif; ?>
 
         <?php if ($has_primary || $has_secondary) : ?>
-          <div class="o-hero-platform__actions" role="group" aria-label="Ações">
+          <div class="o-hero-platform__actions" role="group" aria-label="Ações" data-animate="fade-up" data-animate-delay="0.3">
             <?php if ($has_primary) : ?>
               <a
                 class="c-button c-button--primary"
@@ -74,7 +74,7 @@ $secondary_target = $has_secondary ? (!empty($btn_secondary['target']) ? $btn_se
       </div>
 
       <?php if ($imagem_id) : ?>
-        <div class="o-hero-platform__media">
+        <div class="o-hero-platform__media" data-animate="fade-up" data-animate-delay="0.4">
           <?php
           echo wp_get_attachment_image(
             $imagem_id,

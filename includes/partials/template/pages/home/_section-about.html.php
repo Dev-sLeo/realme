@@ -33,7 +33,7 @@ if (!$sub_titulo && !$title && !trim($text) && !$image_id && !$has_features) {
 
         <div class="o-about__content">
           <?php if ($sub_titulo) : ?>
-            <p class="o-about__eyebrow subtitulo"><?php echo esc_html($sub_titulo); ?></p>
+            <p class="o-about__eyebrow subtitulo" data-animate="fade-up" data-animate-delay="0.1"><?php echo esc_html($sub_titulo); ?></p>
           <?php endif; ?>
 
           <?php if ($title) : ?>
@@ -41,14 +41,14 @@ if (!$sub_titulo && !$title && !trim($text) && !$image_id && !$has_features) {
           <?php endif; ?>
 
           <?php if (trim($text)) : ?>
-            <div class="o-about__text text__noraml">
+            <div class="o-about__text text__noraml" data-animate="fade-up" data-animate-delay="0.15">
               <?= $text ?>
             </div>
           <?php endif; ?>
         </div>
 
         <?php if ($image_id) : ?>
-          <div class="o-about__media">
+          <div class="o-about__media" data-animate="fade-up" data-animate-delay="0.2">
             <?php
             echo wp_get_attachment_image(
               $image_id,
@@ -66,7 +66,7 @@ if (!$sub_titulo && !$title && !trim($text) && !$image_id && !$has_features) {
       </div>
 
       <?php if ($has_features) : ?>
-        <div class="o-about__features o-about__swiper swiper" data-swiper="about-features" role="region" aria-label="Destaques">
+        <div class="o-about__features o-about__swiper swiper" data-swiper="about-features" role="region" aria-label="Destaques" data-animate="fade-up" data-animate-delay="0.25">
           <div class="swiper-wrapper" role="list">
             <?php foreach ($features as $feature) :
               if (!is_array($feature)) {

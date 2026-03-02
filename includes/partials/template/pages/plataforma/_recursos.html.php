@@ -17,7 +17,7 @@ if (empty($titulo) && empty($descricao) && empty($cards)) return;
     <header class="o-recursos__header">
       <div class="s-container">
         <?php if (!empty($titulo)) : ?>
-          <h2 class="o-recursos__title title__normal" id="recursos-title"><?= esc_html($titulo); ?></h2>
+          <h2 class="o-recursos__title title__normal" id="recursos-title" data-animate="fade-up" data-animate-delay="0.1"><?= esc_html($titulo); ?></h2>
         <?php endif; ?>
 
         <?php if (!empty($descricao)) : ?>
@@ -34,8 +34,8 @@ if (empty($titulo) && empty($descricao) && empty($cards)) return;
 
 
       <?php if (!empty($cards) && is_array($cards)) : ?>
-        <div class="o-recursos__grid">
-          <?php foreach ($cards as $card) : ?>
+        <div class="o-recursos__grid" role="list" data-animate="fade-up" data-animate-delay="0.2">
+          <?php foreach ($cards as $i => $card) : ?>
             <?php
             $img     = $card['imagem'] ?? null;
             $ctitle  = $card['titulo'] ?? '';

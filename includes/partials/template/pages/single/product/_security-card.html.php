@@ -28,19 +28,19 @@ if (!$eyebrown && !$title && !trim($description) && !$has_cards) {
 
       <header class="o-security-cards__header">
         <?php if ($eyebrown) : ?>
-          <p class="o-security-cards__eyebrow subtitulo">
+          <p class="o-security-cards__eyebrow subtitulo" data-animate="fade-up" data-animate-delay="0.1">
             <?php echo esc_html($eyebrown); ?>
           </p>
         <?php endif; ?>
 
         <?php if ($title) : ?>
-          <h2 class="o-security-cards__title title__normal">
+          <h2 class="o-security-cards__title title__normal " data-animate="fade-up" data-animate-delay="0.2">
             <?php echo esc_html($title); ?>
           </h2>
         <?php endif; ?>
 
         <?php if (trim($description)) : ?>
-          <div class="o-security-cards__description text__normal">
+          <div class="o-security-cards__description text__normal" data-animate="fade-up" data-animate-delay="0.3">
             <?php echo wpautop(wp_kses_post($description)); ?>
           </div>
         <?php endif; ?>
@@ -48,7 +48,7 @@ if (!$eyebrown && !$title && !trim($description) && !$has_cards) {
 
       <?php if ($has_cards) : ?>
         <div class="o-security-cards__grid" role="list">
-          <?php foreach ($cards as $card) :
+          <?php foreach ($cards as $i => $card) :
 
             if (!is_array($card)) continue;
 
@@ -66,7 +66,7 @@ if (!$eyebrown && !$title && !trim($description) && !$has_cards) {
             if (is_numeric($icon)) $icon_id = (int) $icon;
 
           ?>
-            <article class="o-security-cards__card" role="listitem">
+            <article class="o-security-cards__card" role="listitem" data-animate="fade-up" data-animate-delay="<?php echo 0.4 + ($i * 0.1); ?>s">
               <?php if ($icon_id) : ?>
                 <div class="o-security-cards__card-icon">
                   <?php echo wp_get_attachment_image($icon_id, 'full', false, [

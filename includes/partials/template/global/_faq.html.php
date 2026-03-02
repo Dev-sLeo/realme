@@ -39,48 +39,46 @@ $has_more = count($chunks) > 1;
 
       <header class="o-faq__header">
         <?php if (!empty($sub_title)) : ?>
-          <p class="o-faq__eyebrow subtitulo"><?= esc_html($sub_title); ?></p>
+          <p class="o-faq__eyebrow subtitulo" data-animate="fade-up" data-animate-delay="0.1"><?= esc_html($sub_title); ?></p>
         <?php endif; ?>
 
         <?php if (!empty($title)) : ?>
-          <h2 class="o-faq__title title__normal" id="faq-title"><?= esc_html($title); ?></h2>
+          <h2 class="o-faq__title title__normal" id="faq-title" data-animate="fade-up" data-animate-delay="0.2"><?= esc_html($title); ?></h2>
         <?php endif; ?>
 
         <?php if (!empty($description)) : ?>
-          <div class="o-faq__description text__normal" ">
-            <?= $description ?>
-          </div>
+          <div class="o-faq__description text__normal" data-animate="fade-up" data-animate-delay="0.3"><?= wpautop(wp_kses_post($description)); ?></div>
         <?php endif; ?>
       </header>
 
       <?php if (!empty($items)) : ?>
-        <div class=" o-faq__content js-faq-list">
-            <?php foreach ($chunks as $i => $chunk_items) : ?>
-              <div class="o-faq__chunk js-faq-chunk" <?= $i > 0 ? 'hidden' : ''; ?>>
-                <?php
-                $tpl_engine->partial(
-                  'components/accordion/accordion',
-                  [
-                    'items' => $chunk_items,
-                  ]
-                );
-                ?>
-              </div>
-            <?php endforeach; ?>
-          </div>
-
-          <?php if ($has_more) : ?>
-            <div class="o-faq__footer" data-animate="fade-up"
-              data-animate-delay="0.3">
-              <button
-                type="button"
-                class="o-faq__button button button-border__blue js-faq-load-more"
-                data-step="5">
-                <span class="c-button__label">Carregar mais</span>
-              </button>
+        <div class=" o-faq__content js-faq-list" data-animate="fade-up" data-animate-delay="0.1">
+          <?php foreach ($chunks as $i => $chunk_items) : ?>
+            <div class="o-faq__chunk js-faq-chunk" <?= $i > 0 ? 'hidden' : ''; ?>>
+              <?php
+              $tpl_engine->partial(
+                'components/accordion/accordion',
+                [
+                  'items' => $chunk_items,
+                ]
+              );
+              ?>
             </div>
-          <?php endif; ?>
+          <?php endforeach; ?>
+        </div>
+
+        <?php if ($has_more) : ?>
+          <div class="o-faq__footer" data-animate="fade-up"
+            data-animate-delay="0.3">
+            <button
+              type="button"
+              class="o-faq__button button button-border__blue js-faq-load-more"
+              data-step="5">
+              <span class="c-button__label">Carregar mais</span>
+            </button>
+          </div>
         <?php endif; ?>
+      <?php endif; ?>
 
     </div>
   </div>

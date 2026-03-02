@@ -60,7 +60,7 @@ $uid = 'pq-' . wp_generate_uuid4();
     <?php if ($has_header): ?>
       <header class="o-por-que-nos__header">
         <?php if ($sub_titulo !== ''): ?>
-          <div class="o-por-que-nos__subtitle subtitulo">
+          <div class="o-por-que-nos__subtitle subtitulo" data-animate="fade-up" data-animate-delay="0.1">
             <?= esc_html($sub_titulo); ?>
           </div>
         <?php endif; ?>
@@ -72,7 +72,7 @@ $uid = 'pq-' . wp_generate_uuid4();
     <div class="o-por-que-nos__wrap" data-tabs-root="<?= esc_attr($uid); ?>">
       <div class="o-por-que-nos__wrap-header">
         <?php if ($titulo !== ''): ?>
-          <h2 class="o-por-que-nos__title title__normal">
+          <h2 class="o-por-que-nos__title title__normal" data-animate="fade-up" data-animate-delay="0.1">
             <?= esc_html($titulo); ?>
           </h2>
         <?php endif; ?>
@@ -87,14 +87,15 @@ $uid = 'pq-' . wp_generate_uuid4();
             <button class="o-por-que-nos__tab<?= $is_active ? ' is-active' : ''; ?>" type="button" role="tab"
               id="<?= esc_attr($tab_id); ?>" aria-controls="<?= esc_attr($panel_id); ?>"
               aria-selected="<?= $is_active ? 'true' : 'false'; ?>" tabindex="<?= $is_active ? '0' : '-1'; ?>"
-              data-tab="<?= esc_attr($i); ?>">
+              data-tab="<?= esc_attr($i); ?>" data-animate="fade-up" data-animate-delay="<?php echo 0.2 + ($i * 0.05); ?>">
               <?= esc_html($label); ?>
             </button>
           <?php endforeach; ?>
         </div>
       </div>
 
-      <div class="o-por-que-nos__panels">
+      <div class="o-por-que-nos__panels" role="presentation" data-animate="fade-up" data-animate-delay="0.25">
+         <?php
         <?php foreach ($tabs as $i => $tab):
           $is_active = ($i === 0);
           $tab_id = $uid . '-tab-' . $i;

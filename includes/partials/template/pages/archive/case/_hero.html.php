@@ -23,15 +23,15 @@ if (!$subtitulo && !$titulo && !$descricao && (empty($cases) || !is_array($cases
   <div class="s-container">
     <?php if ($subtitulo || $titulo || $descricao): ?>
       <header class="c-archive-cases-hero__header">
-        <?php if ($subtitulo): ?><p class="subtitulo c-archive-cases-hero__subtitulo"><?php echo esc_html($subtitulo); ?></p><?php endif; ?>
-        <?php if ($titulo): ?><h1 class="title__super c-archive-cases-hero__title"><?php echo esc_html($titulo); ?></h1><?php endif; ?>
-        <?php if ($descricao): ?><p class="text__normal c-archive-cases-hero__description"><?php echo esc_html($descricao); ?></p><?php endif; ?>
+        <?php if ($subtitulo): ?><p class="subtitulo c-archive-cases-hero__subtitulo" data-animate="fade-up" data-animate-delay="0.1"><?php echo esc_html($subtitulo); ?></p><?php endif; ?>
+        <?php if ($titulo): ?><h1 class="title__super c-archive-cases-hero__title" data-animate="fade-up" data-animate-delay="0.2"><?php echo esc_html($titulo); ?></h1><?php endif; ?>
+        <?php if ($descricao): ?><p class="text__normal c-archive-cases-hero__description" data-animate="fade-up" data-animate-delay="0.3"><?php echo esc_html($descricao); ?></p><?php endif; ?>
       </header>
     <?php endif; ?>
   </div>
 
   <?php if (!empty($cases) && is_array($cases)): ?>
-    <div class="c-archive-cases-hero__slider">
+    <div class="c-archive-cases-hero__slider" data-animate="fade-up" data-animate-delay="0.4">
       <div class="splide c-archive-cases-hero__splide js-archive-cases-hero-splide">
         <div class="splide__track">
           <ul class="splide__list">
