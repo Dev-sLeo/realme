@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 (function () {
     const bars = document.querySelectorAll(".js-stat-bar");
-
+    if (bars.length === 0) return;
     bars.forEach((bar) => {
         if (bar.dataset.initialized === "true") return;
         bar.dataset.initialized = "true";
