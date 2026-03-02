@@ -297,6 +297,27 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_69a5f4bc509a7",
+                    "label": "Type Color",
+                    "name": "type_color",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Escolha entre tipo 1 e tipo 2",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui_on_text": "Tipo 1",
+                    "ui_off_text": "Tipo 2",
+                    "ui": 1
+                },
+                {
                     "key": "field_698a705bfe6b1",
                     "label": "Background",
                     "name": "background",
@@ -878,5 +899,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772479410
+    "modified": 1772483822
 }

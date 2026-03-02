@@ -384,6 +384,9 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 
 	private function render_banner_case(array $banner_case): string
 	{
+		$type_color = !empty($banner_case['type_color']);
+		$case_class = $type_color ? 'c-mega__case--alt' : 'c-mega__case--default';
+
 		$bg    = $banner_case['background'] ?? null;
 		$logo  = $banner_case['logo'] ?? null;
 		$t     = $banner_case['titulo'] ?? '';
@@ -398,7 +401,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		$estat_num  = $estat['numero'] ?? '';
 		$estat_desc = $estat['descricao'] ?? '';
 
-		$out  = "<div class='c-mega__case'>";
+		$out  = "<div class='c-mega__case {$case_class}'>";
 
 		if ($bg_html) {
 			$out .= "<div class='c-mega__case-bg'>{$bg_html}";

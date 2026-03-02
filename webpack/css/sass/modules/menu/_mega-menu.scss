@@ -295,6 +295,23 @@
             /* 142.857% */
             max-width: max-content;
           }
+
+          &.c-mega__case--alt {
+            .c-mega__case-stat {
+              border-radius: 5.674px;
+              background: rgba(17, 30, 71, 0.30);
+              border: none;
+
+            }
+
+            .c-mega__case-stat-num {
+              color: $white;
+            }
+
+            .c-mega__case-stat-desc {
+              color: rgba(255, 255, 255, 0.60);
+            }
+          }
         }
 
         .c-mega__list-groups {
