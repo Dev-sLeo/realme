@@ -137,4 +137,19 @@
     }
   }
 
+  .o-product-stat__bar {
+    background: var(--preto-200, #a0a5b5);
+    height: 16px;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 1rem;
+    overflow: hidden;
+
+    .o-product-stat__bar-value {
+      background: var(--Azul-2-500, #4353FA);
+      height: 100%;
+      display: block;
+    }
+  }
+
 }

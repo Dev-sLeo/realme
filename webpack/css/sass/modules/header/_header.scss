@@ -95,6 +95,9 @@
     }
 
     .logo {
+      position: relative;
+      z-index: 9;
+
       @media(min-width: 1280px) {
         flex: 172px 0 0;
       }

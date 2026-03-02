@@ -813,7 +813,8 @@
                                 "id": ""
                             },
                             "post_type": [
-                                "cliente"
+                                "cliente",
+                                "case"
                             ],
                             "post_status": "",
                             "taxonomy": "",
@@ -860,5 +861,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771928903
+    "modified": 1772447606
 }

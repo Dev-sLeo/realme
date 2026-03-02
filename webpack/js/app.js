@@ -22,6 +22,7 @@ import initCasesLayouts from "./scripts/casesLayouts";
 import productBenefitsSlider from "./scripts/slider/productBenefitsSlider";
 import casesInfinite from "./scripts/slider/casesInfinite";
 import highlightsCases from "./scripts/slider/highlightsCases";
+import animationBar from "./scripts/animationBar";
 
 window.gsap = gsap;
 
@@ -40,6 +41,7 @@ initCasesLayouts();
 logoInfinite();
 casesInfinite();
 highlightsCases();
+animationBar();
 
 /*
 const reactRoot = document.getElementById("theme-react-root");

@@ -61,8 +61,8 @@ Para aplicar as animações globais, use o atributo `data-animate` no elemento. 
 <section
   class="o-hero"
   data-animate="fade-up"
-  data-animate-duration="0.9"
   data-animate-delay="0.1"
+  data-animate-duration="0.9"
   data-animate-distance="32"
   data-animate-ease="power3.out"
   data-animate-threshold="0.15"

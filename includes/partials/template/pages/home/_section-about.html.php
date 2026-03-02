@@ -52,7 +52,7 @@ if (!$sub_titulo && !$title && !trim($text) && !$image_id && !$has_features) {
             <?php
             echo wp_get_attachment_image(
               $image_id,
-              'large',
+              'full',
               false,
               array(
                 'class'   => 'o-about__image',

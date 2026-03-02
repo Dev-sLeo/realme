@@ -35,7 +35,11 @@ $stats = is_array($data['stats'] ?? null) ? $data['stats'] : array();
           <div class="o-product-stat">
             <?php if (!empty($stat['value'])) : ?><strong class="o-product-stat__value"><?php echo esc_html($stat['value']); ?></strong><?php endif; ?>
             <?php if (!empty($stat['label'])) : ?><span class="o-product-stat__label"><?php echo esc_html($stat['label']); ?></span><?php endif; ?>
-            <?php if (!empty($stat['note'])) : ?><span class="o-product-stat__note"><?php echo esc_html($stat['note']); ?></span><?php endif; ?>
+            <?php if (!empty($stat['value'])) : ?>
+              <div class="o-product-stat__bar js-stat-bar" data-value="<?php echo esc_attr($stat['value']); ?>">
+                <span class="o-product-stat__bar-value" style="width: <?php echo esc_attr($stat['value']); ?>;"></span>
+              </div>
+            <?php endif; ?>
           </div>
         <?php endforeach; ?>
       </div>
