@@ -83,7 +83,7 @@ $uid = 'pq-' . wp_generate_uuid4();
             $tab_id = $uid . '-tab-' . $i;
             $panel_id = $uid . '-panel-' . $i;
             $label = ($tab['title'] !== '') ? $tab['title'] : ('Opção ' . ($i + 1));
-            ?>
+          ?>
             <button class="o-por-que-nos__tab<?= $is_active ? ' is-active' : ''; ?>" type="button" role="tab"
               id="<?= esc_attr($tab_id); ?>" aria-controls="<?= esc_attr($panel_id); ?>"
               aria-selected="<?= $is_active ? 'true' : 'false'; ?>" tabindex="<?= $is_active ? '0' : '-1'; ?>"
@@ -95,12 +95,11 @@ $uid = 'pq-' . wp_generate_uuid4();
       </div>
 
       <div class="o-por-que-nos__panels" role="presentation" data-animate="fade-up" data-animate-delay="0.25">
-         <?php
         <?php foreach ($tabs as $i => $tab):
           $is_active = ($i === 0);
           $tab_id = $uid . '-tab-' . $i;
           $panel_id = $uid . '-panel-' . $i;
-          ?>
+        ?>
           <div class="o-por-que-nos__panel<?= $is_active ? ' is-active' : ''; ?>" role="tabpanel"
             id="<?= esc_attr($panel_id); ?>" aria-labelledby="<?= esc_attr($tab_id); ?>" <?= $is_active ? '' : 'hidden'; ?>
             data-panel="
@@ -130,7 +129,7 @@ $uid = 'pq-' . wp_generate_uuid4();
 </section>
 
 <script>
-  (function () {
+  (function() {
     var root = document.querySelector('[data-tabs-root="<?= esc_js($uid); ?>"]');
     if (!root) return;
 
@@ -138,7 +137,7 @@ $uid = 'pq-' . wp_generate_uuid4();
     var panels = root.querySelectorAll('[role="tabpanel"]');
 
     function activate(index, focusTab) {
-      tabs.forEach(function (t, i) {
+      tabs.forEach(function(t, i) {
         var active = i === index;
         t.classList.toggle('is-active', active);
         t.setAttribute('aria-selected', active ? 'true' : 'false');
@@ -146,7 +145,7 @@ $uid = 'pq-' . wp_generate_uuid4();
         if (focusTab && active) t.focus();
       });
 
-      panels.forEach(function (p, i) {
+      panels.forEach(function(p, i) {
         var active = i === index;
         p.classList.toggle('is-active', active);
         if (active) p.removeAttribute('hidden');
@@ -154,13 +153,13 @@ $uid = 'pq-' . wp_generate_uuid4();
       });
     }
 
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
         var idx = parseInt(tab.getAttribute('data-tab') || '0', 10);
         activate(idx, false);
       });
 
-      tab.addEventListener('keydown', function (e) {
+      tab.addEventListener('keydown', function(e) {
         var current = Array.prototype.indexOf.call(tabs, tab);
         if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
           e.preventDefault();
@@ -170,8 +169,14 @@ $uid = 'pq-' . wp_generate_uuid4();
           e.preventDefault();
           activate((current - 1 + tabs.length) % tabs.length, true);
         }
-        if (e.key === 'Home') { e.preventDefault(); activate(0, true); }
-        if (e.key === 'End') { e.preventDefault(); activate(tabs.length - 1, true); }
+        if (e.key === 'Home') {
+          e.preventDefault();
+          activate(0, true);
+        }
+        if (e.key === 'End') {
+          e.preventDefault();
+          activate(tabs.length - 1, true);
+        }
       });
     });
   })();

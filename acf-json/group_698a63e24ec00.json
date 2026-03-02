@@ -813,8 +813,7 @@
                                 "id": ""
                             },
                             "post_type": [
-                                "cliente",
-                                "case"
+                                "cliente"
                             ],
                             "post_status": "",
                             "taxonomy": "",
@@ -825,6 +824,24 @@
                             "bidirectional": 0,
                             "ui": 1,
                             "bidirectional_target": [],
+                            "parent_repeater": "field_699d7ba3f843e"
+                        },
+                        {
+                            "key": "field_69a5e2eca6dba",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "allow_in_bindings": 0,
                             "parent_repeater": "field_699d7ba3f843e"
                         }
                     ]
@@ -861,5 +878,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772447606
+    "modified": 1772479410
 }

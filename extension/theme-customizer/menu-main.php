@@ -706,14 +706,37 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 				$resumo = is_string($ex) ? $ex : '';
 			}
 
-			$url = get_permalink($post_id);
-			$target = '';
+			$url = (string) get_permalink($post_id);
+			$target_attr = '';
+			$rel_attr = '';
 
-			$link_cliente = function_exists('get_field') ? get_field('link_cliente', $post_id) : null;
-			if (is_array($link_cliente) && !empty($link_cliente['url'])) {
-				$url = (string) $link_cliente['url'];
-				if (!empty($link_cliente['target'])) {
-					$target = ' target="' . esc_attr($link_cliente['target']) . '"';
+			$link_row = $row['link'] ?? null;
+			$link_url = '';
+			$link_target = '';
+
+			if (is_string($link_row)) {
+				$link_row = trim($link_row);
+				if ($link_row !== '') $link_url = $link_row;
+			} elseif (is_array($link_row) && !empty($link_row['url'])) {
+				$link_url = (string) $link_row['url'];
+				$link_target = !empty($link_row['target']) ? (string) $link_row['target'] : '';
+			}
+
+			if ($link_url === '') {
+				$link_cliente = function_exists('get_field') ? get_field('link_cliente', $post_id) : null;
+				if (is_array($link_cliente) && !empty($link_cliente['url'])) {
+					$link_url = (string) $link_cliente['url'];
+					$link_target = !empty($link_cliente['target']) ? (string) $link_cliente['target'] : '';
+				}
+			}
+
+			if ($link_url !== '') {
+				$url = $link_url;
+				if ($link_target !== '') {
+					$target_attr = ' target="' . esc_attr($link_target) . '"';
+					if ($link_target === '_blank') {
+						$rel_attr = ' rel="noopener"';
+					}
 				}
 			}
 
@@ -724,7 +747,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 			$card .= $resumo ? "<div class='c-mega__client-card-desc'>" . esc_html($resumo) . "</div>" : "";
 			$card .= "</div>";
 			$card .= "<div class='c-mega__client-card-actions'>";
-			$card .= "<a class='button button-border__blue' onfocus='blur();' href='" . esc_url($url) . "'{$target}><span>" . esc_html__('Saiba mais', 'textdomain') . "</span></a>";
+			$card .= "<a class='button button-border__blue' onfocus='blur();' href='" . esc_url($url) . "'{$target_attr}{$rel_attr}><span>" . esc_html__('Saiba mais', 'textdomain') . "</span></a>";
 			$card .= "</div>";
 			$card .= "</div>";
 
