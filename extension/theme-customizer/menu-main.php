@@ -654,8 +654,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		$title     = (string) ($cfg['title'] ?? '');
 		$desc      = (string) ($cfg['description'] ?? '');
 		$btn       = (!empty($cfg['button']) && is_array($cfg['button'])) ? $cfg['button'] : null;
-
-		$rows = (array) ($cfg['itens'] ?? []);
+		$rows      = (array) ($cfg['itens'] ?? []);
 
 		if (!$icon_html && $title === '' && $desc === '' && empty($btn) && empty($rows)) return '';
 
@@ -673,8 +672,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 			$out .= $this->render_link_button($btn, "button button__blue");
 			$out .= "</div>";
 		}
-		$out .= "</div>";
-		$out .= "</div>";
+		$out .= "</div></div>";
 
 		$cards = [];
 		$count = 0;
@@ -693,11 +691,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 			$count++;
 			if ($count > 3) break;
 
-			$thumb = get_the_post_thumbnail($post_id, 'full', [
-				'loading'  => 'lazy',
-				'decoding' => 'async',
-			]);
-
+			$thumb   = get_the_post_thumbnail($post_id, 'full', ['loading' => 'lazy', 'decoding' => 'async']);
 			$p_title = (string) get_the_title($post_id);
 
 			$resumo = function_exists('get_field') ? (string) get_field('resumo', $post_id) : '';
@@ -706,7 +700,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 				$resumo = is_string($ex) ? $ex : '';
 			}
 
-			$url = get_the_permalink($post_id);
+			$url = '';
 			$target_attr = '';
 			$rel_attr = '';
 
@@ -735,9 +729,13 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 			$card .= $p_title ? "<div class='c-mega__client-card-title'>" . esc_html($p_title) . "</div>" : "";
 			$card .= $resumo ? "<div class='c-mega__client-card-desc'>" . esc_html($resumo) . "</div>" : "";
 			$card .= "</div>";
-			$card .= "<div class='c-mega__client-card-actions'>";
-			$card .= "<a class='button button-border__blue' onfocus='blur();' href='" . esc_url($url) . "'{$target_attr}{$rel_attr}><span>" . esc_html__('Saiba mais', 'textdomain') . "</span></a>";
-			$card .= "</div>";
+
+			if ($url !== '') {
+				$card .= "<div class='c-mega__client-card-actions'>";
+				$card .= "<a class='button button-border__blue' href='" . esc_url($url) . "'{$target_attr}{$rel_attr}><span>" . esc_html__('Saiba mais', 'textdomain') . "</span></a>";
+				$card .= "</div>";
+			}
+
 			$card .= "</div>";
 
 			$cards[] = $card;
