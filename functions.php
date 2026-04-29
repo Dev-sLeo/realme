@@ -125,10 +125,8 @@ function gpi_theme_setup()
 {
   register_nav_menus(array(
     'header' => 'Header Menu principal',
+    'mobile' => 'Mobile Menu',
     'footer' => 'Footer Menu',
-    'footer2' => __('Footer Menu 2', 'theme'),
-    'footer3' => __('Footer Menu 3', 'theme'),
-    'footer4' => __('Footer Menu 4', 'theme'),
   ));
 }
 
@@ -328,13 +326,7 @@ if (!function_exists('convida_render_stars')) {
         </svg>
       <?php endfor; ?>
     </div>
-  <?php
+<?php
     return ob_get_clean();
   }
 }
-
-
-
-
-
-

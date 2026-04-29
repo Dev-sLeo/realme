@@ -10,10 +10,25 @@ export default function () {
     const close = menu.querySelector(".close-icon");
     const mobileButton = menu.querySelector(".menu-mobile .button");
 
+    const closeAllPanels = () => {
+        const opened = menu.querySelectorAll(".is-open");
+        opened.forEach((el) => el.classList.remove("is-open"));
+
+        const toggles = menu.querySelectorAll(
+            ".c-main-menu__toggle[aria-expanded='true']",
+        );
+        toggles.forEach((t) => t.setAttribute("aria-expanded", "false"));
+
+        const subpanels = menu.querySelectorAll("[data-subpanel-body]");
+        subpanels.forEach((p) => {
+            p.style.display = "none";
+        });
+    };
+
     const setMenuOpen = (open) => {
         menu.classList.toggle("active", open);
         body.style.overflow = open ? "hidden" : "auto";
-        if (!open) closeAllSubmenus();
+        if (!open) closeAllPanels();
     };
 
     const toggleMenu = () => setMenuOpen(!menu.classList.contains("active"));
@@ -23,64 +38,78 @@ export default function () {
     if (mobileButton)
         mobileButton.addEventListener("click", () => setMenuOpen(false));
 
-    const subMenus = menu.querySelectorAll(".menu-item-has-children");
+    const getPanelFromToggle = (toggle) => {
+        const subpanelId = toggle.getAttribute("data-subpanel");
+        if (subpanelId) {
+            return menu.querySelector(
+                `[data-subpanel-body="${CSS.escape(subpanelId)}"]`,
+            );
+        }
 
-    const getToggle = (li) => li.querySelector(".c-main-menu__toggle");
-    const getDropdown = (li) =>
-        li.querySelector(".c-main-menu__dropdown, .c-submenu-trigger-wrapper");
+        const li = toggle.closest("li");
+        if (!li) return null;
 
-    const closeSubmenu = (li) => {
-        li.classList.remove("is-open");
-        const t = getToggle(li);
-        if (t) t.setAttribute("aria-expanded", "false");
-
-        const dd = getDropdown(li);
-        if (dd) dd.classList.remove("is-open");
+        return li.querySelector(
+            ".c-main-menu__dropdown, .c-submenu-trigger-wrapper, .c-main-menu__sub-sub-menu",
+        );
     };
 
-    const openSubmenu = (li) => {
-        li.classList.add("is-open");
-        const t = getToggle(li);
-        if (t) t.setAttribute("aria-expanded", "true");
+    const closeSiblings = (toggle) => {
+        const li = toggle.closest("li");
+        if (!li) return;
 
-        const dd = getDropdown(li);
-        if (dd) dd.classList.add("is-open");
-    };
+        const parentList = li.parentElement;
+        if (!parentList) return;
 
-    const closeAllSubmenus = () => {
-        subMenus.forEach(closeSubmenu);
-    };
+        const siblingToggles = parentList.querySelectorAll(
+            ":scope > li > .c-main-menu__item-head > .c-main-menu__toggle, :scope > li > .c-main-menu__toggle",
+        );
+        siblingToggles.forEach((t) => {
+            if (t === toggle) return;
 
-    subMenus.forEach((li) => {
-        const toggle = getToggle(li);
-        const dropdown = getDropdown(li);
+            const sibLi = t.closest("li");
+            if (sibLi) sibLi.classList.remove("is-open");
+            t.setAttribute("aria-expanded", "false");
 
-        // se não tem toggle ou dropdown, ignora
-        if (!toggle || !dropdown) return;
-
-        toggle.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const isOpen = li.classList.contains("is-open");
-
-            // accordion: fecha os outros
-            subMenus.forEach((other) => {
-                if (other !== li) closeSubmenu(other);
-            });
-
-            // toggle atual
-            if (isOpen) {
-                closeSubmenu(li);
-            } else {
-                openSubmenu(li);
+            const panel = getPanelFromToggle(t);
+            if (panel) {
+                panel.classList.remove("is-open");
+                if (panel.hasAttribute("data-subpanel-body"))
+                    panel.style.display = "none";
             }
         });
-    });
+    };
 
-    // Opcional: clique fora fecha submenus (se quiser, descomente)
-    // menu.addEventListener("click", (e) => {
-    //   const clickedInsideSubmenu = e.target.closest(".menu-item-has-children");
-    //   if (!clickedInsideSubmenu) closeAllSubmenus();
-    // });
+    menu.addEventListener("click", (e) => {
+        const toggle = e.target.closest(".c-main-menu__toggle");
+        if (!toggle) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const panel = getPanelFromToggle(toggle);
+        if (!panel) return;
+
+        const li = toggle.closest("li");
+        if (!li) return;
+
+        const isOpen = li.classList.contains("is-open");
+
+        closeSiblings(toggle);
+
+        if (isOpen) {
+            li.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
+            panel.classList.remove("is-open");
+            if (panel.hasAttribute("data-subpanel-body"))
+                panel.style.display = "none";
+            return;
+        }
+
+        li.classList.add("is-open");
+        toggle.setAttribute("aria-expanded", "true");
+        panel.classList.add("is-open");
+        if (panel.hasAttribute("data-subpanel-body"))
+            panel.style.display = "block";
+    });
 }

@@ -23,10 +23,16 @@
     }
   }
 
+  .swiper-wrapper {
+    align-items: stretch;
+    height: auto;
+  }
+
 
   .o-product-benefits__slide {
     padding: 4.313rem 2.5rem 2.5rem;
     border-bottom: 1px solid #D0D5E3;
+    height: auto;
 
     @media(min-width: $media-query-desktop-low) {
       border-right: 1px solid #D0D5E3;

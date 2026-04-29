@@ -2,7 +2,7 @@
 <?php
 
 $main_menu = wp_nav_menu(array(
-  'theme_location' => 'header',
+  'theme_location' => 'mobile',
   'depth'          => 3,
   'container'      => '',
   'menu_class'     => 'c-main-menu__list',

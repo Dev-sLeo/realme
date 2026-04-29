@@ -1,3 +1,4 @@
+<?php global $tpl_engine; ?>
 <?php
 
 /**
@@ -17,10 +18,10 @@ $text       = isset($data['text']) ? (string) $data['text'] : '';
 $image = isset($data['image']) ? $data['image'] : null;
 $image_id = is_array($image) && !empty($image['ID']) ? (int) $image['ID'] : 0;
 
-$features = (isset($data['features']) && is_array($data['features'])) ? $data['features'] : [];
-$has_features = !empty($features);
+$cards = (isset($data['cards']) && is_array($data['cards'])) ? $data['cards'] : [];
+$has_cards = !empty($cards);
 
-if (!$sub_titulo && !$title && !trim($text) && !$image_id && !$has_features) {
+if (!$sub_titulo && !$title && !trim($text) && !$image_id && !$has_cards) {
   return;
 }
 ?>
@@ -65,55 +66,26 @@ if (!$sub_titulo && !$title && !trim($text) && !$image_id && !$has_features) {
 
       </div>
 
-      <?php if ($has_features) : ?>
-        <div class="o-about__features o-about__swiper swiper" data-swiper="about-features" role="region" aria-label="Destaques" data-animate="fade-up" data-animate-delay="0.25">
-          <div class="swiper-wrapper" role="list">
-            <?php foreach ($features as $feature) :
-              if (!is_array($feature)) {
-                continue;
-              }
-
-              $f_icon = isset($feature['icon']) ? $feature['icon'] : null;
-              $f_icon_id = is_array($f_icon) && !empty($f_icon['ID']) ? (int) $f_icon['ID'] : 0;
-
-              $f_title = isset($feature['title']) ? trim((string) $feature['title']) : '';
-              $f_text  = isset($feature['text']) ? (string) $feature['text'] : '';
-
-              if (!$f_icon_id && !$f_title && !trim($f_text)) {
-                continue;
-              }
-            ?>
-              <div class="swiper-slide" role="listitem">
-                <div class="c-feature">
-                  <?php if ($f_icon_id) : ?>
-                    <div class="c-feature__icon" aria-hidden="true">
-                      <?php
-                      echo wp_get_attachment_image(
-                        $f_icon_id,
-                        'thumbnail',
-                        false,
-                        array('class' => 'c-feature__icon-img', 'loading' => 'lazy')
-                      );
-                      ?>
-                    </div>
-                  <?php endif; ?>
-
-                  <div class="c-feature__body">
-                    <?php if ($f_title) : ?>
-                      <h3 class="c-feature__title"><?php echo esc_html($f_title); ?></h3>
-                    <?php endif; ?>
-
-                    <?php if (trim($f_text)) : ?>
-                      <div class="c-feature__text">
-                        <?php echo wpautop(wp_kses_post($f_text)); ?>
-                      </div>
-                    <?php endif; ?>
-
-                    <a href="" class="button button-border__blue">Veja mais</a>
-                  </div>
-                </div>
-              </div>
-            <?php endforeach; ?>
+      <?php if ($has_cards) : ?>
+        <div class="o-product-benefits__slider" data-animate="fade-up" data-animate-delay="0.4">
+          <div class="swiper o-product-benefits__swiper" data-swiper="product-benefits">
+            <div class="swiper-wrapper">
+              <?php foreach ($cards as $card) :
+                $tpl_engine->partial('components/cards/benefits-slide', [
+                  'vars' => [
+                    'image' => $card['image'] ?? null,
+                    'title' => $card['title'] ?? '',
+                    'text'  => $card['text'] ?? '',
+                    'list'  => $card['list'] ?? [],
+                    'cta'   => $card['cta'] ?? [],
+                  ],
+                ]);
+              endforeach; ?>
+            </div>
+            <div class="o-product-benefits__arrows">
+              <button class="o-product-benefits__arrow o-product-benefits__arrow--prev" type="button" aria-label="Anterior"></button>
+              <button class="o-product-benefits__arrow o-product-benefits__arrow--next" type="button" aria-label="Próximo"></button>
+            </div>
           </div>
         </div>
       <?php endif; ?>

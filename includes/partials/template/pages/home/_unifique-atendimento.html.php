@@ -102,8 +102,9 @@ $btn_rel = ($btn_has && $btn_tgt === '_blank') ? 'noopener noreferrer' : '';
 
               $icon_id  = (!empty($icon['ID'])) ? (int) $icon['ID'] : 0;
               $icon_alt = (!empty($icon['alt'])) ? (string) $icon['alt'] : '';
+              $link = (!empty($card['link']) && is_array($card['link'])) ? $card['link'] : null;
             ?>
-              <div class="c-feature o-unifique__card" role="listitem" data-animate="fade-up" data-animate-delay="<?php echo 0.2 + ($i * 0.05); ?>">
+              <a href="<?= $card['link'] ?? '#' ?>" class="c-feature o-unifique__card" role="listitem" data-animate="fade-up" data-animate-delay="<?php echo 0.2 + ($i * 0.05); ?>">
                 <?php if ($icon_id) : ?>
                   <div class="c-feature__icon">
                     <?php
@@ -125,7 +126,7 @@ $btn_rel = ($btn_has && $btn_tgt === '_blank') ? 'noopener noreferrer' : '';
                 <?php if ($ct !== '') : ?>
                   <div class="c-feature__title"><?php echo $ct; ?></div>
                 <?php endif; ?>
-              </div>
+              </a>
             <?php endforeach; ?>
           </div>
         <?php endif; ?>
