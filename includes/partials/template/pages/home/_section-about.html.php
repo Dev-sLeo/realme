@@ -71,7 +71,15 @@ if (!$sub_titulo && !$title && !trim($text) && !$image_id && !$has_cards) {
           <div class="swiper o-product-benefits__swiper" data-swiper="product-benefits">
             <div class="swiper-wrapper">
               <?php foreach ($cards as $card) :
-
+                $tpl_engine->partial('components/cards/benefits-slide', [
+                  'vars' => [
+                    'image' => $card['image'] ?? null,
+                    'title' => $card['title'] ?? '',
+                    'text'  => $card['text'] ?? '',
+                    'list'  => $card['list'] ?? [],
+                    'cta'   => $card['cta'] ?? [],
+                  ],
+                ]);
               endforeach; ?>
             </div>
             <div class="o-product-benefits__arrows">

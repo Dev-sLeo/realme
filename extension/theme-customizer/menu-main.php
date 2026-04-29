@@ -815,7 +815,9 @@ class Main_Menu_Walker extends Walker_Nav_Menu
 		$id_field = $this->db_fields['id'];
 		$element_id = $element->$id_field;
 
-		$args[0]->has_children = (isset($children_elements[$element_id]) && is_array($children_elements[$element_id]));
+		if (!empty($args[0]) && is_object($args[0])) {
+			$args[0]->has_children = (isset($children_elements[$element_id]) && is_array($children_elements[$element_id]));
+		}
 
 		if ($depth === 0 && !empty($children_elements[$element_id])) {
 			$this->top_cfg = $this->find_controller($children_elements[$element_id]);
