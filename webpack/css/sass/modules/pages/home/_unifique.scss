@@ -88,9 +88,14 @@
     border: 1px solid #DEEAED;
     background: #F7FCFD;
     padding: 2.625rem 1rem;
+    transition: box-shadow 0.3s ease;
 
     @media(min-width: $media-query-desktop-low) {
       padding: 2.625rem;
+    }
+
+    &:hover {
+      box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, .5);
     }
   }
 
