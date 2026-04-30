@@ -75,6 +75,8 @@ const getObserverKey = (options) =>
 const supportsReducedMotion = () =>
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+const isMobile = () => window.matchMedia("(max-width: 1024px)").matches;
+
 const setupAnimations = () => {
     const elements = Array.from(document.querySelectorAll("[data-animate]"));
 
@@ -82,7 +84,11 @@ const setupAnimations = () => {
         return;
     }
 
-    if (supportsReducedMotion() || !("IntersectionObserver" in window)) {
+    if (
+        isMobile() ||
+        supportsReducedMotion() ||
+        !("IntersectionObserver" in window)
+    ) {
         elements.forEach((element) => {
             gsap.set(element, { ...getToVars(element), willChange: "auto" });
         });

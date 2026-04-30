@@ -29,6 +29,11 @@
     padding: 16px;
     align-items: center;
     gap: 16px;
+    flex-direction: column;
+
+    @media(min-width: $media-query-desktop-low) {
+      flex-direction: row;
+    }
 
     &__company-name {
       color: var(--dub-co-emperor, var(--color-grey-32, #525252));
