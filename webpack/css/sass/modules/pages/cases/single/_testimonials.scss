@@ -26,10 +26,23 @@
     padding: 32px;
     align-items: center;
     gap: 32px;
+    flex-direction: column;
+
+    @media(min-width: $media-query-desktop-low) {
+      flex-direction: row;
+    }
   }
 
   .c-case-testimonial__logo {
     max-width: 200px;
+  }
+
+  .c-case-testimonial__company {
+    text-align: center;
+
+    @media(min-width: $media-query-desktop-low) {
+      text-align: left;
+    }
   }
 
   &__highlight {
