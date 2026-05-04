@@ -227,7 +227,7 @@ if (!empty($regiao_terms) && !is_wp_error($regiao_terms)) {
                     <?php
                     echo wp_get_attachment_image(
                       $author_image_id,
-                      'thumbnail',
+                      'full',
                       false,
                       [
                         'class' => 'c-archive-cases-results__author-photo-img',
