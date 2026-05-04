@@ -85,22 +85,30 @@
       color: #414B6C;
       text-align: center;
       font-family: Inter;
-      font-size: 48.172px;
+      font-size: 36px;
       font-style: normal;
       font-weight: 600;
       line-height: 140%;
       /* 67.441px */
       letter-spacing: -0.963px;
+
+      @media(min-width: $media-query-desktop-low) {
+        font-size: 48.172px;
+      }
     }
 
     .c-hero-case__highlight-description {
       color: var(--preto-400, #414B6C);
       font-family: Inter;
-      font-size: 21.075px;
+      font-size: 17px;
       font-style: normal;
       font-weight: 400;
       line-height: 120%;
+
       /* 25.29px */
+      @media(min-width: $media-query-desktop-low) {
+        font-size: 21.075px;
+      }
     }
   }
 
