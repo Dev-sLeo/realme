@@ -75,7 +75,7 @@ if (!$q->have_posts()) {
             <div class="c-more-cases__company">
               <?php if ($logo_id): ?>
                 <div class="c-more-cases__logo" data-animate="fade-up" data-animate-delay="0.1">
-                  <?php echo wp_get_attachment_image($logo_id, 'thumbnail', false, ['class' => 'c-more-cases__logo-img']); ?>
+                  <?php echo wp_get_attachment_image($logo_id, 'full', false, ['class' => 'c-more-cases__logo-img']); ?>
                 </div>
               <?php endif; ?>
 
