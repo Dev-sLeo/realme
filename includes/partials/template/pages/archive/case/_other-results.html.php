@@ -160,7 +160,7 @@ if (!empty($regiao_terms) && !is_wp_error($regiao_terms)) {
               <div class="c-archive-cases-results__company">
                 <?php if ($logo_id): ?>
                   <div class="c-archive-cases-results__logo" data-animate="fade-up" data-animate-delay="0.5">
-                    <?php echo wp_get_attachment_image($logo_id, 'thumbnail', false, ['class' => 'c-archive-cases-results__logo-img']); ?>
+                    <?php echo wp_get_attachment_image($logo_id, 'full', false, ['class' => 'c-archive-cases-results__logo-img']); ?>
                   </div>
                 <?php endif; ?>
 
