@@ -77,7 +77,7 @@ if (!$subtitulo && !$titulo && !$descricao && (empty($cases) || !is_array($cases
 
                   <?php if ($nome || $cargo || $foto_id): ?>
                     <div class="c-archive-cases-hero__author">
-                      <?php if ($foto_id): ?><div class="c-archive-cases-hero__author-photo"><?php echo wp_get_attachment_image($foto_id, 'thumbnail', false, ['class' => 'c-archive-cases-hero__author-img']); ?></div><?php endif; ?>
+                      <?php if ($foto_id): ?><div class="c-archive-cases-hero__author-photo"><?php echo wp_get_attachment_image($foto_id, 'full', false, ['class' => 'c-archive-cases-hero__author-img']); ?></div><?php endif; ?>
                       <div class="c-archive-cases-hero__author-info">
                         <?php if ($nome): ?><p class="c-archive-cases-hero__author-name"><?php echo esc_html($nome); ?></p><?php endif; ?>
                         <?php if ($cargo): ?><p class=" c-archive-cases-hero__author-role"><?php echo esc_html($cargo); ?></p><?php endif; ?>

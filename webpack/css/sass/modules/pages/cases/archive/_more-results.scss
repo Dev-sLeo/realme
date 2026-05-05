@@ -89,6 +89,18 @@
       padding: 16px;
       align-items: center;
       gap: 16px;
+      flex-direction: column;
+
+      @media(min-width: $media-query-desktop-low) {
+        flex-direction: row;
+      }
+
+      .c-archive-cases-results__logo {
+        @media(min-width: $media-query-desktop-low) {
+          width: 160px;
+        }
+
+      }
 
       .c-archive-cases-results__company-name {
         color: var(--dub-co-emperor, var(--color-grey-32, #525252));
