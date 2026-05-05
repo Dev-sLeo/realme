@@ -431,7 +431,14 @@
       .c-mega__group--client-card {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: stretch;
+
+        .c-mega__client-card {
+          display: flex;
+          flex-direction: column;
+          justify-content: stretch;
+          height: 100%;
+        }
 
         .c-mega__client-card-body {
           margin: 1.813rem 0;
@@ -440,12 +447,19 @@
         .c-mega__client-card-media {
           height: 118px;
           width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           img {
             height: auto;
-            width: auto;
+            width: 100%;
             object-fit: contain;
           }
+        }
+
+        .c-mega__client-card-actions {
+          margin-top: auto;
         }
 
         .c-mega__client-card-title {
