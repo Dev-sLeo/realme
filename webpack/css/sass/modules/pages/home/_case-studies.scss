@@ -94,6 +94,19 @@
       letter-spacing: -0.64px;
     }
 
+    .c-case-card__logo {
+      max-width: 180px;
+      max-height: 80px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+
+      img {
+        width: 100;
+        height: 100%;
+      }
+    }
+
     .c-case-card__title {
       color: var(--preto-400, #414B6C);
       font-family: Inter;
