@@ -19,7 +19,7 @@
       justify-content: space-between;
       max-width: none;
       align-items: flex-start;
-      gap: 9.688rem;
+      gap: 8.688rem;
     }
   }
 
@@ -37,7 +37,7 @@
 
   &__col--info {
     @media(min-width: $media-query-desktop-low) {
-      max-width: 200px;
+      max-width: 220px;
     }
 
     .c-footer__desc {
