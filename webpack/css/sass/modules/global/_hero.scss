@@ -49,6 +49,22 @@
       border-radius: 600px;
     }
 
+    a {
+      color: var(--preto-400, #414B6C);
+      text-align: center;
+
+      /* 12/regular */
+      font-family: Inter;
+      font-size: var(--font-size-12, 12px);
+      font-style: normal;
+      font-weight: 400;
+      line-height: var(--line-height-16, 16px);
+
+      &:hover {
+        color: #4353fa;
+      }
+    }
+
   }
 
   &__actions {

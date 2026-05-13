@@ -13,6 +13,7 @@ $subtitle      = isset($hero['subtitle']) ? trim((string) $hero['subtitle']) : '
 $description   = isset($hero['description']) ? trim((string) $hero['description']) : '';
 $btn_primary   = (!empty($hero['button_primary']) && is_array($hero['button_primary'])) ? $hero['button_primary'] : null;
 $btn_secondary = (!empty($hero['button_secondary']) && is_array($hero['button_secondary'])) ? $hero['button_secondary'] : null;
+$link_eyebrow  = (!empty($hero['link_eyebrow']) && is_array($hero['link_eyebrow'])) ? $hero['link_eyebrow'] : null;
 $mockup        = (!empty($hero['mockup_image']) && is_array($hero['mockup_image'])) ? $hero['mockup_image'] : null;
 $metrics       = (!empty($hero['metrics']) && is_array($hero['metrics'])) ? $hero['metrics'] : [];
 
@@ -54,7 +55,13 @@ $mockup_alt = (!empty($mockup['alt'])) ? (string) $mockup['alt'] : ($title ?: ''
         <?php if ($subtitle) : ?>
           <div class="o-hero__subtitle" data-animate="fade-up" data-animate-duration="0.9"
             data-animate-delay="0.1">
-            <?= $subtitle ?>
+            <?php if ($link_eyebrow && !empty($link_eyebrow['url'])) : ?>
+              <a href="<?= esc_url($link_eyebrow['url']) ?>" target="<?= !empty($link_eyebrow['target']) ? esc_attr($link_eyebrow['target']) : '_self' ?>" <?= (!empty($link_eyebrow['target']) && $link_eyebrow['target'] === '_blank') ? ' rel="noopener noreferrer"' : '' ?>>
+                <?= $subtitle ?>
+              </a>
+            <?php else : ?>
+              <?= $subtitle ?>
+            <?php endif; ?>
           </div>
         <?php endif; ?>
 
