@@ -776,6 +776,24 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
+                            "key": "field_6a04e6fef46b9",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "allow_in_bindings": 0,
+                            "parent_repeater": "field_section_2_cards"
+                        },
+                        {
                             "key": "field_section_2_cards_icon",
                             "label": "Ícone",
                             "name": "icon",
@@ -1115,18 +1133,19 @@
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
+                    "required": 0,
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "rows": 2,
-                    "new_lines": "",
                     "default_value": "",
                     "maxlength": "",
-                    "placeholder": ""
+                    "allow_in_bindings": 1,
+                    "rows": 2,
+                    "placeholder": "",
+                    "new_lines": ""
                 }
             ]
         },
@@ -2252,5 +2271,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778683083
+    "modified": 1778706190
 }
