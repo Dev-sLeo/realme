@@ -71,6 +71,10 @@
       flex-direction: column;
       gap: 1rem;
 
+      .c-footer__infos-icon {
+        flex: 22px 0 0;
+      }
+
       svg {
         width: 22px;
         flex: 22px 0 0;
