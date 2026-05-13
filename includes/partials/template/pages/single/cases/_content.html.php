@@ -11,8 +11,12 @@ $file_field  = $data['file'] ?? ''; // ACF: Arquivo (pode retornar array, ID ou 
 $challenge   = $data['challenge'] ?? '';
 $solution    = $data['solution'] ?? '';
 $results     = $data['results'] ?? [];
-$solucoes    = $data['solucoes'] ?? [];
-$regioes     = $data['regioes'] ?? [];
+
+$solucoes_terms = get_the_terms(get_the_ID(), 'cat_cases');
+$solucoes = (!empty($solucoes_terms) && !is_wp_error($solucoes_terms)) ? $solucoes_terms : [];
+
+$regioes_terms = get_the_terms(get_the_ID(), 'regiao');
+$regioes = (!empty($regioes_terms) && !is_wp_error($regioes_terms)) ? $regioes_terms : [];
 
 /**
  * Normaliza retorno do ACF File:
@@ -202,30 +206,22 @@ if ($has_file && !$is_image && !$is_video && empty($file['mime'])) {
               </div>
             <?php endforeach; ?>
           </div>
-          <?php if (!empty($solucoes) && is_array($solucoes)): ?>
+          <?php if (!empty($solucoes)): ?>
             <div class="c-case-content__solutions">
               <h2 class="c-case-content__aside-title">Soluções</h2>
               <ul class="c-case-content__list">
-                <?php foreach ($solucoes as $row):
-                  if (!is_array($row)) continue;
-                  $label = $row['label'] ?? '';
-                  if (!$label) continue;
-                ?>
-                  <li class="c-case-content__list-item"><?php echo esc_html($label); ?></li>
+                <?php foreach ($solucoes as $term): ?>
+                  <li class="c-case-content__list-item"><?php echo esc_html($term->name); ?></li>
                 <?php endforeach; ?>
               </ul>
             </div>
           <?php endif; ?>
-          <?php if (!empty($regioes) && is_array($regioes)): ?>
+          <?php if (!empty($regioes)): ?>
             <div class="c-case-content__regions">
               <h2 class="c-case-content__aside-title">Regiões</h2>
               <ul class="c-case-content__list">
-                <?php foreach ($regioes as $row):
-                  if (!is_array($row)) continue;
-                  $label = $row['label'] ?? '';
-                  if (!$label) continue;
-                ?>
-                  <li class="c-case-content__list-item"><?php echo esc_html($label); ?></li>
+                <?php foreach ($regioes as $term): ?>
+                  <li class="c-case-content__list-item"><?php echo esc_html($term->name); ?></li>
                 <?php endforeach; ?>
               </ul>
             </div>

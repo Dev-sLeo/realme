@@ -67,21 +67,21 @@ function archive_cases_filter_callback()
       $t_text = is_array($quote) ? ($quote['quote'] ?? '') : '';
       $t_author = is_array($quote) ? ($quote['author'] ?? '') : '';
       $t_role = is_array($quote) ? ($quote['role'] ?? '') : '';
-      $author_image = is_array($quote) ? ($quote['author_image'] ?? null) : null;
+      $author_image = is_array($hero) ? ($hero['author_image'] ?? null) : null;
 
       $logo_id = $logo ? (is_array($logo) ? ($logo['ID'] ?? null) : $logo) : null;
       $h_icon_id = $h_icon ? (is_array($h_icon) ? ($h_icon['ID'] ?? null) : $h_icon) : null;
       $author_image_id = $author_image ? (is_array($author_image) ? ($author_image['ID'] ?? null) : (int) $author_image) : null;
 
       $permalink = get_permalink($id);
-      ?>
+?>
       <article class="c-archive-cases-results__card">
         <div class="c-archive-cases-results__card-top">
 
           <div class="c-archive-cases-results__company">
             <?php if ($logo_id): ?>
               <div class="c-archive-cases-results__logo">
-                <?php echo wp_get_attachment_image($logo_id, 'thumbnail', false, ['class' => 'c-archive-cases-results__logo-img']); ?>
+                <?php echo wp_get_attachment_image($logo_id, 'full', false, ['class' => 'c-archive-cases-results__logo-img']); ?>
               </div>
             <?php endif; ?>
 
@@ -146,14 +146,14 @@ function archive_cases_filter_callback()
           </a>
         </div>
       </article>
-      <?php
+    <?php
     }
   } else {
     ?>
     <p class="text__normal c-archive-cases-results__empty">
       <?php echo esc_html__('Nenhum case encontrado para os filtros selecionados.', 'textdomain'); ?>
     </p>
-    <?php
+<?php
   }
 
   wp_reset_postdata();
