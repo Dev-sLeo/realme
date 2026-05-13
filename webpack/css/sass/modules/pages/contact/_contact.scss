@@ -188,5 +188,13 @@
     }
   }
 
+  .o-logos {
+    padding: 3.125rem 0 2.875rem;
+  }
 
+  @media (min-width: 1024px) {
+    .o-logos {
+      padding: 5.688rem 0 4.625rem;
+    }
+  }
 }

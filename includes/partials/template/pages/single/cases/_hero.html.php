@@ -14,21 +14,7 @@ $author = $data['author'] ?? '';
 $role = $data['role'] ?? '';
 $author_image = $data['author_image'] ?? null;
 
-// highlight.imagens: suporta ACF gallery (array de images) ou image simples (array com 'url')
-$raw_imagens = $highlight['imagens'] ?? null;
-if (!empty($raw_imagens)) {
-  // gallery type retorna array indexado de arrays de imagem
-  if (isset($raw_imagens[0]) && is_array($raw_imagens[0])) {
-    $highlight_images = $raw_imagens;
-  } elseif (isset($raw_imagens['url'])) {
-    // image type retorna um único array de imagem
-    $highlight_images = [$raw_imagens];
-  } else {
-    $highlight_images = [];
-  }
-} else {
-  $highlight_images = [];
-}
+$highlight_image = !empty($highlight['imagens']) && isset($highlight['imagens']['url']) ? $highlight['imagens'] : null;
 ?>
 
 <section class="c-hero-case">
@@ -39,6 +25,19 @@ if (!empty($raw_imagens)) {
     <div class="c-hero-case__grid">
 
       <div class="c-hero-case__left">
+
+        <?php if ($highlight_image): ?>
+          <div class="c-hero-case__highlight" data-animate="fade-up" data-animate-delay="0.3">
+            <figure class="c-hero-case__gallery-item">
+              <img
+                src="<?php echo esc_url($highlight_image['url']); ?>"
+                alt="<?php echo esc_attr($highlight_image['alt'] ?? ($highlight_image['title'] ?? '')); ?>"
+                loading="lazy"
+                decoding="async">
+            </figure>
+          </div>
+        <?php endif; ?>
+
         <div class="c-hero-case__card">
 
           <?php if ($logo):
@@ -67,27 +66,6 @@ if (!empty($raw_imagens)) {
           <?php endif; ?>
 
         </div>
-
-        <?php if (!empty($highlight_images)): ?>
-          <div class="c-hero-case__highlight" data-animate="fade-up" data-animate-delay="0.3">
-            <div class="c-hero-case__gallery">
-              <?php foreach ($highlight_images as $img):
-                if (!is_array($img)) continue;
-                $img_url = $img['url'] ?? '';
-                $img_alt = $img['alt'] ?? ($img['title'] ?? '');
-                if (!$img_url) continue;
-              ?>
-                <figure class="c-hero-case__gallery-item">
-                  <img
-                    src="<?php echo esc_url($img_url); ?>"
-                    alt="<?php echo esc_attr($img_alt); ?>"
-                    loading="lazy"
-                    decoding="async">
-                </figure>
-              <?php endforeach; ?>
-            </div>
-          </div>
-        <?php endif; ?>
       </div>
 
       <?php if ($quote || $author || $role || $author_image): ?>
