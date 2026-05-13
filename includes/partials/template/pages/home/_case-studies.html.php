@@ -70,6 +70,15 @@ $button_target = $has_button ? (!empty($button['target']) ? $button['target'] : 
                 $logo         = isset($item['logo']) ? $item['logo'] : null; // imagem
                 $nome_cliente = isset($item['nome_cliente']) ? trim((string) $item['nome_cliente']) : '';
                 $local        = isset($item['local']) ? trim((string) $item['local']) : '';
+                $link_case    = isset($item['link_case']) ? $item['link_case'] : null;
+
+                // link_case pode ser array (return_format=array) ou string (return_format=url)
+                $link_url = '';
+                if (is_array($link_case) && !empty($link_case['url'])) {
+                  $link_url = $link_case['url'];
+                } elseif (is_string($link_case) && $link_case) {
+                  $link_url = $link_case;
+                }
 
                 $icone_id = is_array($icone) && !empty($icone['ID']) ? (int) $icone['ID'] : 0;
                 $logo_id  = is_array($logo) && !empty($logo['ID']) ? (int) $logo['ID'] : 0;
@@ -88,7 +97,11 @@ $button_target = $has_button ? (!empty($button['target']) ? $button['target'] : 
                 }
               ?>
                 <div class="swiper-slide">
-                  <article class="c-case-card">
+                  <?php if ($link_url): ?>
+                    <a class="c-case-card" href="<?php echo esc_url($link_url); ?>">
+                  <?php else: ?>
+                    <article class="c-case-card">
+                  <?php endif; ?>
                     <div class="c-case-card__content">
                       <div class="c-case-card__content-header">
                         <div class="c-case-card__content-header-icon">
@@ -162,7 +175,11 @@ $button_target = $has_button ? (!empty($button['target']) ? $button['target'] : 
                         </div>
                       <?php endif; ?>
                     </div>
-                  </article>
+                  <?php if ($link_url): ?>
+                    </a>
+                  <?php else: ?>
+                    </article>
+                  <?php endif; ?>
                 </div>
               <?php endforeach; ?>
             </div>
