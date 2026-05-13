@@ -64,12 +64,14 @@ function archive_cases_filter_callback()
       $h_text = is_array($highlight) ? ($highlight['texto'] ?? '') : '';
       $h_desc = is_array($highlight) ? ($highlight['descricao'] ?? '') : '';
 
-      $t_text = is_array($quote) ? ($quote['text'] ?? '') : '';
+      $t_text = is_array($quote) ? ($quote['quote'] ?? '') : '';
       $t_author = is_array($quote) ? ($quote['author'] ?? '') : '';
       $t_role = is_array($quote) ? ($quote['role'] ?? '') : '';
+      $author_image = is_array($quote) ? ($quote['author_image'] ?? null) : null;
 
       $logo_id = $logo ? (is_array($logo) ? ($logo['ID'] ?? null) : $logo) : null;
       $h_icon_id = $h_icon ? (is_array($h_icon) ? ($h_icon['ID'] ?? null) : $h_icon) : null;
+      $author_image_id = $author_image ? (is_array($author_image) ? ($author_image['ID'] ?? null) : (int) $author_image) : null;
 
       $permalink = get_permalink($id);
       ?>
@@ -120,14 +122,21 @@ function archive_cases_filter_callback()
           </blockquote>
         <?php endif; ?>
 
-        <?php if ($t_author || $t_role): ?>
+        <?php if ($t_author || $t_role || $author_image_id): ?>
           <div class="c-archive-cases-results__author">
-            <?php if ($t_author): ?>
-              <p class="c-archive-cases-results__author-name"><?php echo esc_html($t_author); ?></p>
+            <?php if ($author_image_id): ?>
+              <div class="c-archive-cases-results__author-photo" aria-hidden="true">
+                <?php echo wp_get_attachment_image($author_image_id, 'thumbnail', false, ['class' => 'c-archive-cases-results__author-photo-img', 'loading' => 'lazy', 'decoding' => 'async']); ?>
+              </div>
             <?php endif; ?>
-            <?php if ($t_role): ?>
-              <p class="text__normal c-archive-cases-results__author-role"><?php echo esc_html($t_role); ?></p>
-            <?php endif; ?>
+            <div class="c-archive-cases-results__author-info">
+              <?php if ($t_author): ?>
+                <p class="c-archive-cases-results__author-name"><?php echo esc_html($t_author); ?></p>
+              <?php endif; ?>
+              <?php if ($t_role): ?>
+                <p class="text__normal c-archive-cases-results__author-role"><?php echo esc_html($t_role); ?></p>
+              <?php endif; ?>
+            </div>
           </div>
         <?php endif; ?>
 

@@ -11,6 +11,8 @@ $file_field  = $data['file'] ?? ''; // ACF: Arquivo (pode retornar array, ID ou 
 $challenge   = $data['challenge'] ?? '';
 $solution    = $data['solution'] ?? '';
 $results     = $data['results'] ?? [];
+$solucoes    = $data['solucoes'] ?? [];
+$regioes     = $data['regioes'] ?? [];
 
 /**
  * Normaliza retorno do ACF File:
@@ -200,6 +202,34 @@ if ($has_file && !$is_image && !$is_video && empty($file['mime'])) {
               </div>
             <?php endforeach; ?>
           </div>
+          <?php if (!empty($solucoes) && is_array($solucoes)): ?>
+            <div class="c-case-content__solutions">
+              <h2 class="c-case-content__aside-title">Soluções</h2>
+              <ul class="c-case-content__list">
+                <?php foreach ($solucoes as $row):
+                  if (!is_array($row)) continue;
+                  $label = $row['label'] ?? '';
+                  if (!$label) continue;
+                ?>
+                  <li class="c-case-content__list-item"><?php echo esc_html($label); ?></li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          <?php endif; ?>
+          <?php if (!empty($regioes) && is_array($regioes)): ?>
+            <div class="c-case-content__regions">
+              <h2 class="c-case-content__aside-title">Regiões</h2>
+              <ul class="c-case-content__list">
+                <?php foreach ($regioes as $row):
+                  if (!is_array($row)) continue;
+                  $label = $row['label'] ?? '';
+                  if (!$label) continue;
+                ?>
+                  <li class="c-case-content__list-item"><?php echo esc_html($label); ?></li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          <?php endif; ?>
         </aside>
       <?php endif; ?>
 

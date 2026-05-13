@@ -57,6 +57,23 @@
                     "placeholder": ""
                 },
                 {
+                    "key": "field_6a047591d5cd9",
+                    "label": "Link Eyebrow",
+                    "name": "link_eyebrow",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0
+                },
+                {
                     "key": "field_hero_title",
                     "label": "Título",
                     "name": "title",
@@ -2217,5 +2234,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1777496692
+    "modified": 1778677162
 }

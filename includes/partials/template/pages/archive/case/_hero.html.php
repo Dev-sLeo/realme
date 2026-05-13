@@ -47,6 +47,7 @@ if (!$subtitulo && !$titulo && !$descricao && (empty($cases) || !is_array($cases
               $foto = $item['foto'] ?? null;
               $nome = $item['nome'] ?? '';
               $cargo = $item['cargo'] ?? '';
+              $link_case = $item['link_case'] ?? '';
 
               $foto_id = $foto ? (is_array($foto) ? ($foto['ID'] ?? null) : $foto) : null;
 
@@ -55,7 +56,8 @@ if (!$subtitulo && !$titulo && !$descricao && (empty($cases) || !is_array($cases
               }
             ?>
               <div class="splide__slide">
-                <article class="c-archive-cases-hero__card">
+                <?php $tag = $link_case ? 'a' : 'article'; ?>
+                <<?php echo $tag; ?> class="c-archive-cases-hero__card"<?php if ($link_case): ?> href="<?php echo esc_url($link_case); ?>"<?php endif; ?>>
                   <div class="c-archive-cases-hero__card-top">
                     <div class="c-archive-cases-hero__card-company">
                       <?php if ($nome_case): ?><p class="c-archive-cases-hero__company-name"><?php echo esc_html($nome_case); ?></p><?php endif; ?>
@@ -84,7 +86,7 @@ if (!$subtitulo && !$titulo && !$descricao && (empty($cases) || !is_array($cases
                       </div>
                     </div>
                   <?php endif; ?>
-                </article>
+                </<?php echo $tag; ?>>
               </div>
             <?php endforeach; ?>
           </ul>

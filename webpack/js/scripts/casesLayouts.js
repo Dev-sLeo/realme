@@ -46,6 +46,26 @@ function initFeaturedCasesSlider() {
     });
 }
 
+const SKELETON_CARD = `
+<article class="c-archive-cases-results__card c-archive-cases-results__card--skeleton" aria-hidden="true">
+  <div class="c-archive-cases-results__card-top">
+    <div class="c-archive-cases-results__company">
+      <div class="c-skeleton c-skeleton--logo"></div>
+      <div class="c-archive-cases-results__company-info">
+        <div class="c-skeleton c-skeleton--text"></div>
+        <div class="c-skeleton c-skeleton--text c-skeleton--text-sm"></div>
+      </div>
+    </div>
+    <div class="c-skeleton c-skeleton--highlight"></div>
+  </div>
+  <div class="c-skeleton c-skeleton--quote"></div>
+  <div class="c-skeleton c-skeleton--quote c-skeleton--quote-sm"></div>
+</article>`;
+
+function showSkeletons(grid, count = 3) {
+    grid.innerHTML = Array(count).fill(SKELETON_CARD).join("");
+}
+
 function initArchiveFilters() {
     const root = document.querySelector(".js-archive-cases-results");
     if (!root) return;
@@ -54,7 +74,9 @@ function initArchiveFilters() {
     const grid = root.querySelector(".js-archive-cases-grid");
     const catButtons = root.querySelectorAll(".js-cat-filter");
     const catInput = root.querySelector(".js-cat-input");
-    const select = form ? form.querySelector('select[name="regiao"]') : null;
+    const regiaoSelect = form
+        ? form.querySelector('.c-select[data-filter="regiao"]')
+        : null;
 
     const ajaxUrl = root.getAttribute("data-ajax-url");
     const postType = root.getAttribute("data-post-type");
@@ -74,9 +96,10 @@ function initArchiveFilters() {
         if (!grid) return;
 
         const cat = catInput ? catInput.value || "" : "";
-        const regiao = select ? select.value || "" : "";
+        const regiao = regiaoSelect ? regiaoSelect.dataset.value || "" : "";
 
         grid.setAttribute("aria-busy", "true");
+        showSkeletons(grid, 3);
 
         const body = new URLSearchParams();
         body.set("action", "archive_cases_filter");
@@ -114,9 +137,11 @@ function initArchiveFilters() {
         });
     });
 
-    if (select) {
-        select.addEventListener("change", () => {
-            fetchCases();
+    if (regiaoSelect) {
+        regiaoSelect.addEventListener("click", (e) => {
+            if (e.target.classList.contains("c-select__option")) {
+                fetchCases();
+            }
         });
     }
 
