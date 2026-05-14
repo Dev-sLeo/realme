@@ -11,6 +11,7 @@ $produtos = new WP_Query([
   'post_status'    => 'publish',
   'orderby'        => 'menu_order',
   'order'          => 'ASC',
+  'post__not_in'   => [get_the_ID()],
 ]);
 $has_cards = $produtos->have_posts();
 ?>
