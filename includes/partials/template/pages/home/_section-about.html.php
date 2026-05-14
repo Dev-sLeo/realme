@@ -18,8 +18,14 @@ $text       = isset($data['text']) ? (string) $data['text'] : '';
 $image = isset($data['image']) ? $data['image'] : null;
 $image_id = is_array($image) && !empty($image['ID']) ? (int) $image['ID'] : 0;
 
-$cards = (isset($data['cards']) && is_array($data['cards'])) ? $data['cards'] : [];
-$has_cards = !empty($cards);
+$produtos  = new WP_Query([
+  'post_type'      => 'produto',
+  'posts_per_page' => -1,
+  'post_status'    => 'publish',
+  'orderby'        => 'menu_order',
+  'order'          => 'ASC',
+]);
+$has_cards = $produtos->have_posts();
 
 if (!$sub_titulo && !$title && !trim($text) && !$image_id && !$has_cards) {
   return;
@@ -70,17 +76,21 @@ if (!$sub_titulo && !$title && !trim($text) && !$image_id && !$has_cards) {
         <div class="o-product-benefits__slider" data-animate="fade-up" data-animate-delay="0.4">
           <div class="swiper o-product-benefits__swiper" data-swiper="product-benefits">
             <div class="swiper-wrapper">
-              <?php foreach ($cards as $card) :
+              <?php while ($produtos->have_posts()) : $produtos->the_post();
+                $single_card = get_field('single_card') ?: [];
+                $raw_list    = is_array($single_card['list'] ?? null) ? $single_card['list'] : [];
+                $list        = array_map(fn($row) => ['text' => $row['item'] ?? ''], $raw_list);
                 $tpl_engine->partial('components/cards/benefits-slide', [
                   'vars' => [
-                    'image' => $card['image'] ?? null,
-                    'title' => $card['title'] ?? '',
-                    'text'  => $card['text'] ?? '',
-                    'list'  => $card['list'] ?? [],
-                    'cta'   => $card['cta'] ?? [],
+                    'image' => $single_card['imagem'] ?? null,
+                    'title' => get_the_title(),
+                    'text'  => $single_card['text'] ?? '',
+                    'list'  => $list,
+                    'cta'   => ['url' => get_permalink(), 'title' => get_the_title(), 'target' => ''],
                   ],
                 ]);
-              endforeach; ?>
+              endwhile;
+              wp_reset_postdata(); ?>
             </div>
             <div class="o-product-benefits__arrows">
               <button class="o-product-benefits__arrow o-product-benefits__arrow--prev" type="button" aria-label="Anterior"></button>
