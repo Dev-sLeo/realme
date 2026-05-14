@@ -38,14 +38,6 @@
       border-right: 1px solid #D0D5E3;
     }
 
-    &:nth-child(3n) {
-      border-right: none;
-    }
-
-    &:nth-last-child(-n+3) {
-      border-bottom: none;
-    }
-
 
     h3 {
       color: var(--preto-500, #111E47);
