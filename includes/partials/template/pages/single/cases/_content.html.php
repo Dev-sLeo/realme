@@ -218,7 +218,7 @@ if ($has_file && !$is_image && !$is_video && empty($file['mime'])) {
           <?php endif; ?>
           <?php if (!empty($regioes)): ?>
             <div class="c-case-content__regions">
-              <h2 class="c-case-content__aside-title">Regiões</h2>
+              <h2 class="c-case-content__aside-title">Região</h2>
               <ul class="c-case-content__list">
                 <?php foreach ($regioes as $term): ?>
                   <li class="c-case-content__list-item"><?php echo esc_html($term->name); ?></li>

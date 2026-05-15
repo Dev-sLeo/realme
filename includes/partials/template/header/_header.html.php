@@ -28,8 +28,8 @@ $main_menu = wp_nav_menu(array(
       <div class="menu">
         <?= $main_menu ?>
         <div class="button-container">
-          <a href="<?= $header['contato']['url'] ?>" class="button button__blue">Contato</a>
-          <a href="<?= $header['log_in']['url'] ?>" class="button button-border__white">Entrar</a>
+          <a href="<?= $header['contato']['url'] ?>" target="<?= $header['contato']['target'] ?? '_self' ?> class=" button button__blue">Contato</a>
+          <a href="<?= $header['log_in']['url'] ?>" target="<?= $header['log_in']['target'] ?? '_self' ?>" class="button button-border__white">Entrar</a>
         </div>
       </div>
       <div class="header__mobile">
